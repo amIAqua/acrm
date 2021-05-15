@@ -15,7 +15,7 @@ export const Form = styled.form`
 
 export const ClientSection = styled.div`
   h2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     color: #fff;
   }
 
@@ -24,7 +24,7 @@ export const ClientSection = styled.div`
 
 export const VehicleSection = styled.div`
   h2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     color: #fff;
   }
   margin-bottom: 2rem;
@@ -32,7 +32,7 @@ export const VehicleSection = styled.div`
 
 export const IssuesSection = styled.div`
   h2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     color: #fff;
   }
   margin-bottom: 2rem;
