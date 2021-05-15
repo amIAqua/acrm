@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { $dark_gray } from './colors'
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -15,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
 
   #root {
     height: 100vh;
+    background: ${$dark_gray};
   
   }
 

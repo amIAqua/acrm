@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import { MainLayout } from '../../layouts/main'
-import { AddApplicationForm } from '../../ui/add-application-form'
+import { MainMenu } from '../../ui/main-menu'
 
 export const HomePage: FC = () => {
   return (
     <MainLayout>
-      <AddApplicationForm />
+      <MainMenu />
     </MainLayout>
   )
 }

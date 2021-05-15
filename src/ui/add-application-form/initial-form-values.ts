@@ -1,16 +1,18 @@
-export const initialValues = {
+import { applicationFields } from '../../api/applications/types'
+
+export const initialValues: applicationFields = {
   // client
-  name: '' as string,
-  surname: '' as string,
-  phoneNumber: '' as string,
-  email: '' as string,
+  name: '',
+  surname: '',
+  phoneNumber: '',
+  email: '',
   // vehicle
-  brand: '' as string,
-  model: '' as string,
-  yearOfIssue: '' as string,
-  engineSpecification: '' as string,
-  registrationNumber: '' as string,
-  VIN: '' as string,
+  brand: '',
+  model: '',
+  yearOfIssue: '',
+  engineSpecification: '',
+  registrationNumber: '',
+  VIN: '',
   // issues
-  description: '' as string,
+  description: '',
 }
