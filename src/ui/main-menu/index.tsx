@@ -9,12 +9,10 @@ export const MainMenu: FC = () => {
       <MenuItem onClick={() => history.push('/create')}>
         <ItemTitle>Создать заявку</ItemTitle>
       </MenuItem>
-      <MenuItem>
-        <ItemTitle>Поиск по клиентам</ItemTitle>
+      <MenuItem onClick={() => history.push('/search')}>
+        <ItemTitle>Поиск</ItemTitle>
       </MenuItem>
-      <MenuItem>
-        <ItemTitle>Поиск по заявкам</ItemTitle>
-      </MenuItem>
+
       <MenuItem>
         <ItemTitle>В выполнении</ItemTitle>
       </MenuItem>

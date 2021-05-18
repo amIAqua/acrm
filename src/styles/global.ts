@@ -2,6 +2,9 @@ import { createGlobalStyle } from 'styled-components'
 import { $dark_gray } from './colors'
 
 export const GlobalStyles = createGlobalStyle`
+
+  
+
   * {
     margin: 0;
     padding: 0;
@@ -19,6 +22,13 @@ export const GlobalStyles = createGlobalStyle`
     background: ${$dark_gray};
   
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+    font-weight: 700;
+  }
+
+  
 
 
 

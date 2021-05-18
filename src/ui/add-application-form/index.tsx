@@ -32,7 +32,7 @@ export const AddApplicationForm: FC = () => {
               id='name'
               name='name'
               type='text'
-              placeholder='Name'
+              placeholder='Имя'
               onChange={formik.handleChange}
               value={formik.values.name}
             />
@@ -40,7 +40,7 @@ export const AddApplicationForm: FC = () => {
               id='surname'
               name='surname'
               type='text'
-              placeholder='Surname'
+              placeholder='Фамилия'
               onChange={formik.handleChange}
               value={formik.values.surname}
             />
@@ -48,7 +48,7 @@ export const AddApplicationForm: FC = () => {
               id='phoneNumber'
               name='phoneNumber'
               type='text'
-              placeholder='Mobile phone'
+              placeholder='Номер телефона'
               onChange={formik.handleChange}
               value={formik.values.phoneNumber}
             />
@@ -69,7 +69,7 @@ export const AddApplicationForm: FC = () => {
               id='brand'
               name='brand'
               type='text'
-              placeholder='Brand'
+              placeholder='Марка'
               onChange={formik.handleChange}
               value={formik.values.brand}
             />
@@ -77,7 +77,7 @@ export const AddApplicationForm: FC = () => {
               id='model'
               name='model'
               type='text'
-              placeholder='Model'
+              placeholder='Модель'
               onChange={formik.handleChange}
               value={formik.values.model}
             />
@@ -86,7 +86,7 @@ export const AddApplicationForm: FC = () => {
               id='yearOfIssue'
               name='yearOfIssue'
               type='text'
-              placeholder='Year of issue'
+              placeholder='Год выпуска'
               onChange={formik.handleChange}
               value={formik.values.yearOfIssue}
             />
@@ -94,7 +94,7 @@ export const AddApplicationForm: FC = () => {
               id='engineSpecification'
               name='engineSpecification'
               type='text'
-              placeholder='Engine specification'
+              placeholder='Объем двигателя'
               onChange={formik.handleChange}
               value={formik.values.engineSpecification}
             />
@@ -102,7 +102,7 @@ export const AddApplicationForm: FC = () => {
               id='registrationNumber'
               name='registrationNumber'
               type='text'
-              placeholder='Registration number'
+              placeholder='Регистрационный номер'
               onChange={formik.handleChange}
               value={formik.values.registrationNumber}
             />
@@ -110,7 +110,7 @@ export const AddApplicationForm: FC = () => {
               id='VIN'
               name='VIN'
               type='text'
-              placeholder='VIN code'
+              placeholder='VIN номер'
               onChange={formik.handleChange}
               value={formik.values.VIN}
             />
@@ -121,7 +121,7 @@ export const AddApplicationForm: FC = () => {
           <TextArea
             id='description'
             name='description'
-            placeholder='Description'
+            placeholder='Описание'
             onChange={formik.handleChange}
             value={formik.values.description}
             width={'493px'}
