@@ -1,13 +1,20 @@
 import styled from 'styled-components'
-import { $dark_blue, $light_blue } from '../../styles/colors'
+import { $light_blue } from '../../styles/colors'
 
-export const StyledApplicationCard = styled.div`
+export const StyledFetchedClientCard = styled.div`
   width: 100%;
   height: 90px;
   background: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 10px solid #fff;
+  margin-top: 0.5rem;
+
+  &:hover {
+    cursor: pointer;
+    border-bottom: 10px solid ${$light_blue};
+  }
 `
 
 export const OwnerSection = styled.div`
@@ -28,25 +35,8 @@ export const ContactsSection = styled.div`
 
 export const Label = styled.p`
   color: #888;
-  font-size: 18px;
-  margin-bottom: 1rem;
+  font-size: 15px;
+  margin-bottom: 0.7rem;
 `
 
-export const Text = styled.h2``
-
-export const ArrowMore = styled.div`
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  margin-right: 1rem;
-  align-items: center;
-  justify-content: center;
-  background: ${$light_blue};
-  color: #fff;
-
-  &:hover {
-    background: ${$dark_blue};
-    cursor: pointer;
-  }
-`
+export const Text = styled.h3``

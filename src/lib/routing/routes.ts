@@ -1,3 +1,4 @@
+import { ClientPage } from '../../pages/client'
 import { CreateApplicationPage } from '../../pages/create-application'
 import { HomePage } from '../../pages/home'
 import { SearchPage } from '../../pages/search'
@@ -17,6 +18,11 @@ export const routes = () => [
   {
     path: Urls.SEARCH,
     component: SearchPage,
+    exact: true,
+  },
+  {
+    path: Urls.CLIENT,
+    component: ClientPage,
     exact: true,
   },
 ]

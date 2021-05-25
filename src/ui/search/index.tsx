@@ -1,22 +1,42 @@
-import { FC } from 'react'
-import { Button } from '../../reusable/button'
+import { FC, KeyboardEvent } from 'react'
+import { useStore } from 'effector-react'
 import { Input } from '../../reusable/input'
+import {
+  changeSearchQuery,
+  searchRequest,
+  $searchQuery,
+  resetSearchQuery,
+} from '../../lib/clients-search'
 import { SearchForm, SearchFormWrapper } from './styled'
+import { Button } from '../../reusable/button'
 
 export const Search: FC = () => {
+  const searchQuery = useStore($searchQuery)
+
+  const enterPressHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+
+      searchRequest()
+      resetSearchQuery()
+    }
+  }
+
   return (
     <SearchFormWrapper>
       <SearchForm>
         <Input
-          width={'300px'}
-          placeholder='Клиент'
+          value={searchQuery}
+          type='text'
+          width={'500px'}
+          placeholder='Клиент(Ф.И.О, мобильный телефон, email)'
           style={{ marginRight: '1rem' }}
+          onChange={(event) => changeSearchQuery(event.target.value)}
+          onKeyPress={enterPressHandler}
         />
-        <Input
-          width={'300px'}
-          placeholder='Мобильный телефон'
-          style={{ marginRight: '1rem' }}
-        />
+        <Button type='button' onClick={() => searchRequest()}>
+          Поиск
+        </Button>
       </SearchForm>
     </SearchFormWrapper>
   )

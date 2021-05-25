@@ -1,5 +1,5 @@
 import { createEvent, createEffect } from 'effector'
-import { Application, applicationFields } from '../../api/applications/types'
+import { applicationFields } from '../../api/applications/types'
 
 // events
 export const createApplication = createEvent<applicationFields>()
