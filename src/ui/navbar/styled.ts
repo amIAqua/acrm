@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { $dark_blue } from '../../styles/colors'
+import { $light_blue } from '../../styles/colors'
 
 export const StyledNavbar = styled.div`
   display: flex;
@@ -33,8 +33,8 @@ export const AuthBordered = styled.div`
   }
 
   &:hover {
-    border: 2px solid ${$dark_blue};
-    background: ${$dark_blue};
+    border: 2px solid ${$light_blue};
+    background: ${$light_blue};
   }
 `
 
@@ -47,6 +47,6 @@ export const BackArrow = styled.div`
   font-size: 25px;
 
   &:nth-child(1n):hover {
-    color: ${$dark_blue};
+    color: ${$light_blue};
   }
 `

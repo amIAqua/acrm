@@ -1,7 +1,8 @@
 import { createBrowserHistory } from 'history'
+import { createEvent } from 'effector'
 
 export const history = createBrowserHistory()
 
-export function historyPush(url: string) {
-  history.push(url)
-}
+export const historyPush = createEvent<string>()
+
+historyPush.watch((url) => history.push(url))

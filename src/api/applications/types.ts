@@ -40,3 +40,8 @@ export type Application = {
   vehicle: Vehicle
   issues: Issues
 }
+
+export type ClientApplication = {
+  vehicle: Vehicle
+  issues: Issues
+}

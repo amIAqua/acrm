@@ -1,7 +1,7 @@
-import { forward, sample } from 'effector'
+import { forward } from 'effector'
+import { clientsAPI } from '../../api/clients'
 import { historyPush } from '../routing/history'
 import {
-  fetchClientApplications,
   $currentClient,
   setCurrentClient,
   $currentClientApplications,
@@ -10,15 +10,24 @@ import {
 
 $currentClient.on(setCurrentClient, (_prev, client) => client)
 
-// forward({
-//   from: fetchClientApplications,
-//   to: fetchClientApplicationsFx,
-// })
+$currentClientApplications.on(
+  fetchClientApplicationsFx.doneData,
+  (_prev, applications) => applications
+)
 
-// sample({
-//   clock: fetchClientApplications,
-// })
+fetchClientApplicationsFx.use(async (client) => {
+  return clientsAPI.fetchClientApplications(client.id)
+})
 
-$currentClient.watch((client) => {
-  historyPush(`/client/${client?.id}`)
+forward({
+  from: setCurrentClient,
+  to: fetchClientApplicationsFx,
+})
+
+setCurrentClient.watch((client) => {
+  historyPush(`/client/${client.id}`)
+})
+
+fetchClientApplicationsFx.doneData.watch((appls) => {
+  console.log(appls)
 })
