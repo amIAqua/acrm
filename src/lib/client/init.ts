@@ -27,7 +27,3 @@ forward({
 setCurrentClient.watch((client) => {
   historyPush(`/client/${client.id}`)
 })
-
-fetchClientApplicationsFx.doneData.watch((appls) => {
-  console.log(appls)
-})

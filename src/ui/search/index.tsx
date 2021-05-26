@@ -1,6 +1,6 @@
 import { FC, KeyboardEvent } from 'react'
 import { useStore } from 'effector-react'
-import { Input } from '../../reusable/input'
+import { Input, Button } from 'antd'
 import {
   changeSearchQuery,
   searchRequest,
@@ -8,7 +8,6 @@ import {
   resetSearchQuery,
 } from '../../lib/clients-search'
 import { SearchForm, SearchFormWrapper } from './styled'
-import { Button } from '../../reusable/button'
 
 export const Search: FC = () => {
   const searchQuery = useStore($searchQuery)
@@ -28,13 +27,17 @@ export const Search: FC = () => {
         <Input
           value={searchQuery}
           type='text'
-          width={'500px'}
           placeholder='Клиент(Ф.И.О, мобильный телефон, email)'
-          style={{ marginRight: '1rem' }}
+          style={{ marginRight: '1rem', width: '500px' }}
           onChange={(event) => changeSearchQuery(event.target.value)}
           onKeyPress={enterPressHandler}
         />
-        <Button type='button' onClick={() => searchRequest()}>
+        <Button
+          disabled={!searchQuery}
+          type='primary'
+          style={{ width: '200px' }}
+          onClick={() => searchRequest()}
+        >
           Поиск
         </Button>
       </SearchForm>

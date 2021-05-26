@@ -13,7 +13,7 @@ export const clientsAPI = {
     console.log(clientId)
 
     const clientApplications = await intance.get(
-      `client/${clientId}/applications`
+      `clients/${clientId}/applications`
     )
     return clientApplications.data
   },

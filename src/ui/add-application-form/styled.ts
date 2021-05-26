@@ -6,17 +6,17 @@ export const FormWrapper = styled.div`
   padding-bottom: 2rem;
   border-top: 2px solid #fff;
   border-bottom: 2px solid #fff;
+  margin: 0 auto;
 `
 
 export const Form = styled.form`
   width: 500px;
-  margin: 0px auto;
+  margin: 0 auto;
 `
 
 export const ClientSection = styled.div`
   h2 {
     margin-bottom: 1rem;
-    color: #fff;
   }
 
   margin-bottom: 2rem;
@@ -25,7 +25,6 @@ export const ClientSection = styled.div`
 export const VehicleSection = styled.div`
   h2 {
     margin-bottom: 1rem;
-    color: #fff;
   }
   margin-bottom: 2rem;
 `
@@ -33,7 +32,6 @@ export const VehicleSection = styled.div`
 export const IssuesSection = styled.div`
   h2 {
     margin-bottom: 1rem;
-    color: #fff;
   }
   margin-bottom: 2rem;
 `

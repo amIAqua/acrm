@@ -5,6 +5,8 @@ import { $loading } from '../../lib/loading'
 import { Loader } from '../../reusable/loader'
 import { StyledSearchResults } from './styled'
 import { FetchedClientCard } from '../fetched-client-card'
+import { columns, data } from './table-config'
+import { Table } from 'antd'
 
 export const SearchResults: FC = () => {
   const loading = useStore($loading)
@@ -20,6 +22,7 @@ export const SearchResults: FC = () => {
     <StyledSearchResults>
       {loading ? <Loader>Загрузка...</Loader> : null}
       {fetchedClients}
+      <Table columns={columns} dataSource={data} />
     </StyledSearchResults>
   )
 }

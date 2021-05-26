@@ -1,1 +1,5 @@
-export { setCurrentClient, $currentClient } from './model'
+export {
+  setCurrentClient,
+  $currentClient,
+  $currentClientApplications,
+} from './model'

@@ -1,10 +1,8 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { useFormik } from 'formik'
+import { Button, Input } from 'antd'
 import { initialValues } from './initial-form-values'
 import { createApplication } from '../../lib/create-application'
-import { Input } from '../../reusable/input'
-import { TextArea } from '../../reusable/textarea'
-import { Button } from '../../reusable/button'
 import {
   FormWrapper,
   Form,
@@ -15,13 +13,21 @@ import {
   GridFields,
 } from './styled'
 
+const { TextArea } = Input
+
 export const AddApplicationForm: FC = () => {
   const formik = useFormik({
     initialValues,
     onSubmit: (values) => {
       createApplication(values)
+
+      formik.resetForm()
     },
   })
+
+  useEffect(() => {
+    return () => console.log('dsa')
+  }, [])
   return (
     <FormWrapper>
       <Form onSubmit={formik.handleSubmit}>
@@ -119,16 +125,24 @@ export const AddApplicationForm: FC = () => {
         <IssuesSection>
           <h2>Описание неисправностей</h2>
           <TextArea
+            rows={4}
             id='description'
             name='description'
             placeholder='Описание'
             onChange={formik.handleChange}
             value={formik.values.description}
-            width={'493px'}
+            style={{ width: '492px', maxHeight: '120px' }}
           />
         </IssuesSection>
         <ButtonSection>
-          <Button type='submit'>Создать заявку</Button>
+          <Button
+            htmlType='submit'
+            style={{ width: '200px', fontSize: '18px', fontWeight: 'bolder' }}
+            type='primary'
+            size='large'
+          >
+            Создать заявку
+          </Button>
         </ButtonSection>
       </Form>
     </FormWrapper>

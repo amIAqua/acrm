@@ -5,6 +5,8 @@ import { Routes } from './lib/routing'
 import { history } from './lib/routing/history'
 import { GlobalStyles } from './styles/global'
 
+import 'antd/dist/antd.css'
+
 // effector units
 import './lib/create-application/init'
 import './lib/clients-search/init'

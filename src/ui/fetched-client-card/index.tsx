@@ -19,7 +19,7 @@ export const FetchedClientCard: FC<FetchedClientCardProps> = ({ client }) => {
     <StyledFetchedClientCard onClick={() => setCurrentClient(client)}>
       <OwnerSection>
         <NameSection>
-          <Label>Ф.И.О владельца</Label>
+          <Label>Ф.И.О клиента</Label>
           <Text>{`${client.name} ${client.surname}`}</Text>
         </NameSection>
         <ContactsSection>

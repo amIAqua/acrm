@@ -42,6 +42,10 @@ export type Application = {
 }
 
 export type ClientApplication = {
+  id: number
   vehicle: Vehicle
   issues: Issues
+  createdAt: string
+  updatedAt: string
+  clientId: number
 }

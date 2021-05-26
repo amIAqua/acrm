@@ -16,7 +16,11 @@ export const MenuItem = styled.div`
 
   &:hover {
     background: #181e22;
-    color: #fff;
+
+    h2 {
+      color: #fff;
+    }
+
     cursor: pointer;
   }
 `
