@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 
 export const FormWrapper = styled.div`
-  width: 600px;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-top: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   margin: 0 auto;
 `
 

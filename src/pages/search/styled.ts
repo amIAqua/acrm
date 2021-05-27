@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
 export const SearchPageContainer = styled.div`
-  width: 1600px;
+  width: 80%;
   margin: 0px auto;
 `

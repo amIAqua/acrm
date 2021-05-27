@@ -12,6 +12,7 @@ import {
   ButtonSection,
   GridFields,
 } from './styled'
+import { onClose } from '../../lib/create-application-modal-window/model'
 
 const { TextArea } = Input
 
@@ -22,12 +23,10 @@ export const AddApplicationForm: FC = () => {
       createApplication(values)
 
       formik.resetForm()
+      onClose()
     },
   })
 
-  useEffect(() => {
-    return () => console.log('dsa')
-  }, [])
   return (
     <FormWrapper>
       <Form onSubmit={formik.handleSubmit}>
