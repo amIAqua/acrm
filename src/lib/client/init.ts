@@ -25,5 +25,5 @@ forward({
 })
 
 setCurrentClient.watch((client) => {
-  historyPush(`/client/${client.id}`)
+  historyPush(`/client/${client.id}/applications`)
 })

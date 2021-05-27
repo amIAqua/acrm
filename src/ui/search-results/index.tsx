@@ -16,19 +16,17 @@ export const SearchResults: FC = () => {
 
   return (
     <StyledSearchResults>
-      {fetchedClients.length ? (
-        <Table
-          columns={columns}
-          dataSource={fetchedClients.map((client, index) => {
-            return {
-              ...client,
-              name: `${client.name} ${client.surname}`,
-              key: index + 1,
-            }
-          })}
-          loading={loading}
-        />
-      ) : null}
+      <Table
+        columns={columns}
+        dataSource={fetchedClients.map((client, index) => {
+          return {
+            ...client,
+            fullName: `${client.name} ${client.surname}`,
+            key: index + 1,
+          }
+        })}
+        loading={loading}
+      />
     </StyledSearchResults>
   )
 }

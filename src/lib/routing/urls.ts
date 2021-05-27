@@ -1,5 +1,5 @@
 export enum Urls {
   HOME = '/',
   SEARCH = '/search',
-  CLIENT = '/client/:id',
+  CLIENT_APPLICATIONS = '/client/:id/applications',
 }

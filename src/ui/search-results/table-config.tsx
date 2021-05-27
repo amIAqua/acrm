@@ -1,4 +1,5 @@
-import { Space, Tag } from 'antd'
+import { Client } from '../../api/clients/types'
+import { setCurrentClient } from '../../lib/client'
 import { Button } from '../../reusable/button'
 
 export const columns = [
@@ -16,9 +17,9 @@ export const columns = [
   },
   {
     title: 'Имя',
-    dataIndex: 'name',
-    key: 'name',
-    render: (name: string) => <h3>{name}</h3>,
+    dataIndex: 'fullName',
+    key: 'fullName',
+    render: (fullName: string) => <h3>{fullName}</h3>,
   },
 
   {
@@ -30,6 +31,17 @@ export const columns = [
   {
     title: 'Операции',
     key: 'actions',
-    render: (text: any, record: any) => <Button>Заявки</Button>,
+    render: (record: Client) => (
+      <Button
+        onClick={() =>
+          setCurrentClient({
+            ...record,
+            name: record.name,
+          })
+        }
+      >
+        Заявки
+      </Button>
+    ),
   },
 ]
