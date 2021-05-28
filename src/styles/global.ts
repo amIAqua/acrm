@@ -4,7 +4,6 @@ import { $dark_gray } from './colors'
 export const GlobalStyles = createGlobalStyle`
 
   
-
   * {
     margin: 0;
     padding: 0;
@@ -19,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
 
   #root {
     height: 100vh;
-    background: ${$dark_gray};
+   
   
   }
 

@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
-export const ApplicationsList = styled.div`
-  width: 70%;
+export const ClientApplicationsContainer = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2rem;
 `

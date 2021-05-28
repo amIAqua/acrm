@@ -1,6 +1,6 @@
 import { ClientApplicationsPage } from '../../pages/client-applications'
 import { HomePage } from '../../pages/home'
-import { SearchPage } from '../../pages/search'
+import { ClientsPage } from '../../pages/clients'
 import { Urls } from './urls'
 
 export const routes = () => [
@@ -10,8 +10,8 @@ export const routes = () => [
     exact: true,
   },
   {
-    path: Urls.SEARCH,
-    component: SearchPage,
+    path: Urls.CLIENTS,
+    component: ClientsPage,
     exact: true,
   },
   {

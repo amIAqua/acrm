@@ -1,17 +1,16 @@
 import { FC } from 'react'
-import { useStore, useList } from 'effector-react'
+import { useStore } from 'effector-react'
+import { Table } from 'antd'
+import { columns } from './table-config'
 import { $currentClientApplications } from '../../lib/client'
-import { ApplicationsList } from './styled'
-import { ApplicationItem } from './application'
-import { Application, ClientApplication } from '../../api/applications/types'
+import { ClientApplicationsContainer } from './styled'
 
 export const ClientApplications: FC = () => {
-  const clientApplications = useList(
-    $currentClientApplications,
-    (application: ClientApplication) => {
-      return <ApplicationItem application={application} />
-    }
-  )
+  const currentClientApplications = useStore($currentClientApplications)
 
-  return <ApplicationsList>{clientApplications}</ApplicationsList>
+  return (
+    <ClientApplicationsContainer>
+      <Table columns={columns} dataSource={currentClientApplications} />
+    </ClientApplicationsContainer>
+  )
 }

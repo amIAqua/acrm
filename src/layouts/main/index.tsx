@@ -1,13 +1,13 @@
 import { FC } from 'react'
 import { ModalWindow } from '../../ui/create-application-modal'
-import { Layout } from '../../styles/common'
-import { Navbar } from '../../ui/navbar'
+import { Layout, Children } from '../../styles/common'
+import { SideMenu } from '../../reusable/side-menu'
 
 export const MainLayout: FC = ({ children }) => {
   return (
     <Layout>
-      <Navbar />
-      {children}
+      <SideMenu />
+      <Children>{children}</Children>
 
       <ModalWindow />
     </Layout>

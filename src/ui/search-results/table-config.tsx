@@ -1,6 +1,6 @@
+import { Button } from 'antd'
 import { Client } from '../../api/clients/types'
 import { setCurrentClient } from '../../lib/client'
-import { Button } from '../../reusable/button'
 
 export const columns = [
   {
