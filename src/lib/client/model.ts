@@ -6,7 +6,7 @@ export const fetchClientApplications = createEvent<void>()
 export const setCurrentClient = createEvent<Client>()
 
 export const fetchClientApplicationsFx =
-  createEffect<Client, ClientApplication[]>()
+  createEffect<number, ClientApplication[]>()
 
 export const $currentClient = createStore<Client | null>(null)
 export const $currentClientApplications = createStore<ClientApplication[]>([])

@@ -1,5 +1,5 @@
 import axios from 'axios'
 
-export const intance = axios.create({
+export const instance = axios.create({
   baseURL: 'http://localhost:7000',
 })

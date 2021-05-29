@@ -51,7 +51,6 @@ export type ClientApplication = {
 }
 
 export type NewApplication = {
-  clientId: number
   brand: string
   model: string
   yearOfIssue: string

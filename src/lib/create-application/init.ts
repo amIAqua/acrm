@@ -1,8 +1,13 @@
 import { forward } from 'effector'
-import { createApplication, createApplicationFx } from './model'
+import {
+  createApplication,
+  createApplicationFx,
+  addNewApplicationFx,
+  newApplication,
+} from './model'
 import { applicationsAPI } from '../../api/applications'
-import { applicationFields } from '../../api/applications/types'
-import { historyPush } from '../routing/history'
+import { applicationFields, NewApplication } from '../../api/applications/types'
+import { clientsAPI } from '../../api/clients'
 
 forward({
   from: createApplication,
@@ -13,6 +18,11 @@ createApplicationFx.use(async (application: applicationFields) => {
   await applicationsAPI.createApplication(application)
 })
 
-createApplicationFx.done.watch(() => {
-  historyPush('/')
+forward({
+  from: newApplication,
+  to: addNewApplicationFx,
+})
+
+addNewApplicationFx.use(async ({ clientId, application }) => {
+  await clientsAPI.addApplication(clientId, application)
 })

@@ -23,7 +23,7 @@ export const NewApplicationForm: FC = () => {
     onSubmit: (values) => {
       newApplication({
         clientId: currentClient!.id,
-        ...values,
+        application: { ...values },
       })
 
       formik.resetForm()

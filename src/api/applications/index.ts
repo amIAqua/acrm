@@ -1,8 +1,8 @@
-import { intance } from '../request-intance'
-import { applicationFields } from './types'
+import { instance } from '../request-intance'
+import { applicationFields, NewApplication } from './types'
 
 export const applicationsAPI = {
   createApplication: async (application: applicationFields): Promise<void> => {
-    await intance.post('/applications/add', application)
+    await instance.post('/applications/add', application)
   },
 }
