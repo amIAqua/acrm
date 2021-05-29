@@ -2,18 +2,16 @@ import { FC } from 'react'
 import { Menu } from 'antd'
 import SubMenu from 'antd/lib/menu/SubMenu'
 import { onOpen } from '../../lib/create-application-modal-window/model'
-import { useSelectedKeys } from '../../lib/selected-menu-keys-hook'
+import { useSelectedLinks } from '../../lib/selected-menu-links-hook'
 import { $dark_gray } from '../../styles/colors'
 import {
   AppstoreOutlined,
   AuditOutlined,
   MailOutlined,
 } from '@ant-design/icons'
-import { useHistory, useLocation } from 'react-router'
 
 export const SideMenu: FC = () => {
-  const { selectedLink, mappedLinks } = useSelectedKeys()
-  const history = useHistory()
+  const { selectedLink, mappedLinks } = useSelectedLinks()
 
   return (
     <Menu

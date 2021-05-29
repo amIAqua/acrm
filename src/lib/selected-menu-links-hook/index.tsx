@@ -9,7 +9,7 @@ const menuLinks: Link[] = [
   { key: '3', label: 'Клиенты', path: '/clients' },
 ]
 
-export const useSelectedKeys = () => {
+export const useSelectedLinks = () => {
   const history = useHistory()
   const location = useLocation()
   const [selectedLink, setSelectedLink] = useState<Link>(
