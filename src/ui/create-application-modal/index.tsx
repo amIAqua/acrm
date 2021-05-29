@@ -7,8 +7,18 @@ import {
 import Modal from 'antd/lib/modal/Modal'
 import { AddApplicationForm } from '../add-application-form'
 
-export const ModalWindow: FC = () => {
-  const isVisible = useStore($isVisible)
+type ModalWindowProps = {
+  onOpen: () => void
+  onClose: () => void
+  isVisible: boolean
+}
+
+export const ModalWindow: FC<ModalWindowProps> = ({
+  children,
+  onOpen,
+  onClose,
+  isVisible,
+}) => {
   return (
     <>
       <Modal
@@ -21,7 +31,7 @@ export const ModalWindow: FC = () => {
         okText='Создать заявку'
         footer={null}
       >
-        <AddApplicationForm />
+        {children}
       </Modal>
     </>
   )

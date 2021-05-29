@@ -7,18 +7,21 @@ export const columns = [
     title: 'No.',
     dataIndex: 'key',
     key: 'key',
+
     render: (index: number) => <h4>{index}</h4>,
   },
   {
     title: 'ID клиента',
     dataIndex: 'id',
     key: 'id',
+
     render: (id: number) => <h4>{id}</h4>,
   },
   {
     title: 'Имя',
     dataIndex: 'fullName',
     key: 'fullName',
+
     render: (fullName: string) => <h3>{fullName}</h3>,
   },
 

@@ -4,7 +4,7 @@ import { $fetchedClients, resetFetchedClients } from '../../lib/clients-search'
 import { $loading } from '../../lib/loading'
 import { StyledSearchResults } from './styled'
 import { columns } from './table-config'
-import { Table } from 'antd'
+import { Empty, Table } from 'antd'
 
 export const SearchResults: FC = () => {
   const loading = useStore($loading)
@@ -16,17 +16,25 @@ export const SearchResults: FC = () => {
 
   return (
     <StyledSearchResults>
-      <Table
-        columns={columns}
-        dataSource={fetchedClients.map((client, index) => {
-          return {
-            ...client,
-            fullName: `${client.name} ${client.surname}`,
-            key: index + 1,
-          }
-        })}
-        loading={loading}
-      />
+      {fetchedClients.length ? (
+        <Table
+          columns={columns}
+          bordered
+          dataSource={fetchedClients.map((client, index) => {
+            return {
+              ...client,
+              fullName: `${client.name} ${client.surname}`,
+              key: index + 1,
+            }
+          })}
+          loading={loading}
+        />
+      ) : (
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          style={{ marginTop: '100px' }}
+        />
+      )}
     </StyledSearchResults>
   )
 }

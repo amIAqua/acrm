@@ -1,26 +1,48 @@
 import { Space, Tag } from 'antd'
+import { ClientApplication } from '../../api/applications/types'
+
+export const tableRows = (applications: ClientApplication[]) => {
+  return applications.map((application) => ({
+    id: application.id,
+    vehicleName: `${application.vehicle.brand} ${application.vehicle.model}`,
+    yearOfIssue: application.vehicle.yearOfIssue,
+    engineSpecification: application.vehicle.engineSpecification,
+    registrationNumber: application.vehicle.registrationNumber,
+    VIN: application.vehicle.VIN,
+    description: application.issues.description,
+  }))
+}
 
 export const columns = [
   {
     title: 'ТС',
-    dataIndex: 'name',
-    key: 'name',
-    render: (text: any) => <a>{text}</a>,
+    dataIndex: 'vehicleName',
+    key: 'vehicleName',
+    render: (vehicleName: string) => <h4>{vehicleName}</h4>,
   },
   {
-    title: 'Год выпуска, объем двигателя',
-    dataIndex: 'age',
-    key: 'age',
+    title: 'Год выпуска',
+    dataIndex: 'yearOfIssue',
+    key: 'yearOfIssue',
+    render: (yearOfIssue: string) => <p>{yearOfIssue}</p>,
+  },
+  {
+    title: 'Oбъем двигателя',
+    dataIndex: 'engineSpecification',
+    key: 'vehicle.engineSpecification',
+    render: (engineSpecification: string) => <p>{engineSpecification}</p>,
   },
   {
     title: 'Регистрационный номер',
-    dataIndex: 'age',
-    key: 'age',
+    dataIndex: 'registrationNumber',
+    key: 'registrationNumber',
+    render: (registrationNumber: string) => <p>{registrationNumber}</p>,
   },
   {
     title: 'VIN номер',
-    dataIndex: 'age',
-    key: 'age',
+    dataIndex: 'VIN',
+    key: 'VIN',
+    render: (vin: string) => <p>{vin}</p>,
   },
 
   // {

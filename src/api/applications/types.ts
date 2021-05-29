@@ -49,3 +49,14 @@ export type ClientApplication = {
   updatedAt: string
   clientId: number
 }
+
+export type NewApplication = {
+  clientId: number
+  brand: string
+  model: string
+  yearOfIssue: string
+  registrationNumber: string
+  engineSpecification: string
+  VIN: string
+  description: string
+}
