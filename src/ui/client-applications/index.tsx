@@ -8,9 +8,11 @@ import { ClientApplicationsContainer } from './styled'
 export const ClientApplications: FC = () => {
   const currentClientApplications = useStore($currentClientApplications)
 
+  console.log(currentClientApplications)
+
   return (
     <ClientApplicationsContainer>
-      <Table columns={columns} dataSource={currentClientApplications} />
+      {/* <Table columns={columns} dataSource={currentClientApplications} /> */}
     </ClientApplicationsContainer>
   )
 }

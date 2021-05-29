@@ -6,28 +6,28 @@ import { useSelectedKeys } from '../../lib/selected-menu-keys-hook'
 import { $dark_gray } from '../../styles/colors'
 import {
   AppstoreOutlined,
-  ContainerOutlined,
-  DesktopOutlined,
+  AuditOutlined,
   MailOutlined,
-  PieChartOutlined,
 } from '@ant-design/icons'
+import { useHistory, useLocation } from 'react-router'
 
 export const SideMenu: FC = () => {
-  const { selectedKey, mappedLinks } = useSelectedKeys()
+  const { selectedLink, mappedLinks } = useSelectedKeys()
+  const history = useHistory()
 
   return (
     <Menu
       style={{
         maxWidth: '300px',
-        height: '100vh',
+        height: '94vh',
         background: `${$dark_gray}`,
       }}
-      selectedKeys={[selectedKey]}
+      selectedKeys={[selectedLink.key]}
       mode='inline'
       theme='dark'
       inlineCollapsed={false}
     >
-      <Menu.Item key='1' icon={<PieChartOutlined />} onClick={() => onOpen()}>
+      <Menu.Item key='1' icon={<AuditOutlined />} onClick={() => onOpen()}>
         Создать заявку
       </Menu.Item>
 

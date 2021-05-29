@@ -1,9 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
-import { $dark_gray } from './colors'
+import { $dark_gray, $light_gray } from './colors'
 
 export const GlobalStyles = createGlobalStyle`
 
   
+
   * {
     margin: 0;
     padding: 0;
@@ -18,7 +19,7 @@ export const GlobalStyles = createGlobalStyle`
 
   #root {
     height: 100vh;
-   
+    background: ${$light_gray};
   
   }
 
@@ -26,6 +27,20 @@ export const GlobalStyles = createGlobalStyle`
     margin-bottom: 0;
     font-weight: 700;
   }
+
+  .add_application_modal .ant-modal-body {
+    background: ${$dark_gray};
+
+   
+  }
+
+  .add_application_modal .ant-modal-close-x {
+    color: #fff;
+
+   
+  }
+
+  
 
   
 

@@ -13,6 +13,7 @@ export const ModalWindow: FC = () => {
     <>
       <Modal
         visible={isVisible}
+        className='add_application_modal'
         onCancel={onClose}
         width={650}
         centered={true}

@@ -1,13 +1,14 @@
 import styled from 'styled-components'
-import { $light_blue } from '../../styles/colors'
+import { $dark_blue, $light_blue } from '../../styles/colors'
 
 export const StyledNavbar = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 50px;
+  justify-content: flex-end;
+  height: 6vh;
   width: 100%;
-  background: transparrent;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  background: #fff;
 `
 
 export const AuthenticationSection = styled.div`
@@ -26,6 +27,7 @@ export const AuthBordered = styled.div`
   border-radius: 1rem;
   align-items: center;
   padding: 5px 20px;
+  background: ${$light_blue};
 
   &:nth-child(1n) {
     margin-left: 1rem;
@@ -33,17 +35,16 @@ export const AuthBordered = styled.div`
   }
 
   &:hover {
-    border: 2px solid ${$light_blue};
-    background: ${$light_blue};
+    background: ${$dark_blue};
   }
 `
 
 export const User = styled.h3`
-  color: #fff;
+  color: #000;
 `
 
 export const BackArrow = styled.div`
-  color: #fff;
+  color: #000;
   font-size: 25px;
 
   &:nth-child(1n):hover {
