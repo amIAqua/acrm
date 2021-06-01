@@ -8,7 +8,7 @@ import { GlobalStyles } from './styles/global'
 import 'antd/dist/antd.css'
 
 // effector units
-import './lib/create-application/init'
+import './lib/application-creation/init'
 import './lib/clients-search/init'
 import './lib/loading/init'
 import './lib/client/init'

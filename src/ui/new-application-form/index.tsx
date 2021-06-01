@@ -13,7 +13,7 @@ import {
   IssuesSection,
   VehicleSection,
 } from '../add-application-form/styled'
-import { newApplication } from '../../lib/create-application/model'
+import { newApplication } from '../../lib/application-creation/model'
 import { onClose } from '../../lib/new-application-modal/model'
 
 export const NewApplicationForm: FC = () => {
@@ -22,7 +22,7 @@ export const NewApplicationForm: FC = () => {
     initialValues,
     onSubmit: (values) => {
       newApplication({
-        clientId: currentClient!.id,
+        clientId: currentClient!.id!,
         application: { ...values },
       })
 
@@ -39,52 +39,52 @@ export const NewApplicationForm: FC = () => {
           <GridFields>
             <Input
               id='brand'
-              name='brand'
+              name='vehicle.brand'
               type='text'
               placeholder='Марка'
               onChange={formik.handleChange}
-              value={formik.values.brand}
+              value={formik.values.vehicle.brand}
             />
             <Input
               id='model'
-              name='model'
+              name='vehicle.model'
               type='text'
               placeholder='Модель'
               onChange={formik.handleChange}
-              value={formik.values.model}
+              value={formik.values.vehicle.model}
             />
 
             <Input
               id='yearOfIssue'
-              name='yearOfIssue'
+              name='vehicle.yearOfIssue'
               type='text'
               placeholder='Год выпуска'
               onChange={formik.handleChange}
-              value={formik.values.yearOfIssue}
+              value={formik.values.vehicle.yearOfIssue}
             />
             <Input
               id='engineSpecification'
-              name='engineSpecification'
+              name='vehicle.engineSpecification'
               type='text'
               placeholder='Объем двигателя'
               onChange={formik.handleChange}
-              value={formik.values.engineSpecification}
+              value={formik.values.vehicle.engineSpecification}
             />
             <Input
               id='registrationNumber'
-              name='registrationNumber'
+              name='vehicle.registrationNumber'
               type='text'
               placeholder='Регистрационный номер'
               onChange={formik.handleChange}
-              value={formik.values.registrationNumber}
+              value={formik.values.vehicle.registrationNumber}
             />
             <Input
               id='VIN'
-              name='VIN'
+              name='vehicle.VIN'
               type='text'
               placeholder='VIN номер'
               onChange={formik.handleChange}
-              value={formik.values.VIN}
+              value={formik.values.vehicle.VIN}
             />
           </GridFields>
         </VehicleSection>
@@ -93,10 +93,10 @@ export const NewApplicationForm: FC = () => {
           <TextArea
             rows={4}
             id='description'
-            name='description'
+            name='issues.description'
             placeholder='Описание'
             onChange={formik.handleChange}
-            value={formik.values.description}
+            value={formik.values.issues.description}
             style={{ width: '492px', maxHeight: '120px' }}
           />
         </IssuesSection>

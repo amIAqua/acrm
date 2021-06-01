@@ -1,12 +1,16 @@
 import { createStore, createEvent, createEffect } from 'effector'
-import { ClientApplication } from '../../api/applications/types'
-import { Client } from '../../api/clients/types'
+import {
+  ApplicationFromBackend,
+  ClientType,
+} from '../../api/application-creation/types'
 
 export const fetchClientApplications = createEvent<void>()
-export const setCurrentClient = createEvent<Client>()
+export const setCurrentClient = createEvent<ClientType>()
 
 export const fetchClientApplicationsFx =
-  createEffect<number, ClientApplication[]>()
+  createEffect<number, ApplicationFromBackend[]>()
 
-export const $currentClient = createStore<Client | null>(null)
-export const $currentClientApplications = createStore<ClientApplication[]>([])
+export const $currentClient = createStore<ClientType | null>(null)
+export const $currentClientApplications = createStore<ApplicationFromBackend[]>(
+  []
+)

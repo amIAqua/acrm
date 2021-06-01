@@ -1,5 +1,5 @@
 import { Button } from 'antd'
-import { Client } from '../../api/clients/types'
+import { ClientType } from '../../api/application-creation/types'
 import { setCurrentClient } from '../../lib/client'
 
 export const columns = [
@@ -34,7 +34,7 @@ export const columns = [
   {
     title: 'Операции',
     key: 'actions',
-    render: (record: Client) => (
+    render: (record: ClientType) => (
       <Button
         onClick={() =>
           setCurrentClient({

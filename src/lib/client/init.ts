@@ -1,7 +1,7 @@
 import { forward, sample } from 'effector'
 import { clientsAPI } from '../../api/clients'
 import { historyPush } from '../routing/history'
-import { addNewApplicationFx } from '../create-application'
+import { addNewApplicationFx } from '../application-creation'
 import {
   $currentClient,
   setCurrentClient,
@@ -21,7 +21,7 @@ fetchClientApplicationsFx.use(async (clientId: number) => {
 })
 
 forward({
-  from: setCurrentClient.map((client) => client.id),
+  from: setCurrentClient.map((client) => client.id!),
   to: fetchClientApplicationsFx,
 })
 
@@ -30,7 +30,7 @@ forward({
 sample({
   clock: addNewApplicationFx.done,
   source: $currentClient,
-  fn: (client) => client!.id,
+  fn: (client) => client!.id!,
   target: fetchClientApplicationsFx,
 })
 

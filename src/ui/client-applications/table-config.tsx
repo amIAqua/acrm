@@ -1,7 +1,7 @@
 import { Space, Tag } from 'antd'
-import { ClientApplication } from '../../api/applications/types'
+import { ApplicationFromBackend } from '../../api/application-creation/types'
 
-export const tableRows = (applications: ClientApplication[]) => {
+export const tableRows = (applications: ApplicationFromBackend[]) => {
   return applications.map((application) => ({
     id: application.id,
     vehicleName: `${application.vehicle.brand} ${application.vehicle.model}`,

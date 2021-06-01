@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { ClientType } from '../../api/application-creation/types'
 import { setCurrentClient } from '../../lib/client'
 import {
   StyledFetchedClientCard,
@@ -8,10 +9,9 @@ import {
   Text,
   OwnerSection,
 } from './styled'
-import { Client } from '../../api/clients/types'
 
 type FetchedClientCardProps = {
-  client: Client
+  client: ClientType
 }
 
 export const FetchedClientCard: FC<FetchedClientCardProps> = ({ client }) => {
