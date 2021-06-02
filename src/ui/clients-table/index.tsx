@@ -6,7 +6,7 @@ import { StyledSearchResults } from './styled'
 import { columns } from './table-config'
 import { Empty, Table } from 'antd'
 
-export const SearchResults: FC = () => {
+export const ClientsTable: FC = () => {
   const loading = useStore($loading)
   const fetchedClients = useStore($fetchedClients)
 

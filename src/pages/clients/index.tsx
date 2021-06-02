@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { MainLayout } from '../../layouts/main'
 import { Search } from '../../ui/search'
-import { SearchResults } from '../../ui/search-results'
+import { ClientsTable } from '../../ui/clients-table'
 import { SearchPageContainer } from './styled'
 
 export const ClientsPage: FC = () => {
@@ -9,7 +9,7 @@ export const ClientsPage: FC = () => {
     <MainLayout>
       <SearchPageContainer>
         <Search />
-        <SearchResults />
+        <ClientsTable />
       </SearchPageContainer>
     </MainLayout>
   )

@@ -1,30 +1,26 @@
 import { FC } from 'react'
-import { useStore } from 'effector-react'
-import { $currentClient } from '../../lib/client'
-import { Button, Input } from 'antd'
 import { useFormik } from 'formik'
-import TextArea from 'antd/lib/input/TextArea'
+import { Button, Input } from 'antd'
 import { initialValues } from './initial-form-values'
+import { createApplication } from '../../lib/application-creation'
 import {
-  ButtonSection,
-  Form,
   FormWrapper,
-  GridFields,
-  IssuesSection,
+  Form,
+  ClientSection,
   VehicleSection,
-} from '../add-application-form/styled'
-import { newApplication } from '../../lib/application-creation/model'
-import { onClose } from '../../lib/new-application-modal/model'
+  IssuesSection,
+  ButtonSection,
+  GridFields,
+} from './styled'
+import { onClose } from '../../lib/create-application-modal-window/model'
 
-export const NewApplicationForm: FC = () => {
-  const currentClient = useStore($currentClient)
+const { TextArea } = Input
+
+export const CreateApplicationForm: FC = () => {
   const formik = useFormik({
     initialValues,
     onSubmit: (values) => {
-      newApplication({
-        clientId: currentClient!.id!,
-        application: { ...values },
-      })
+      createApplication(values)
 
       formik.resetForm()
       onClose()
@@ -34,6 +30,43 @@ export const NewApplicationForm: FC = () => {
   return (
     <FormWrapper>
       <Form onSubmit={formik.handleSubmit}>
+        <ClientSection>
+          <h2>Клиент</h2>
+          <GridFields>
+            <Input
+              id='name'
+              name='client.name'
+              type='text'
+              placeholder='Имя'
+              onChange={formik.handleChange}
+              value={formik.values.client.name}
+            />
+            <Input
+              id='surname'
+              name='client.surname'
+              type='text'
+              placeholder='Фамилия'
+              onChange={formik.handleChange}
+              value={formik.values.client.surname}
+            />
+            <Input
+              id='phoneNumber'
+              name='client.phoneNumber'
+              type='text'
+              placeholder='Номер телефона'
+              onChange={formik.handleChange}
+              value={formik.values.client.phoneNumber}
+            />
+            <Input
+              id='email'
+              name='client.email'
+              type='email'
+              placeholder='Email'
+              onChange={formik.handleChange}
+              value={formik.values.client.email}
+            />
+          </GridFields>
+        </ClientSection>
         <VehicleSection>
           <h2>Автомобиль</h2>
           <GridFields>

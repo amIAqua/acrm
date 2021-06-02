@@ -6,7 +6,7 @@ import { $currentClientApplications } from '../../lib/client'
 import { ClientApplicationsContainer } from './styled'
 import { onOpen } from '../../lib/new-application-modal/model'
 
-export const ClientApplications: FC = () => {
+export const ClientApplicationsTable: FC = () => {
   const currentClientApplications = useStore($currentClientApplications)
 
   return (

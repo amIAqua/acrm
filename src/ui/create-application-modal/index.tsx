@@ -1,11 +1,5 @@
 import { FC } from 'react'
-import { useStore } from 'effector-react'
-import {
-  $isVisible,
-  onClose,
-} from '../../lib/create-application-modal-window/model'
 import Modal from 'antd/lib/modal/Modal'
-import { AddApplicationForm } from '../add-application-form'
 
 type ModalWindowProps = {
   onOpen: () => void

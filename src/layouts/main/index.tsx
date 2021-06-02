@@ -8,7 +8,7 @@ import { ModalWindow } from '../../ui/create-application-modal'
 import { Layout, Children } from '../../styles/common'
 import { SideMenu } from '../../reusable/side-menu'
 import { Navbar } from '../../ui/navbar'
-import { AddApplicationForm } from '../../ui/add-application-form'
+import { CreateApplicationForm } from '../../ui/create-application-form'
 import { $isVisible } from '../../lib/create-application-modal-window/model'
 
 export const MainLayout: FC = ({ children }) => {
@@ -21,7 +21,7 @@ export const MainLayout: FC = ({ children }) => {
         <Children>{children}</Children>
 
         <ModalWindow isVisible={isVisible} onOpen={onOpen} onClose={onClose}>
-          <AddApplicationForm />
+          <CreateApplicationForm />
         </ModalWindow>
       </Layout>
     </>

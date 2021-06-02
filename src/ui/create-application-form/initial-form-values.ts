@@ -1,6 +1,12 @@
 import { ApplicationType } from '../../api/application-creation/types'
 
-export const initialValues: Omit<ApplicationType, 'client'> = {
+export const initialValues: ApplicationType = {
+  client: {
+    name: '',
+    surname: '',
+    phoneNumber: '',
+    email: '',
+  },
   vehicle: {
     brand: '',
     model: '',
