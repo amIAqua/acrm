@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useStore } from 'effector-react'
 import { Button, Table } from 'antd'
-import { columns, tableRows } from './table-config'
+import { columns, tableRows, TableRowType } from './table-config'
 import { $currentClientApplications } from '../../lib/client'
 import { ClientApplicationsContainer } from './styled'
 import { onOpen } from '../../lib/new-application-modal/model'

@@ -25,10 +25,17 @@ export type ApplicationType = {
   issues: IssuesType
 }
 
+export enum Status {
+  CREATED = 'CREATED',
+  IN_PROGRESS = 'IN_PROGRESS',
+  CLOSED = 'CLOSED',
+}
+
 export type ApplicationFromBackend = {
   id: string
   clientId: string
   vehicle: VehicleType
+  status: Status
   issues: IssuesType
 }
 
