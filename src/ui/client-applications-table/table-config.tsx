@@ -3,6 +3,7 @@ import {
   ApplicationFromBackend,
   Status,
 } from '../../api/application-creation/types'
+import { changeStatus } from '../../lib/application-statuses'
 
 export type TableRowType = {
   key: string
@@ -118,7 +119,17 @@ export const columns = [
     key: 'actions',
     render: (text: any, record: TableRowType) => (
       <Space size='middle'>
-        <a>В выполнение</a>
+        <a
+          onClick={() =>
+            changeStatus({
+              applicationId: record.id,
+              applicationStatus: record.status,
+              newStatus: Status.IN_PROGRESS,
+            })
+          }
+        >
+          В выполнение
+        </a>
         <a>Удалить</a>
       </Space>
     ),

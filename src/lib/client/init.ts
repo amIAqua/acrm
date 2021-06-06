@@ -8,6 +8,7 @@ import {
   $currentClientApplications,
   fetchClientApplicationsFx,
 } from './model'
+import { changeStatusFx } from '../application-statuses/model'
 
 $currentClient.on(setCurrentClient, (_prev, client) => client)
 
@@ -25,10 +26,9 @@ forward({
   to: fetchClientApplicationsFx,
 })
 
-// Refetch all client applications after adding new
-
+// Refetch all client applications after adding new or updating application status
 sample({
-  clock: addNewApplicationFx.done,
+  clock: [addNewApplicationFx.done, changeStatusFx.done],
   source: $currentClient,
   fn: (client) => client!.id!,
   target: fetchClientApplicationsFx,

@@ -12,6 +12,7 @@ import './lib/application-creation/init'
 import './lib/clients-search/init'
 import './lib/loading/init'
 import './lib/client/init'
+import './lib/application-statuses/init'
 
 ReactDOM.render(
   <React.StrictMode>
