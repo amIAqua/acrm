@@ -93,27 +93,6 @@ export const columns = [
     key: 'status',
     render: (status: Status) => statusRow(status),
   },
-
-  // {
-  //   title: 'Tags',
-  //   key: 'tags',
-  //   dataIndex: 'tags',
-  //   render: (tags: any) => (
-  //     <>
-  //       {tags.map((tag: any) => {
-  //         let color = tag.length > 5 ? 'geekblue' : 'green'
-  //         if (tag === 'loser') {
-  //           color = 'volcano'
-  //         }
-  //         return (
-  //           <Tag color={color} key={tag}>
-  //             {tag.toUpperCase()}
-  //           </Tag>
-  //         )
-  //       })}
-  //     </>
-  //   ),
-  // },
   {
     title: 'Операции',
     key: 'actions',
