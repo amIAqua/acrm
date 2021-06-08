@@ -37,6 +37,7 @@ export type ApplicationFromBackend = {
   vehicle: VehicleType
   status: Status
   issues: IssuesType
+  client?: ClientType
 }
 
 export type OmittedClientApplication = Omit<ApplicationType, 'client'>

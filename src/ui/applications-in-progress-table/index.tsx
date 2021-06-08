@@ -2,10 +2,8 @@ import { FC } from 'react'
 import { useStore } from 'effector-react'
 import { Table } from 'antd'
 import { $applicationsInProgress } from '../../lib/applications-in-progress'
-import {
-  columns,
-  tableRowInProgress,
-} from '../client-applications-table/table-config'
+import { columns } from '../client-applications-table/table-config'
+import { tableRows } from '../../lib/table-rows'
 import { ApplicationsInProgressContainer } from './styled'
 
 export const ApplicationsInProgressTable: FC = () => {
@@ -15,7 +13,7 @@ export const ApplicationsInProgressTable: FC = () => {
     <ApplicationsInProgressContainer>
       <Table
         columns={columns}
-        dataSource={tableRowInProgress(applicationsInProgress)}
+        dataSource={tableRows(applicationsInProgress)}
         expandable={{
           expandedRowRender: (record) => (
             <p style={{ margin: 0 }}>{record.description}</p>
