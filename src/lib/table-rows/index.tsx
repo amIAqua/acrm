@@ -11,6 +11,7 @@ export type TableRowType = {
   vehicleName: string
   engineSpecification: string
   registrationNumber: string
+  yearOfIssue: string
   VIN: string
   status: Status
   description: string | ''
