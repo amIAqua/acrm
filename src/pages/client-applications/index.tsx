@@ -9,12 +9,14 @@ import { MainLayout } from '../../layouts/main'
 import { ClientApplicationsTable } from '../../ui/client-applications-table'
 import { ModalWindow } from '../../ui/create-application-modal'
 import { AddApplicationForm } from '../../ui/add-application-form'
+import { ClientDetails } from '../../ui/client-details'
 
 export const ClientApplicationsPage: FC = () => {
   const isVisible = useStore($isVisible)
 
   return (
     <MainLayout>
+      <ClientDetails />
       <ClientApplicationsTable />
 
       <ModalWindow isVisible={isVisible} onClose={onClose} onOpen={onOpen}>

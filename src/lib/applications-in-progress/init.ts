@@ -22,7 +22,3 @@ $applicationsInProgress
     (_prev, applications) => applications
   )
   .reset(resetApplicationsInProgress)
-
-$applicationsInProgress.watch((data) => {
-  console.log(data)
-})
