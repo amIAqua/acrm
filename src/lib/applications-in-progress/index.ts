@@ -1,1 +1,5 @@
-export { $applicationsInProgress } from './model'
+export {
+  $applicationsInProgress,
+  fetchApplicationsInProgress,
+  resetApplicationsInProgress,
+} from './model'

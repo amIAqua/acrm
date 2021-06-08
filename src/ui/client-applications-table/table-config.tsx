@@ -1,8 +1,10 @@
 import { Space, Tag } from 'antd'
 import {
   ApplicationFromBackend,
+  ClientType,
   Status,
 } from '../../api/application-creation/types'
+import { ApplicationInProgressType } from '../../api/in-progress/types'
 import { changeStatus } from '../../lib/application-statuses'
 
 export type TableRowType = {
@@ -15,6 +17,8 @@ export type TableRowType = {
   status: Status
   description: string | ''
 }
+
+export type InProgressRowType = TableRowType & { client: ClientType }
 
 export const tableRows = (
   applications: ApplicationFromBackend[]
@@ -30,6 +34,24 @@ export const tableRows = (
     VIN: application.vehicle.VIN,
     status: application.status,
     description: application.issues.description!,
+  }))
+}
+
+export const tableRowInProgress = (
+  applications: ApplicationInProgressType[]
+): InProgressRowType[] => {
+  return applications.map((application) => ({
+    // key is required for table fields only
+    key: application.id,
+    id: application.id,
+    vehicleName: `${application.vehicle.brand} ${application.vehicle.model}`,
+    yearOfIssue: application.vehicle.yearOfIssue,
+    engineSpecification: application.vehicle.engineSpecification,
+    registrationNumber: application.vehicle.registrationNumber,
+    VIN: application.vehicle.VIN,
+    status: application.status,
+    description: application.issues.description!,
+    client: application.client,
   }))
 }
 

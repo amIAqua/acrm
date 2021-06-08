@@ -13,6 +13,7 @@ import './lib/clients-search/init'
 import './lib/loading/init'
 import './lib/client/init'
 import './lib/application-statuses/init'
+import './lib/applications-in-progress/init'
 
 ReactDOM.render(
   <React.StrictMode>
