@@ -1,11 +1,7 @@
 import axios from 'axios'
 import { instance } from '../request-intance'
 import { clientsAPI } from '../clients'
-import {
-  ApplicationFromBackend,
-  ClientType,
-  Status,
-} from '../application-creation/types'
+import { clientApplications, clients } from './mockData'
 
 jest.mock('axios', () => {
   return {
@@ -20,67 +16,6 @@ jest.mock('axios', () => {
 const mockedInstance = instance as jest.Mocked<typeof axios>
 
 describe('clients API', () => {
-  let clients: ClientType[]
-  let clientApplications: ApplicationFromBackend[]
-
-  beforeAll(() => {
-    clients = [
-      {
-        name: 'Alexandr',
-        surname: 'Vasilev',
-        phoneNumber: '+123123',
-        email: '',
-      },
-    ]
-
-    clientApplications = [
-      {
-        id: '1',
-        clientId: '1',
-        client: {
-          name: 'Alexandr',
-          surname: 'Vasilev',
-          phoneNumber: '+123123',
-          email: '',
-        },
-        vehicle: {
-          model: 'Octavia',
-          brand: 'Skoda',
-          yearOfIssue: '2020',
-          registrationNumber: '2323RN-2',
-          VIN: 'VIN',
-          engineSpecification: '1.4',
-        },
-        issues: {
-          description: 'description',
-        },
-        status: Status.CREATED,
-      },
-      {
-        id: '2',
-        clientId: '1',
-        client: {
-          name: 'Alexandr',
-          surname: 'Vasilev',
-          phoneNumber: '+123123',
-          email: '',
-        },
-        vehicle: {
-          model: 'Octavia',
-          brand: 'Fabia',
-          yearOfIssue: '2019',
-          registrationNumber: '2323RN-2',
-          VIN: 'VIN2',
-          engineSpecification: '1.5',
-        },
-        issues: {
-          description: 'description2',
-        },
-        status: Status.IN_PROGRESS,
-      },
-    ]
-  })
-
   describe('getClientsBySearchQuery', () => {
     it('returns successful result', async () => {
       mockedInstance.get.mockResolvedValue({ data: clients })
