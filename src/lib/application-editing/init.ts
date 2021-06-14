@@ -1,5 +1,5 @@
 import { forward } from 'effector'
-import { ApplicationFromBackend } from '../../api/application-creation/types'
+import { applicationEditingAPI } from '../../api/application-editing'
 import { historyPush } from '../routing/history'
 import {
   $applicationToEdit,
@@ -13,7 +13,7 @@ forward({
 })
 
 fetchApplicationToEditFx.use(async (id) => {
-  return {} as ApplicationFromBackend
+  return applicationEditingAPI.getApplicationForEditing(id)
 })
 
 $applicationToEdit.on(
@@ -23,4 +23,8 @@ $applicationToEdit.on(
 
 fetchApplicationToEditFx.done.watch(({ params }) => {
   historyPush(`${params}/edit`)
+})
+
+$applicationToEdit.watch((data) => {
+  console.log(data)
 })
