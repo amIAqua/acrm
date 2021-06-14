@@ -11,17 +11,19 @@ export const ApplicationsInProgressTable: FC = () => {
 
   return (
     <ApplicationsInProgressContainer>
-      <Table
-        columns={columns}
-        dataSource={tableRows(applicationsInProgress)}
-        expandable={{
-          expandedRowRender: (record) => (
-            <p style={{ margin: 0 }}>{record.description}</p>
-          ),
-          rowExpandable: (record) => record.vehicleName !== 'Not Expandable',
-        }}
-        pagination={false}
-      />
+      {applicationsInProgress.length ? (
+        <Table
+          columns={columns}
+          dataSource={tableRows(applicationsInProgress)}
+          expandable={{
+            expandedRowRender: (record) => (
+              <p style={{ margin: 0 }}>{record.description}</p>
+            ),
+            rowExpandable: (record) => record.vehicleName !== 'Not Expandable',
+          }}
+          pagination={false}
+        />
+      ) : null}
     </ApplicationsInProgressContainer>
   )
 }

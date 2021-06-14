@@ -3,6 +3,7 @@ import { HomePage } from '../../pages/home'
 import { ClientsPage } from '../../pages/clients'
 import { Urls } from './urls'
 import { ApplicationsInProgress } from '../../pages/in-progress'
+import { EditApplicationPage } from '../../pages/edit-application'
 
 export const routes = () => [
   {
@@ -23,6 +24,11 @@ export const routes = () => [
   {
     path: Urls.IN_PROGRESS,
     component: ApplicationsInProgress,
+    exact: true,
+  },
+  {
+    path: Urls.EDIT,
+    component: EditApplicationPage,
     exact: true,
   },
 ]

@@ -6,14 +6,22 @@ import {
   resetApplicationsInProgress,
   $applicationsInProgress,
 } from './model'
+import { changeStatus } from '../application-statuses'
+import { changeStatusFx } from '../application-statuses/model'
 
 forward({
   from: fetchApplicationsInProgress,
   to: fetchApplicationsInProgressFx,
 })
 
+// Updating applications in progress list after closing
+forward({
+  from: changeStatusFx.done,
+  to: fetchApplicationsInProgressFx,
+})
+
 fetchApplicationsInProgressFx.use(async () => {
-  return InProgressAPI.fetchallInProgress()
+  return InProgressAPI.fetchAllInProgress()
 })
 
 $applicationsInProgress

@@ -1,6 +1,8 @@
 import { Space } from 'antd'
 import { Status } from '../../api/application-creation/types'
+import { fetchApplicationToEdit } from '../../lib/application-editing'
 import { changeStatus } from '../../lib/application-statuses'
+import { historyPush } from '../../lib/routing/history'
 import { statusRow, TableRowType } from '../../lib/table-rows'
 
 export const columns = [
@@ -45,18 +47,35 @@ export const columns = [
     key: 'actions',
     render: (text: any, record: TableRowType) => (
       <Space size='middle'>
-        <a
-          onClick={() =>
-            changeStatus({
-              applicationId: record.id,
-              applicationStatus: record.status,
-              newStatus: Status.IN_PROGRESS,
-            })
-          }
-        >
-          В выполнение
-        </a>
-        <a>Удалить</a>
+        {record.status !== Status.IN_PROGRESS ? (
+          <a
+            onClick={() =>
+              changeStatus({
+                applicationId: record.id,
+                applicationStatus: record.status,
+                newStatus: Status.IN_PROGRESS,
+              })
+            }
+          >
+            В выполнение
+          </a>
+        ) : null}
+        {record.status === Status.IN_PROGRESS ? (
+          <a
+            onClick={() =>
+              changeStatus({
+                applicationId: record.id,
+                applicationStatus: record.status,
+                newStatus: Status.CLOSED,
+              })
+            }
+          >
+            Завершить
+          </a>
+        ) : null}
+        <a onClick={() => fetchApplicationToEdit(record.id)}>Редактировать</a>
+
+        {record.status !== Status.IN_PROGRESS ? <a>Удалить</a> : null}
       </Space>
     ),
   },

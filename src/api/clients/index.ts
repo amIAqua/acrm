@@ -11,6 +11,7 @@ export const clientsAPI = {
     const clients = await instance.get(`/clients/${searchQuery}`)
     return clients.data
   },
+
   fetchClientApplications: async (
     clientId: number
   ): Promise<ApplicationFromBackend[]> => {
