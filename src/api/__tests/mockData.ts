@@ -14,6 +14,29 @@ export const clients: ClientType[] = [
   },
 ]
 
+export const applicationFromBackend: ApplicationFromBackend = {
+  id: '1',
+  clientId: '1',
+  client: {
+    name: 'Alexandr',
+    surname: 'Vasilev',
+    phoneNumber: '+123123',
+    email: '',
+  },
+  vehicle: {
+    model: 'Octavia',
+    brand: 'Skoda',
+    yearOfIssue: '2020',
+    registrationNumber: '2323RN-2',
+    VIN: 'VIN',
+    engineSpecification: '1.4',
+  },
+  issues: {
+    description: 'description',
+  },
+  status: Status.CREATED,
+}
+
 export const clientApplications: ApplicationFromBackend[] = [
   {
     id: '1',

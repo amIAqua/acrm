@@ -59,8 +59,7 @@ export const columns = [
           >
             В выполнение
           </a>
-        ) : null}
-        {record.status === Status.IN_PROGRESS ? (
+        ) : (
           <a
             onClick={() =>
               changeStatus({
@@ -72,7 +71,8 @@ export const columns = [
           >
             Завершить
           </a>
-        ) : null}
+        )}
+
         <a onClick={() => fetchApplicationToEdit(record.id)}>Редактировать</a>
 
         {record.status !== Status.IN_PROGRESS ? <a>Удалить</a> : null}
