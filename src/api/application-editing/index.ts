@@ -8,4 +8,9 @@ export const applicationEditingAPI = {
     const application = await instance.get(`/${id}/edit`)
     return application.data
   },
+  saveChangedApplication: async (
+    application: ApplicationFromBackend
+  ): Promise<void> => {
+    await instance.put(`/${application.id}/save`)
+  },
 }

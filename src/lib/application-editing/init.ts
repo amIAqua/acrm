@@ -1,10 +1,12 @@
-import { forward } from 'effector'
+import { forward, guard } from 'effector'
 import { applicationEditingAPI } from '../../api/application-editing'
 import { historyPush } from '../routing/history'
 import {
   $applicationToEdit,
   fetchApplicationToEdit,
   fetchApplicationToEditFx,
+  saveChanges,
+  saveChangesFx,
 } from './model'
 
 forward({
@@ -12,8 +14,26 @@ forward({
   to: fetchApplicationToEditFx,
 })
 
+// TODO: Guard to manage request
+
+// guard({
+//  // clock: fetchApplicationToEdit,
+//   source: $applicationToEdit,
+//   filter: (application) => !application,
+//   target: fetchApplicationToEditFx,
+// })
+
 fetchApplicationToEditFx.use(async (id) => {
   return applicationEditingAPI.getApplicationForEditing(id)
+})
+
+forward({
+  from: saveChanges,
+  to: saveChangesFx,
+})
+
+saveChangesFx.use(async (editedApplication) => {
+  return applicationEditingAPI.saveChangedApplication(editedApplication)
 })
 
 $applicationToEdit.on(
@@ -22,9 +42,10 @@ $applicationToEdit.on(
 )
 
 fetchApplicationToEditFx.done.watch(({ params }) => {
-  historyPush(`${params}/edit`)
+  historyPush(`/${params}/edit`)
 })
 
-$applicationToEdit.watch((data) => {
-  console.log(data)
+// redirect after changed saved
+saveChangesFx.done.watch(() => {
+  historyPush('/in_progress')
 })

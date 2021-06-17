@@ -1,1 +1,6 @@
-export { $applicationToEdit, fetchApplicationToEdit } from './model'
+export {
+  $applicationToEdit,
+  fetchApplicationToEdit,
+  saveChanges,
+  fetchApplicationToEditFx,
+} from './model'
