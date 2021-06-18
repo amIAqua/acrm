@@ -5,6 +5,10 @@ import {
 import { instance } from '../request-intance'
 
 export const clientsAPI = {
+  getClientById: async (id: number) => {
+    const client = await instance.get(`/clients/${id}`)
+    return client.data
+  },
   getClientsBySearchQuery: async (
     searchQuery: string
   ): Promise<ClientType[]> => {

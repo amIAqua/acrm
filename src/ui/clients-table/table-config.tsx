@@ -1,6 +1,6 @@
 import { Button } from 'antd'
 import { ClientType } from '../../api/application-creation/types'
-import { setCurrentClient } from '../../lib/client'
+import { historyPush } from '../../lib/routing/history'
 
 export const columns = [
   {
@@ -35,14 +35,7 @@ export const columns = [
     title: 'Операции',
     key: 'actions',
     render: (record: ClientType) => (
-      <Button
-        onClick={() =>
-          setCurrentClient({
-            ...record,
-            name: record.name,
-          })
-        }
-      >
+      <Button onClick={() => historyPush(`/clients/${record.id}/applications`)}>
         Заявки
       </Button>
     ),

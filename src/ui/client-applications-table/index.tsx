@@ -1,20 +1,23 @@
 import { FC } from 'react'
-import { useStore } from 'effector-react'
 import { Button, Table } from 'antd'
 import { columns } from './table-config'
 import { tableRows } from '../../lib/table-rows'
-import { $currentClientApplications } from '../../lib/client'
 import { ClientApplicationsContainer } from './styled'
 import { onOpen } from '../../lib/new-application-modal/model'
+import { IApplicationFromBackend } from '../../api/application-creation/types'
 
-export const ClientApplicationsTable: FC = () => {
-  const currentClientApplications = useStore($currentClientApplications)
+type ClientApplicationsTableProps = {
+  clientApplications: IApplicationFromBackend[]
+}
 
+export const ClientApplicationsTable: FC<ClientApplicationsTableProps> = ({
+  clientApplications,
+}) => {
   return (
     <ClientApplicationsContainer>
       <Table
         columns={columns}
-        dataSource={tableRows(currentClientApplications)}
+        dataSource={tableRows(clientApplications)}
         expandable={{
           expandedRowRender: (record) => (
             <p style={{ margin: 0 }}>{record.description}</p>

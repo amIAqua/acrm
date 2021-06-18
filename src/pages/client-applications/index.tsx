@@ -12,14 +12,28 @@ import { ModalWindow } from '../../ui/create-application-modal'
 import { ClientDetails } from '../../ui/client-details'
 import { ApplicationForm } from '../../reusable/application-form'
 import { initialValues } from '../../reusable/application-form/initial-form-values'
+import { useEffect } from 'react'
+import {
+  $clientApplications,
+  getClient,
+  getClientApplications,
+} from '../../lib/client'
+import { useParams } from 'react-router-dom'
 
 export const ClientApplicationsPage: FC = () => {
   const isVisible = useStore($isVisible)
+  const clientApplications = useStore($clientApplications)
+  const { id } = useParams<{ id: string }>()
+
+  useEffect(() => {
+    getClientApplications(+id)
+    getClient(+id)
+  }, [])
 
   return (
     <MainLayout>
       <ClientDetails />
-      <ClientApplicationsTable />
+      <ClientApplicationsTable clientApplications={clientApplications} />
 
       <ModalWindow isVisible={isVisible} onClose={onClose} onOpen={onOpen}>
         <ApplicationForm

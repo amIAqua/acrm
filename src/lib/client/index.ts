@@ -1,6 +1,7 @@
 export {
-  setCurrentClient,
-  $currentClient,
-  $currentClientApplications,
-  fetchClientApplications,
+  $client,
+  getClient,
+  $clientApplications,
+  getClientApplications,
+  $clientDetails,
 } from './model'
