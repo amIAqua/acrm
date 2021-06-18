@@ -1,5 +1,5 @@
 import {
-  ApplicationFromBackend,
+  IApplicationFromBackend,
   ClientType,
 } from '../application-creation/types'
 import { instance } from '../request-intance'
@@ -14,7 +14,7 @@ export const clientsAPI = {
 
   fetchClientApplications: async (
     clientId: number
-  ): Promise<ApplicationFromBackend[]> => {
+  ): Promise<IApplicationFromBackend[]> => {
     const clientApplications = await instance.get(
       `clients/${clientId}/applications`
     )

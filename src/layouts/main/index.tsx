@@ -11,7 +11,7 @@ import { Layout, Children } from '../../styles/common'
 import { SideMenu } from '../../reusable/side-menu'
 import { Navbar } from '../../ui/navbar'
 import { $isVisible } from '../../lib/create-application-modal-window/model'
-import { initialValuesCreate } from '../../reusable/application-form/initial-form-values'
+import { initialValues } from '../../reusable/application-form/initial-form-values'
 
 export const MainLayout: FC = ({ children }) => {
   const isVisible = useStore($isVisible)
@@ -24,10 +24,10 @@ export const MainLayout: FC = ({ children }) => {
 
         <ModalWindow isVisible={isVisible} onOpen={onOpen} onClose={onClose}>
           <ApplicationForm
-            closeModal={onClose}
-            fields={initialValuesCreate}
+            fields={initialValues}
             submition={createApplication}
             submitionText='Создать'
+            closable={true}
           />
         </ModalWindow>
       </Layout>

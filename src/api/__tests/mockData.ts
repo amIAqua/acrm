@@ -1,6 +1,6 @@
 import {
-  ApplicationFromBackend,
-  ApplicationType,
+  IApplication,
+  IApplicationFromBackend,
   ClientType,
   Status,
 } from '../application-creation/types'
@@ -14,7 +14,7 @@ export const clients: ClientType[] = [
   },
 ]
 
-export const applicationFromBackend: ApplicationFromBackend = {
+export const applicationFromBackend: IApplicationFromBackend = {
   id: '1',
   clientId: '1',
   client: {
@@ -37,7 +37,7 @@ export const applicationFromBackend: ApplicationFromBackend = {
   status: Status.CREATED,
 }
 
-export const clientApplications: ApplicationFromBackend[] = [
+export const clientApplications: IApplicationFromBackend[] = [
   {
     id: '1',
     clientId: '1',
@@ -84,7 +84,7 @@ export const clientApplications: ApplicationFromBackend[] = [
   },
 ]
 
-export const application: ApplicationType = {
+export const application: IApplication = {
   client: {
     name: 'Alexandr',
     surname: 'Vasilev',

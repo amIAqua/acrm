@@ -1,13 +1,13 @@
 import { createStore, createEvent, createEffect } from 'effector'
-import { ApplicationFromBackend } from '../../api/application-creation/types'
+import { IApplicationFromBackend } from '../../api/application-creation/types'
 
 export const fetchApplicationToEdit = createEvent<string>()
-export const saveChanges = createEvent<ApplicationFromBackend>()
+export const saveChanges = createEvent<IApplicationFromBackend>()
 
 export const fetchApplicationToEditFx =
-  createEffect<string, ApplicationFromBackend>()
+  createEffect<string, IApplicationFromBackend>()
 
-export const saveChangesFx = createEffect<ApplicationFromBackend, void>()
+export const saveChangesFx = createEffect<IApplicationFromBackend, void>()
 
 export const $applicationToEdit =
-  createStore<ApplicationFromBackend | null>(null)
+  createStore<IApplicationFromBackend | null>(null)

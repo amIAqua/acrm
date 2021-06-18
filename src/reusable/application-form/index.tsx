@@ -11,22 +11,15 @@ import {
   GridFields,
 } from './styled'
 import { onClose } from '../../lib/create-application-modal-window/model'
-import { AddApplicationValuesType } from './initial-form-values'
-import {
-  ApplicationFromBackend,
-  ApplicationType,
-  OmittedClientApplication,
-} from '../../api/application-creation/types'
-import { Event } from 'effector'
 
 const { TextArea } = Input
 
 type ApplicationFromPropsType = {
   fields: any
+  closable?: boolean
   withoutClient?: boolean
-  submition: any //(values: ApplicationType | AddApplicationValuesType) => void
+  submition: (values: any) => void
   submitionText: string
-  closeModal?: () => void
 }
 
 export const ApplicationForm: FC<ApplicationFromPropsType> = ({
@@ -34,7 +27,7 @@ export const ApplicationForm: FC<ApplicationFromPropsType> = ({
   withoutClient,
   submition,
   submitionText,
-  closeModal,
+  closable,
 }) => {
   const formik = useFormik({
     initialValues: fields,
@@ -42,7 +35,10 @@ export const ApplicationForm: FC<ApplicationFromPropsType> = ({
       submition(values)
 
       formik.resetForm()
-      // closeModal()
+
+      if (closable) {
+        onClose()
+      }
     },
   })
 

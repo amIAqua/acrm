@@ -6,14 +6,14 @@ import {
   newApplication,
 } from './model'
 import { applicationCreationAPI } from '../../api/application-creation'
-import { ApplicationType } from '../../api/application-creation/types'
+import { IApplication } from '../../api/application-creation/types'
 
 forward({
   from: createApplication,
   to: createApplicationFx,
 })
 
-createApplicationFx.use(async (application: ApplicationType) => {
+createApplicationFx.use(async (application: IApplication) => {
   await applicationCreationAPI.createNewApplication(application)
 })
 

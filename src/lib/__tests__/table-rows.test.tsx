@@ -1,12 +1,12 @@
 import {} from '@testing-library/react'
 import {
-  ApplicationFromBackend,
+  IApplicationFromBackend,
   Status,
 } from '../../api/application-creation/types'
 import { tableRows, TableRowType } from '../table-rows'
 
 describe('Table rows', () => {
-  let applications: ApplicationFromBackend[]
+  let applications: IApplicationFromBackend[]
   let expectedTableRows: TableRowType[]
 
   beforeAll(() => {

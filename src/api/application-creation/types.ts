@@ -19,10 +19,16 @@ type IssuesType = {
   description?: string
 }
 
-export type ApplicationType = {
+export interface IApplication {
   client: ClientType
   vehicle: VehicleType
   issues: IssuesType
+}
+
+export interface IApplicationFromBackend extends IApplication {
+  id: string
+  clientId: string
+  status: Status
 }
 
 export enum Status {
@@ -31,13 +37,13 @@ export enum Status {
   CLOSED = 'CLOSED',
 }
 
-export type ApplicationFromBackend = {
-  id: string
-  clientId: string
-  vehicle: VehicleType
-  status: Status
-  issues: IssuesType
-  client?: ClientType
-}
+// export type ApplicationFromBackend = {
+//   id: string
+//   clientId: string
+//   vehicle: VehicleType
+//   status: Status
+//   issues: IssuesType
+//   client?: ClientType
+// }
 
-export type OmittedClientApplication = Omit<ApplicationType, 'client'>
+//export type OmittedClientApplication = Omit<ApplicationType, 'client'>

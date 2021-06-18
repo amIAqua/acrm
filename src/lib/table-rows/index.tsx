@@ -1,6 +1,6 @@
 import { Tag } from 'antd'
 import {
-  ApplicationFromBackend,
+  IApplicationFromBackend,
   ClientType,
   Status,
 } from '../../api/application-creation/types'
@@ -19,7 +19,7 @@ export type TableRowType = {
 }
 
 export const tableRows = (
-  applications: ApplicationFromBackend[]
+  applications: IApplicationFromBackend[]
 ): TableRowType[] => {
   return applications.map((application) => ({
     // key is required for table fields only

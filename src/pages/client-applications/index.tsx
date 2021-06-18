@@ -11,7 +11,7 @@ import { newApplication } from '../../lib/application-creation'
 import { ModalWindow } from '../../ui/create-application-modal'
 import { ClientDetails } from '../../ui/client-details'
 import { ApplicationForm } from '../../reusable/application-form'
-import { initialValuesAdd } from '../../reusable/application-form/initial-form-values'
+import { initialValues } from '../../reusable/application-form/initial-form-values'
 
 export const ClientApplicationsPage: FC = () => {
   const isVisible = useStore($isVisible)
@@ -23,9 +23,11 @@ export const ClientApplicationsPage: FC = () => {
 
       <ModalWindow isVisible={isVisible} onClose={onClose} onOpen={onOpen}>
         <ApplicationForm
-          fields={initialValuesAdd}
+          fields={initialValues}
           submitionText='Создать заявку'
           submition={newApplication}
+          withoutClient={true}
+          closable={true}
         />
       </ModalWindow>
     </MainLayout>
