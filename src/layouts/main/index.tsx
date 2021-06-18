@@ -4,12 +4,14 @@ import {
   onOpen,
   onClose,
 } from '../../lib/create-application-modal-window/model'
+import { ApplicationForm } from '../../reusable/application-form'
+import { createApplication } from '../../lib/application-creation'
 import { ModalWindow } from '../../ui/create-application-modal'
 import { Layout, Children } from '../../styles/common'
 import { SideMenu } from '../../reusable/side-menu'
 import { Navbar } from '../../ui/navbar'
-import { CreateApplicationForm } from '../../ui/create-application-form'
 import { $isVisible } from '../../lib/create-application-modal-window/model'
+import { initialValuesCreate } from '../../reusable/application-form/initial-form-values'
 
 export const MainLayout: FC = ({ children }) => {
   const isVisible = useStore($isVisible)
@@ -21,7 +23,12 @@ export const MainLayout: FC = ({ children }) => {
         <Children>{children}</Children>
 
         <ModalWindow isVisible={isVisible} onOpen={onOpen} onClose={onClose}>
-          <CreateApplicationForm />
+          <ApplicationForm
+            closeModal={onClose}
+            fields={initialValuesCreate}
+            submition={createApplication}
+            submitionText='Создать'
+          />
         </ModalWindow>
       </Layout>
     </>

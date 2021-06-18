@@ -1,8 +1,6 @@
 import { FC } from 'react'
-import { useStore } from 'effector-react'
 import { useFormik } from 'formik'
 import { Button, Input } from 'antd'
-import { $applicationToEdit, saveChanges } from '../../lib/application-editing'
 import {
   FormWrapper,
   Form,
@@ -12,60 +10,84 @@ import {
   ButtonSection,
   GridFields,
 } from './styled'
-import { ApplicationFromBackend } from '../../api/application-creation/types'
+import { onClose } from '../../lib/create-application-modal-window/model'
+import { AddApplicationValuesType } from './initial-form-values'
+import {
+  ApplicationFromBackend,
+  ApplicationType,
+  OmittedClientApplication,
+} from '../../api/application-creation/types'
+import { Event } from 'effector'
 
 const { TextArea } = Input
 
-export const EditApplicationForm: FC = () => {
-  let applicationToEdit = useStore($applicationToEdit)
+type ApplicationFromPropsType = {
+  fields: any
+  withoutClient?: boolean
+  submition: any //(values: ApplicationType | AddApplicationValuesType) => void
+  submitionText: string
+  closeModal?: () => void
+}
 
+export const ApplicationForm: FC<ApplicationFromPropsType> = ({
+  fields,
+  withoutClient,
+  submition,
+  submitionText,
+  closeModal,
+}) => {
   const formik = useFormik({
-    initialValues: applicationToEdit as ApplicationFromBackend,
+    initialValues: fields,
     onSubmit: (values) => {
-      saveChanges(values)
+      submition(values)
+
+      formik.resetForm()
+      // closeModal()
     },
   })
 
   return (
     <FormWrapper>
       <Form onSubmit={formik.handleSubmit}>
-        <ClientSection>
-          <h2>Клиент</h2>
-          <GridFields>
-            <Input
-              id='name'
-              name='client.name'
-              type='text'
-              placeholder='Имя'
-              onChange={formik.handleChange}
-              value={formik.values.client!.name}
-            />
-            <Input
-              id='surname'
-              name='client.surname'
-              type='text'
-              placeholder='Фамилия'
-              onChange={formik.handleChange}
-              value={formik.values.client!.surname}
-            />
-            <Input
-              id='phoneNumber'
-              name='client.phoneNumber'
-              type='text'
-              placeholder='Номер телефона'
-              onChange={formik.handleChange}
-              value={formik.values.client!.phoneNumber}
-            />
-            <Input
-              id='email'
-              name='client.email'
-              type='email'
-              placeholder='Email'
-              onChange={formik.handleChange}
-              value={formik.values.client!.email}
-            />
-          </GridFields>
-        </ClientSection>
+        {withoutClient ? null : (
+          <ClientSection>
+            <h2>Клиент</h2>
+            <GridFields>
+              <Input
+                id='name'
+                name='client.name'
+                type='text'
+                placeholder='Имя'
+                onChange={formik.handleChange}
+                value={formik.values.client.name}
+              />
+              <Input
+                id='surname'
+                name='client.surname'
+                type='text'
+                placeholder='Фамилия'
+                onChange={formik.handleChange}
+                value={formik.values.client.surname}
+              />
+              <Input
+                id='phoneNumber'
+                name='client.phoneNumber'
+                type='text'
+                placeholder='Номер телефона'
+                onChange={formik.handleChange}
+                value={formik.values.client.phoneNumber}
+              />
+              <Input
+                id='email'
+                name='client.email'
+                type='email'
+                placeholder='Email'
+                onChange={formik.handleChange}
+                value={formik.values.client.email}
+              />
+            </GridFields>
+          </ClientSection>
+        )}
         <VehicleSection>
           <h2>Автомобиль</h2>
           <GridFields>
@@ -139,7 +161,7 @@ export const EditApplicationForm: FC = () => {
             type='primary'
             size='large'
           >
-            Сохранить
+            {submitionText}
           </Button>
         </ButtonSection>
       </Form>

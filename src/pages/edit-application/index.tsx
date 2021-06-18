@@ -2,16 +2,14 @@ import { FC, useEffect } from 'react'
 import { useStore } from 'effector-react'
 import { MainLayout } from '../../layouts/main'
 import { $applicationToEdit } from '../../lib/application-editing'
-
-import { EditApplicationForm } from '../../ui/edit-application-form'
+import { saveChanges } from '../../lib/application-editing'
 import { useParams } from 'react-router-dom'
 import { fetchApplicationToEdit } from '../../lib/application-editing'
-import { $loading } from '../../lib/loading'
+import { ApplicationForm } from '../../reusable/application-form'
 
 export const EditApplicationPage: FC = () => {
   const { id } = useParams<{ id: string }>()
   let applicationToEdit = useStore($applicationToEdit)
-  const loading = useStore($loading)
 
   useEffect(() => {
     if (!applicationToEdit) {
@@ -21,7 +19,15 @@ export const EditApplicationPage: FC = () => {
 
   return (
     <MainLayout>
-      {applicationToEdit ? <EditApplicationForm /> : <>Загрузка</>}
+      {applicationToEdit ? (
+        <ApplicationForm
+          submition={saveChanges}
+          submitionText='Сохранить'
+          fields={applicationToEdit}
+        />
+      ) : (
+        <>Загрузка</>
+      )}
     </MainLayout>
   )
 }
