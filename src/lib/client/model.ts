@@ -23,5 +23,3 @@ export const $clientDetails = combine(
     applicationsLength: clientApplications.length,
   })
 )
-
-export const $newStore = createStore<string>('')

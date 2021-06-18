@@ -1,1 +1,1 @@
-export { createApplication, addNewApplicationFx, newApplication } from './model'
+export { createApplication, addNewApplicationFx, addApplication } from './model'

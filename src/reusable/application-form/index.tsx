@@ -11,14 +11,22 @@ import {
   GridFields,
 } from './styled'
 import { onClose } from '../../lib/create-application-modal-window/model'
+import {
+  IApplication,
+  IApplicationFromBackend,
+} from '../../api/application-creation/types'
+import { Event } from 'effector'
 
 const { TextArea } = Input
 
 type ApplicationFromPropsType = {
-  fields: any
+  fields: IApplication
   closable?: boolean
   withoutClient?: boolean
-  submition: (values: any) => void
+  submition: Event<any>
+  // | IApplication
+  // | IApplicationFromBackend
+  // | { cliendId: number; application: IApplication }
   submitionText: string
 }
 

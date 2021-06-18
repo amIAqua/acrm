@@ -7,7 +7,7 @@ import {
 } from '../../lib/new-application-modal/model'
 import { MainLayout } from '../../layouts/main'
 import { ClientApplicationsTable } from '../../ui/client-applications-table'
-import { newApplication } from '../../lib/application-creation'
+import { createApplication } from '../../lib/application-creation'
 import { ModalWindow } from '../../ui/create-application-modal'
 import { ClientDetails } from '../../ui/client-details'
 import { ApplicationForm } from '../../reusable/application-form'
@@ -39,7 +39,7 @@ export const ClientApplicationsPage: FC = () => {
         <ApplicationForm
           fields={initialValues}
           submitionText='Создать заявку'
-          submition={newApplication}
+          submition={createApplication}
           withoutClient={true}
           closable={true}
         />

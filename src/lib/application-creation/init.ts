@@ -1,9 +1,9 @@
-import { forward } from 'effector'
+import { forward, sample } from 'effector'
 import {
   createApplication,
   createApplicationFx,
   addNewApplicationFx,
-  newApplication,
+  addApplication,
 } from './model'
 import { applicationCreationAPI } from '../../api/application-creation'
 import { IApplication } from '../../api/application-creation/types'
@@ -18,7 +18,7 @@ createApplicationFx.use(async (application: IApplication) => {
 })
 
 forward({
-  from: newApplication,
+  from: addApplication,
   to: addNewApplicationFx,
 })
 
