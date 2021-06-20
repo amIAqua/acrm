@@ -4,6 +4,7 @@ import { Table } from 'antd'
 import { $applicationsInProgress } from '../../lib/applications-in-progress'
 import { columns } from '../client-applications-table/table-config'
 import { tableRows } from '../../lib/table-rows'
+import { Empty } from 'antd'
 import { ApplicationsInProgressContainer } from './styled'
 
 export const ApplicationsInProgressTable: FC = () => {
@@ -23,7 +24,12 @@ export const ApplicationsInProgressTable: FC = () => {
           }}
           pagination={false}
         />
-      ) : null}
+      ) : (
+        <Empty
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+          style={{ marginTop: '100px' }}
+        />
+      )}
     </ApplicationsInProgressContainer>
   )
 }

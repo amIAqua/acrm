@@ -18,7 +18,7 @@ $fetchedClients
   .on(searchRequestFx.doneData, (_prev, results) => results)
   .reset(resetFetchedClients)
 
-searchRequestFx.use(async (query: any) => {
+searchRequestFx.use(async (query: string) => {
   return clientsAPI.getClientsBySearchQuery(query)
 })
 

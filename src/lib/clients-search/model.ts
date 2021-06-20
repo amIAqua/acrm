@@ -7,7 +7,7 @@ export const resetFetchedClients = createEvent<void>()
 
 export const searchRequest = createEvent<void>()
 
-export const searchRequestFx = createEffect<void, ClientType[]>()
+export const searchRequestFx = createEffect<string, ClientType[]>()
 
 export const $searchQuery = createStore<string>('')
 export const $fetchedClients = createStore<ClientType[]>([])
