@@ -1,5 +1,6 @@
 import { Space } from 'antd'
 import { Status } from '../../api/application-creation/types'
+import { deleteApplication } from '../../lib/application-deleting'
 import { fetchApplicationToEdit } from '../../lib/application-editing'
 import { changeStatus } from '../../lib/application-statuses'
 import { historyPush } from '../../lib/routing/history'
@@ -75,7 +76,9 @@ export const columns = [
 
         <a onClick={() => fetchApplicationToEdit(record.id)}>Редактировать</a>
 
-        {record.status !== Status.IN_PROGRESS ? <a>Удалить</a> : null}
+        {record.status !== Status.IN_PROGRESS ? (
+          <a onClick={() => deleteApplication(record.id)}>Удалить</a>
+        ) : null}
       </Space>
     ),
   },

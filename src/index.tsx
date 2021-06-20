@@ -15,6 +15,7 @@ import './lib/client/init'
 import './lib/application-statuses/init'
 import './lib/applications-in-progress/init'
 import './lib/application-editing/init'
+import './lib/application-deleting/init'
 
 ReactDOM.render(
   <React.StrictMode>

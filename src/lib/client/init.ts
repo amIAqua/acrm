@@ -10,6 +10,7 @@ import {
   getClientApplications,
 } from './model'
 import { changeStatusFx } from '../application-statuses/model'
+import { deleteApplicationFx } from '../application-deleting/model'
 
 // Client
 forward({
@@ -38,9 +39,13 @@ $clientApplications.on(
   (_prev, applications) => applications
 )
 
-// Refetch all client applications after adding new or updating application status
+// Refetch all client applications after adding new, updating application status, deleting one
 sample({
-  clock: [addNewApplicationFx.done, changeStatusFx.done],
+  clock: [
+    addNewApplicationFx.done,
+    changeStatusFx.done,
+    deleteApplicationFx.done,
+  ],
   source: $client,
   fn: (client) => client!.id!,
   target: getClientApplicationsFx,
