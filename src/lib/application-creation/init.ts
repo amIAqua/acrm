@@ -7,6 +7,7 @@ import {
 } from './model'
 import { applicationCreationAPI } from '../../api/application-creation'
 import { IApplication } from '../../api/application-creation/types'
+import { $client } from '../client'
 
 forward({
   from: createApplication,
@@ -17,9 +18,11 @@ createApplicationFx.use(async (application: IApplication) => {
   await applicationCreationAPI.createNewApplication(application)
 })
 
-forward({
-  from: addApplication,
-  to: addNewApplicationFx,
+sample({
+  clock: addApplication,
+  source: $client,
+  fn: (client, application) => ({ clientId: client?.id!, application }),
+  target: addNewApplicationFx,
 })
 
 addNewApplicationFx.use(async ({ clientId, application }) => {

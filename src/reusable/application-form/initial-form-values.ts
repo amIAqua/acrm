@@ -1,21 +1,25 @@
-import { IApplication } from '../../api/application-creation/types'
+import {
+  ClientType,
+  IssuesType,
+  VehicleType,
+} from '../../api/application-creation/types'
 
-export const initialValues: IApplication = {
-  client: {
-    name: '',
-    surname: '',
-    phoneNumber: '',
-    email: '',
-  },
-  vehicle: {
-    brand: '',
-    model: '',
-    yearOfIssue: '',
-    engineSpecification: '',
-    registrationNumber: '',
-    VIN: '',
-  },
-  issues: {
-    description: '',
-  },
+export const client: ClientType = {
+  name: '',
+  surname: '',
+  phoneNumber: '',
+  email: '',
+}
+
+export const vehicle: VehicleType = {
+  brand: '',
+  model: '',
+  yearOfIssue: '',
+  engineSpecification: '',
+  registrationNumber: '',
+  VIN: '',
+}
+
+export const issues: IssuesType = {
+  description: '',
 }

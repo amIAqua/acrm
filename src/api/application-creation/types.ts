@@ -15,7 +15,7 @@ export type VehicleType = {
   VIN: string
 }
 
-type IssuesType = {
+export type IssuesType = {
   description?: string
 }
 
@@ -24,6 +24,8 @@ export interface IApplication {
   vehicle: VehicleType
   issues: IssuesType
 }
+
+export type NewApplicationType = Omit<IApplication, 'client'>
 
 export interface IApplicationFromBackend extends IApplication {
   id: string

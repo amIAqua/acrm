@@ -7,11 +7,17 @@ import {
 } from '../../lib/new-application-modal/model'
 import { MainLayout } from '../../layouts/main'
 import { ClientApplicationsTable } from '../../ui/client-applications-table'
-import { createApplication } from '../../lib/application-creation'
+import {
+  addApplication,
+  createApplication,
+} from '../../lib/application-creation'
 import { ModalWindow } from '../../ui/create-application-modal'
 import { ClientDetails } from '../../ui/client-details'
-import { ApplicationForm } from '../../reusable/application-form'
-import { initialValues } from '../../reusable/application-form/initial-form-values'
+import {
+  client,
+  vehicle,
+  issues,
+} from '../../reusable/application-form/initial-form-values'
 import { useEffect } from 'react'
 import {
   $clientApplications,
@@ -19,6 +25,7 @@ import {
   getClientApplications,
 } from '../../lib/client'
 import { useParams } from 'react-router-dom'
+import { ClientApplicationForm } from '../../reusable/add-form'
 
 export const ClientApplicationsPage: FC = () => {
   const isVisible = useStore($isVisible)
@@ -36,11 +43,13 @@ export const ClientApplicationsPage: FC = () => {
       <ClientApplicationsTable clientApplications={clientApplications} />
 
       <ModalWindow isVisible={isVisible} onClose={onClose} onOpen={onOpen}>
-        <ApplicationForm
-          fields={initialValues}
+        <ClientApplicationForm
+          fields={{
+            vehicle: { ...vehicle },
+            issues: { ...issues },
+          }}
           submitionText='Создать заявку'
-          submition={createApplication}
-          withoutClient={true}
+          submition={addApplication}
           closable={true}
         />
       </ModalWindow>

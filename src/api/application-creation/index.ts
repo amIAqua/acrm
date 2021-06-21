@@ -1,5 +1,5 @@
 import { instance } from '../request-intance'
-import { IApplication } from './types'
+import { IApplication, NewApplicationType } from './types'
 
 export const applicationCreationAPI = {
   createNewApplication: async (application: IApplication): Promise<void> => {
@@ -7,7 +7,7 @@ export const applicationCreationAPI = {
   },
   addApplication: async (
     clientId: number,
-    application: IApplication
+    application: NewApplicationType
   ): Promise<void> => {
     await instance.post(`application-creation/${clientId}/add-new`, application)
   },
