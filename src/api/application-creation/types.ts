@@ -36,14 +36,3 @@ export enum Status {
   IN_PROGRESS = 'IN_PROGRESS',
   CLOSED = 'CLOSED',
 }
-
-// export type ApplicationFromBackend = {
-//   id: string
-//   clientId: string
-//   vehicle: VehicleType
-//   status: Status
-//   issues: IssuesType
-//   client?: ClientType
-// }
-
-//export type OmittedClientApplication = Omit<ApplicationType, 'client'>
