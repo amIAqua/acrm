@@ -1,26 +1,23 @@
 import { FC } from 'react'
-import { useFormik } from 'formik'
 import { Event } from 'effector'
+import { useFormik } from 'formik'
 import { Button } from 'antd'
-import { FormWrapper, Form } from '../form/styled'
-import { onClose } from '../../lib/create-application-modal-window/model'
-import { NewApplicationType } from '../../api/application-creation/types'
+import { FormWrapper, Form, ButtonSection } from '../form/styled'
+import { IApplication } from '../../api/application-creation/types'
+import { Client } from '../form/sections/client'
 import { Vehicle } from '../form/sections/vehicle'
 import { Issues } from '../form/sections/issues'
-import { ButtonSection } from '../form/styled'
 
-type AddApplicationFormPropsType = {
-  fields: NewApplicationType
-  closable?: boolean
+type EditApplicationFormPropsType = {
+  fields: IApplication
   submition: Event<any>
   submitionText: string
 }
 
-export const AddApplicationForm: FC<AddApplicationFormPropsType> = ({
+export const EditApplicationForm: FC<EditApplicationFormPropsType> = ({
   fields,
   submition,
   submitionText,
-  closable,
 }) => {
   const formik = useFormik({
     initialValues: fields,
@@ -28,16 +25,13 @@ export const AddApplicationForm: FC<AddApplicationFormPropsType> = ({
       submition(values)
 
       formik.resetForm()
-
-      if (closable) {
-        onClose()
-      }
     },
   })
 
   return (
     <FormWrapper>
       <Form onSubmit={formik.handleSubmit}>
+        <Client formik={formik} />
         <Vehicle formik={formik} />
         <Issues formik={formik} />
 

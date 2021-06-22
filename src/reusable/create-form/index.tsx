@@ -1,22 +1,22 @@
 import { FC } from 'react'
-import { useFormik } from 'formik'
 import { Event } from 'effector'
+import { useFormik } from 'formik'
 import { Button } from 'antd'
-import { FormWrapper, Form } from '../form/styled'
+import { FormWrapper, Form, ButtonSection } from '../form/styled'
 import { onClose } from '../../lib/create-application-modal-window/model'
-import { NewApplicationType } from '../../api/application-creation/types'
+import { IApplication } from '../../api/application-creation/types'
+import { Client } from '../form/sections/client'
 import { Vehicle } from '../form/sections/vehicle'
 import { Issues } from '../form/sections/issues'
-import { ButtonSection } from '../form/styled'
 
-type AddApplicationFormPropsType = {
-  fields: NewApplicationType
+type CreateApplicationFormPropsType = {
+  fields: IApplication
   closable?: boolean
   submition: Event<any>
   submitionText: string
 }
 
-export const AddApplicationForm: FC<AddApplicationFormPropsType> = ({
+export const CreateApplicationForm: FC<CreateApplicationFormPropsType> = ({
   fields,
   submition,
   submitionText,
@@ -38,6 +38,7 @@ export const AddApplicationForm: FC<AddApplicationFormPropsType> = ({
   return (
     <FormWrapper>
       <Form onSubmit={formik.handleSubmit}>
+        <Client formik={formik} />
         <Vehicle formik={formik} />
         <Issues formik={formik} />
 

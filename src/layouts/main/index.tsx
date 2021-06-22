@@ -4,7 +4,7 @@ import {
   onOpen,
   onClose,
 } from '../../lib/create-application-modal-window/model'
-import { ApplicationForm } from '../../reusable/application-form'
+import { CreateApplicationForm } from '../../reusable/create-form'
 import { createApplication } from '../../lib/application-creation'
 import { ModalWindow } from '../../ui/create-application-modal'
 import { Layout, Children } from '../../styles/common'
@@ -15,7 +15,7 @@ import {
   client,
   vehicle,
   issues,
-} from '../../reusable/application-form/initial-form-values'
+} from '../../reusable/form/initial-form-values'
 
 export const MainLayout: FC = ({ children }) => {
   const isVisible = useStore($isVisible)
@@ -27,7 +27,7 @@ export const MainLayout: FC = ({ children }) => {
         <Children>{children}</Children>
 
         <ModalWindow isVisible={isVisible} onOpen={onOpen} onClose={onClose}>
-          <ApplicationForm
+          <CreateApplicationForm
             fields={{
               client: { ...client },
               vehicle: { ...vehicle },

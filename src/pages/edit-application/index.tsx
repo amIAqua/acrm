@@ -5,7 +5,7 @@ import { $applicationToEdit } from '../../lib/application-editing'
 import { saveChanges } from '../../lib/application-editing'
 import { useParams } from 'react-router-dom'
 import { fetchApplicationToEdit } from '../../lib/application-editing'
-import { ApplicationForm } from '../../reusable/application-form'
+import { EditApplicationForm } from '../../reusable/edit-form'
 
 export const EditApplicationPage: FC = () => {
   const { id } = useParams<{ id: string }>()
@@ -20,7 +20,7 @@ export const EditApplicationPage: FC = () => {
   return (
     <MainLayout>
       {applicationToEdit ? (
-        <ApplicationForm
+        <EditApplicationForm
           submition={saveChanges}
           submitionText='Сохранить'
           fields={applicationToEdit}
