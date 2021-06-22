@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { applicationEditingAPI } from '../application-editing'
-import { instance } from '../request-intance'
+import { request } from '../request'
 import { applicationFromBackend } from './mockData'
 
 jest.mock('axios', () => {
@@ -14,7 +14,7 @@ jest.mock('axios', () => {
   }
 })
 
-const mockedInstance = instance as jest.Mocked<typeof axios>
+const mockedInstance = request as jest.Mocked<typeof axios>
 
 describe('application editing API', () => {
   describe('getApplicationForEditing', () => {

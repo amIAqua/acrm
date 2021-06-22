@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { instance } from '../request-intance'
+import { request } from '../request'
 import { clientsAPI } from '../clients'
 import { clientApplications, clients } from './mockData'
 
@@ -13,7 +13,7 @@ jest.mock('axios', () => {
   }
 })
 
-const mockedInstance = instance as jest.Mocked<typeof axios>
+const mockedInstance = request as jest.Mocked<typeof axios>
 
 describe('clients API', () => {
   describe('getClientsBySearchQuery', () => {

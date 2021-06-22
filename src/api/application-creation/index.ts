@@ -1,14 +1,13 @@
-import { instance } from '../request-intance'
-import { IApplication, NewApplicationType } from './types'
+import { request } from '../request'
+import { IApplicationFromScratch, NewApplicationType } from './types'
 
-export const applicationCreationAPI = {
-  createNewApplication: async (application: IApplication): Promise<void> => {
-    await instance.post('/application-creation/create-new', application)
-  },
-  addApplication: async (
-    clientId: number,
-    application: NewApplicationType
-  ): Promise<void> => {
-    await instance.post(`application-creation/${clientId}/add-new`, application)
-  },
-}
+export const createApplicationFromScratch = (
+  application: IApplicationFromScratch
+): Promise<void> =>
+  request.post('/application-creation/create-new', application)
+
+export const addNewApplication = (
+  clientId: number,
+  application: NewApplicationType
+): Promise<void> =>
+  request.post(`application-creation/${clientId}/add-new`, application)

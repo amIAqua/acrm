@@ -1,7 +1,7 @@
-import { instance } from '../request-intance'
+import { request } from '../request'
 
 export const applicationDeletingAPI = {
   deleteOne: async (id: string): Promise<void> => {
-    await instance.delete(`/applications/${id}/delete`)
+    await request.delete(`/applications/${id}/delete`)
   },
 }

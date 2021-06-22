@@ -19,15 +19,15 @@ export type IssuesType = {
   description?: string
 }
 
-export interface IApplication {
+export interface IApplicationFromScratch {
   client: ClientType
   vehicle: VehicleType
   issues: IssuesType
 }
 
-export type NewApplicationType = Omit<IApplication, 'client'>
+export type NewApplicationType = Omit<IApplicationFromScratch, 'client'>
 
-export interface IApplicationFromBackend extends IApplication {
+export interface IApplicationFromBackend extends IApplicationFromScratch {
   id: string
   clientId: string
   status: Status

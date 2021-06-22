@@ -4,13 +4,13 @@ import { useFormik } from 'formik'
 import { Button } from 'antd'
 import { FormWrapper, Form, ButtonSection } from '../form/styled'
 import { onClose } from '../../lib/create-application-modal-window/model'
-import { IApplication } from '../../api/application-creation/types'
+import { IApplicationFromScratch } from '../../api/application-creation/types'
 import { Client } from '../form/sections/client'
 import { Vehicle } from '../form/sections/vehicle'
 import { Issues } from '../form/sections/issues'
 
 type CreateApplicationFormPropsType = {
-  fields: IApplication
+  fields: IApplicationFromScratch
   closable?: boolean
   submition: Event<any>
   submitionText: string

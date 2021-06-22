@@ -1,5 +1,5 @@
 import {
-  IApplication,
+  IApplicationFromScratch,
   IApplicationFromBackend,
   ClientType,
   Status,
@@ -84,7 +84,7 @@ export const clientApplications: IApplicationFromBackend[] = [
   },
 ]
 
-export const application: IApplication = {
+export const application: IApplicationFromScratch = {
   client: {
     name: 'Alexandr',
     surname: 'Vasilev',

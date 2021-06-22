@@ -5,8 +5,11 @@ import {
   addNewApplicationFx,
   addApplication,
 } from './model'
-import { applicationCreationAPI } from '../../api/application-creation'
-import { IApplication } from '../../api/application-creation/types'
+import {
+  createApplicationFromScratch,
+  addNewApplication,
+} from '../../api/application-creation'
+import { IApplicationFromScratch } from '../../api/application-creation/types'
 import { $client } from '../client'
 
 forward({
@@ -14,8 +17,8 @@ forward({
   to: createApplicationFx,
 })
 
-createApplicationFx.use(async (application: IApplication) => {
-  await applicationCreationAPI.createNewApplication(application)
+createApplicationFx.use(async (application: IApplicationFromScratch) => {
+  await createApplicationFromScratch(application)
 })
 
 sample({
@@ -26,5 +29,5 @@ sample({
 })
 
 addNewApplicationFx.use(async ({ clientId, application }) => {
-  await applicationCreationAPI.addApplication(clientId, application)
+  await addNewApplication(clientId, application)
 })

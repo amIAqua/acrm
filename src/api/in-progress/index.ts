@@ -1,9 +1,9 @@
 import { IApplicationFromBackend } from '../application-creation/types'
-import { instance } from '../request-intance'
+import { request } from '../request'
 
 export const InProgressAPI = {
   fetchAllInProgress: async (): Promise<IApplicationFromBackend[]> => {
-    const applications = await instance.get('/in_progress/all')
+    const applications = await request.get('/in_progress/all')
     return applications.data
   },
 }

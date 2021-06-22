@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Status } from '../application-creation/types'
 import { InProgressAPI } from '../in-progress'
-import { instance } from '../request-intance'
+import { request } from '../request'
 import { applicationsInProgress } from './mockData'
 
 jest.mock('axios', () => {
@@ -14,7 +14,7 @@ jest.mock('axios', () => {
   }
 })
 
-const mockedInstance = instance as jest.Mocked<typeof axios>
+const mockedInstance = request as jest.Mocked<typeof axios>
 
 describe('in-progress API', () => {
   describe('fetchAllInProgress', () => {

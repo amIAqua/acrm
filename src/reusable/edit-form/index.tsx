@@ -3,13 +3,13 @@ import { Event } from 'effector'
 import { useFormik } from 'formik'
 import { Button } from 'antd'
 import { FormWrapper, Form, ButtonSection } from '../form/styled'
-import { IApplication } from '../../api/application-creation/types'
+import { IApplicationFromScratch } from '../../api/application-creation/types'
 import { Client } from '../form/sections/client'
 import { Vehicle } from '../form/sections/vehicle'
 import { Issues } from '../form/sections/issues'
 
 type EditApplicationFormPropsType = {
-  fields: IApplication
+  fields: IApplicationFromScratch
   submition: Event<any>
   submitionText: string
 }

@@ -1,6 +1,9 @@
 import axios from 'axios'
-import { applicationCreationAPI } from '../application-creation'
-import { instance } from '../request-intance'
+import {
+  createApplicationFromScratch,
+  addNewApplication,
+} from '../application-creation'
+import { request } from '../request'
 import { application } from './mockData'
 
 jest.mock('axios', () => {
@@ -14,14 +17,14 @@ jest.mock('axios', () => {
   }
 })
 
-const mockedInstance = instance as jest.Mocked<typeof axios>
+const mockedInstance = request as jest.Mocked<typeof axios>
 
 describe('application-creation API', () => {
   describe('createNewApplication', () => {
     it('called successfully', async () => {
       mockedInstance.post.mockImplementationOnce(() => Promise.resolve(null))
 
-      applicationCreationAPI.createNewApplication(application)
+      createApplicationFromScratch(application)
 
       expect(mockedInstance.post).toHaveBeenCalledTimes(1)
     })
@@ -31,7 +34,7 @@ describe('application-creation API', () => {
     it('called successfully', async () => {
       mockedInstance.post.mockImplementationOnce(() => Promise.resolve(null))
 
-      applicationCreationAPI.addApplication(1, application)
+      addNewApplication(1, application)
 
       expect(mockedInstance.post).toHaveBeenCalledTimes(1)
     })
