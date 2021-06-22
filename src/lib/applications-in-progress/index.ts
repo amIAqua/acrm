@@ -3,4 +3,5 @@ export {
   fetchApplicationsInProgress,
   resetApplicationsInProgress,
   fetchApplicationsInProgressFx,
+  $loading,
 } from './model'

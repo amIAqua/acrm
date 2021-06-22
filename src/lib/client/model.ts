@@ -1,4 +1,5 @@
 import { createStore, createEvent, createEffect, combine } from 'effector'
+import { pending } from 'patronum'
 import {
   IApplicationFromBackend,
   ClientType,
@@ -23,3 +24,7 @@ export const $clientDetails = combine(
     applicationsLength: clientApplications.length,
   })
 )
+
+export const $loading = pending({
+  effects: [getClientFx, getClientApplicationsFx],
+})
