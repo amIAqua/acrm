@@ -11,6 +11,6 @@ export const applicationEditingAPI = {
   saveChangedApplication: async (
     application: IApplicationFromBackend
   ): Promise<void> => {
-    await instance.put(`/${application.id}/save`)
+    await instance.put(`/${application.id}/save`, application)
   },
 }
