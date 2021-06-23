@@ -1,14 +1,25 @@
-import { forward, guard } from 'effector'
+import { createStore, createEvent, createEffect, forward } from 'effector'
+import { IApplicationFromBackend } from '../../api/application-creation/types'
 import { applicationEditingAPI } from '../../api/application-editing'
-import { historyPush } from '../routing/history'
-import {
-  $applicationToEdit,
-  fetchApplicationToEdit,
-  fetchApplicationToEditFx,
-  saveChanges,
-  saveChangesFx,
-} from './model'
+import { historyPush } from '../../lib/routing/history'
 
+// types
+
+// events
+export const fetchApplicationToEdit = createEvent<string>()
+export const saveChanges = createEvent<any>()
+
+// effects
+export const fetchApplicationToEditFx =
+  createEffect<string, IApplicationFromBackend>()
+
+export const saveChangesFx = createEffect<IApplicationFromBackend, void>()
+
+// stores
+export const $applicationToEdit =
+  createStore<IApplicationFromBackend | null>(null)
+
+// relationships
 forward({
   from: fetchApplicationToEdit,
   to: fetchApplicationToEditFx,

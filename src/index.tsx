@@ -8,13 +8,11 @@ import { GlobalStyles } from './styles/global'
 import 'antd/dist/antd.css'
 
 // effector units
-import './lib/application-creation/init'
 import './lib/clients-search/init'
 import './lib/loading/init'
 import './lib/client/init'
 import './lib/application-statuses/init'
 import './lib/applications-in-progress/init'
-import './lib/application-editing/init'
 import './lib/application-deleting/init'
 
 ReactDOM.render(

@@ -1,11 +1,10 @@
 import { FC, useEffect } from 'react'
 import { useStore } from 'effector-react'
 import { MainLayout } from '../../layouts/main'
-import { $applicationToEdit } from '../../lib/application-editing'
-import { saveChanges } from '../../lib/application-editing'
+import { $applicationToEdit } from '../../features/edit-form'
 import { useParams } from 'react-router-dom'
-import { fetchApplicationToEdit } from '../../lib/application-editing'
-import { EditApplicationForm } from '../../reusable/edit-form'
+import { fetchApplicationToEdit } from '../../features/edit-form'
+import { EditApplicationForm } from '../../features/edit-form/templates/form'
 
 export const EditApplicationPage: FC = () => {
   const { id } = useParams<{ id: string }>()
@@ -21,7 +20,6 @@ export const EditApplicationPage: FC = () => {
     <MainLayout>
       {applicationToEdit ? (
         <EditApplicationForm
-          submition={saveChanges}
           submitionText='Сохранить'
           fields={applicationToEdit}
         />

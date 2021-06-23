@@ -1,6 +1,6 @@
 import { forward, sample } from 'effector'
 import { clientsAPI } from '../../api/clients'
-import { addNewApplicationFx } from '../application-creation'
+import { addNewApplicationFx } from '../../features/add-form'
 import {
   $client,
   $clientApplications,

@@ -1,9 +1,8 @@
 import { FC } from 'react'
 import { useStore } from 'effector-react'
 import { MainLayout } from '../../layouts/main'
-import { addApplication } from '../../lib/application-creation'
 import { ModalWindow } from '../../ui/create-application-modal'
-import { AddApplicationForm } from '../../reusable/add-form'
+import { AddApplicationForm } from '../../features/add-form/templates/form'
 import { ClientApplicationsData } from '../../ui/client-applications-data'
 import {
   $isVisible,
@@ -26,7 +25,6 @@ export const ClientApplicationsPage: FC = () => {
             issues: { ...issues },
           }}
           submitionText='Создать заявку'
-          submition={addApplication}
           closable={true}
         />
       </ModalWindow>
