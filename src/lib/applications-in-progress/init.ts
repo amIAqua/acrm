@@ -1,12 +1,11 @@
 import { forward } from 'effector'
-import { InProgressAPI } from '../../api/in-progress'
+import { fetchAllInProgress } from '../../api/in-progress'
 import {
   fetchApplicationsInProgressFx,
   fetchApplicationsInProgress,
   resetApplicationsInProgress,
   $applicationsInProgress,
 } from './model'
-import { changeStatus } from '../application-statuses'
 import { changeStatusFx } from '../application-statuses/model'
 
 forward({
@@ -21,7 +20,7 @@ forward({
 })
 
 fetchApplicationsInProgressFx.use(async () => {
-  return InProgressAPI.fetchAllInProgress()
+  return fetchAllInProgress()
 })
 
 $applicationsInProgress

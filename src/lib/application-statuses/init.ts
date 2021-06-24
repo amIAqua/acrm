@@ -1,9 +1,9 @@
 import { guard } from 'effector'
 import { changeStatus, changeStatusFx } from './model'
-import { StatusesAPI } from '../../api/statuses'
+import { changeApplicationStatus } from '../../api/statuses'
 
 changeStatusFx.use(async ({ applicationId, newStatus }) => {
-  await StatusesAPI.changeStatus(applicationId, newStatus)
+  await changeApplicationStatus(applicationId, newStatus)
 })
 
 guard({

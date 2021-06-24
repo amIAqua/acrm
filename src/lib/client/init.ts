@@ -1,5 +1,5 @@
 import { forward, sample } from 'effector'
-import { clientsAPI } from '../../api/clients'
+import { getClientById, fetchClientApplications } from '../../api/clients'
 import { addNewApplicationFx } from '../../features/add-form'
 import {
   $client,
@@ -19,7 +19,7 @@ forward({
 })
 
 getClientFx.use(async (clientId: number) => {
-  return clientsAPI.getClientById(clientId)
+  return getClientById(clientId)
 })
 
 $client.on(getClientFx.doneData, (_prev, client) => client)
@@ -31,7 +31,7 @@ forward({
 })
 
 getClientApplicationsFx.use(async (clientId: number) => {
-  return clientsAPI.fetchClientApplications(clientId)
+  return fetchClientApplications(clientId)
 })
 
 $clientApplications.on(

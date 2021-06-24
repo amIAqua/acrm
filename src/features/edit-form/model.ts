@@ -1,6 +1,9 @@
 import { createStore, createEvent, createEffect, forward } from 'effector'
 import { IApplicationFromBackend } from '../../api/application-creation/types'
-import { applicationEditingAPI } from '../../api/application-editing'
+import {
+  saveChangedApplication,
+  getApplicationForEditing,
+} from '../../api/application-editing'
 import { historyPush } from '../../lib/routing/history'
 
 // types
@@ -33,13 +36,13 @@ forward({ from: fetchApplicationToEdit, to: fetchApplicationToEditFx })
 // })
 
 fetchApplicationToEditFx.use(async (id) => {
-  return applicationEditingAPI.getApplicationForEditing(id)
+  return getApplicationForEditing(id)
 })
 
 forward({ from: saveChanges, to: saveChangesFx })
 
 saveChangesFx.use(async (editedApplication) => {
-  return applicationEditingAPI.saveChangedApplication(editedApplication)
+  return saveChangedApplication(editedApplication)
 })
 
 $applicationToEdit.on(

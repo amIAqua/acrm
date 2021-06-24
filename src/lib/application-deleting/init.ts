@@ -1,5 +1,5 @@
 import { forward } from 'effector'
-import { applicationDeletingAPI } from '../../api/application-deleting'
+import { deleteOne } from '../../api/application-deleting'
 import { deleteApplication, deleteApplicationFx } from './model'
 
 forward({
@@ -8,5 +8,5 @@ forward({
 })
 
 deleteApplicationFx.use(async (id) => {
-  applicationDeletingAPI.deleteOne(id)
+  deleteOne(id)
 })

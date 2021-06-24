@@ -1,5 +1,5 @@
 import { createStore, createEvent, createEffect, sample } from 'effector'
-import { clientsAPI } from '../../api/clients'
+import { getClientsBySearchQuery } from '../../api/clients'
 import { ClientType } from '../../api/application-creation/types'
 import { pending } from 'patronum'
 
@@ -23,7 +23,7 @@ export const $fetchedClients = createStore<ClientType[]>([])
 // relationships
 
 searchRequestFx.use(async (query: string) => {
-  return clientsAPI.getClientsBySearchQuery(query)
+  return getClientsBySearchQuery(query)
 })
 
 $searchQuery

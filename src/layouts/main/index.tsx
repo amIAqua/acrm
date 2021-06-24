@@ -7,7 +7,7 @@ import {
 import { CreateApplicationForm } from '../../features/create-form/templates/form'
 import { ModalWindow } from '../../ui/create-application-modal'
 import { Layout, Children } from '../../styles/common'
-import { SideMenu } from '../../reusable/side-menu'
+import { SideMenu } from '../../ui/side-menu'
 import { Navbar } from '../../ui/navbar'
 import { $isVisible } from '../../lib/create-application-modal-window/model'
 import {
