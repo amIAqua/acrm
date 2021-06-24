@@ -6,7 +6,7 @@ import {
   searchRequest,
   $searchQuery,
   resetSearchQuery,
-} from '../../lib/clients-search'
+} from '../../model'
 import { SearchForm, SearchFormWrapper } from './styled'
 
 export const Search: FC = () => {

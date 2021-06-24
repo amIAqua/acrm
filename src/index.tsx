@@ -8,8 +8,6 @@ import { GlobalStyles } from './styles/global'
 import 'antd/dist/antd.css'
 
 // effector units
-import './lib/clients-search/init'
-import './lib/loading/init'
 import './lib/client/init'
 import './lib/application-statuses/init'
 import './lib/applications-in-progress/init'

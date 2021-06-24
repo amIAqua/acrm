@@ -6,4 +6,5 @@ export {
   resetSearchQuery,
   resetFetchedClients,
   searchRequestFx,
+  $loading,
 } from './model'

@@ -1,7 +1,10 @@
 import { FC, useEffect } from 'react'
 import { useStore } from 'effector-react'
-import { $fetchedClients, resetFetchedClients } from '../../lib/clients-search'
-import { $loading } from '../../lib/loading'
+import {
+  $fetchedClients,
+  resetFetchedClients,
+  $loading,
+} from '../../features/clients-search'
 import { StyledSearchResults } from './styled'
 import { columns } from './table-config'
 import { Empty, Table } from 'antd'

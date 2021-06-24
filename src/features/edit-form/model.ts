@@ -20,10 +20,8 @@ export const $applicationToEdit =
   createStore<IApplicationFromBackend | null>(null)
 
 // relationships
-forward({
-  from: fetchApplicationToEdit,
-  to: fetchApplicationToEditFx,
-})
+
+forward({ from: fetchApplicationToEdit, to: fetchApplicationToEditFx })
 
 // TODO: Guard to manage request
 
@@ -38,10 +36,7 @@ fetchApplicationToEditFx.use(async (id) => {
   return applicationEditingAPI.getApplicationForEditing(id)
 })
 
-forward({
-  from: saveChanges,
-  to: saveChangesFx,
-})
+forward({ from: saveChanges, to: saveChangesFx })
 
 saveChangesFx.use(async (editedApplication) => {
   return applicationEditingAPI.saveChangedApplication(editedApplication)
@@ -51,6 +46,8 @@ $applicationToEdit.on(
   fetchApplicationToEditFx.doneData,
   (_prev, application) => application
 )
+
+// realization details
 
 fetchApplicationToEditFx.done.watch(({ params }) => {
   historyPush(`/${params}/edit`)
