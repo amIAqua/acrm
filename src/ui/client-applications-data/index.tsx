@@ -9,7 +9,7 @@ import {
 } from '../../lib/client'
 import { Spin } from 'antd'
 import { ClientApplicationsTable } from '../../ui/client-applications-table'
-import { ClientDetails } from '../../ui/client-details'
+import { ClientDetails } from '../../features/client-details/templates/details'
 
 export const ClientApplicationsData: FC = () => {
   const clientApplications = useStore($clientApplications)

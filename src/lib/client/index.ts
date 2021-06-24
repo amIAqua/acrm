@@ -3,6 +3,5 @@ export {
   getClient,
   $clientApplications,
   getClientApplications,
-  $clientDetails,
   $loading,
 } from './model'

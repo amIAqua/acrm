@@ -16,15 +16,6 @@ export const getClientApplicationsFx =
 export const $client = createStore<ClientType | null>(null)
 export const $clientApplications = createStore<IApplicationFromBackend[]>([])
 
-export const $clientDetails = combine(
-  $client,
-  $clientApplications,
-  (client, clientApplications) => ({
-    client,
-    applicationsLength: clientApplications.length,
-  })
-)
-
 export const $loading = pending({
   effects: [getClientFx, getClientApplicationsFx],
 })
