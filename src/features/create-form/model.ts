@@ -1,4 +1,4 @@
-import { createEvent, createEffect, sample, forward } from 'effector'
+import { createEvent, createEffect, forward } from 'effector'
 import { createApplicationFromScratch } from '../../api/application-creation'
 import { IApplicationFromScratch } from '../../api/application-creation/types'
 

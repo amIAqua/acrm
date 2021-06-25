@@ -1,8 +1,8 @@
 import { Space } from 'antd'
 import { Status } from '../../api/application-creation/types'
-import { deleteApplication } from '../../lib/application-deleting'
+import { deleteApplication } from '../../features/application-deleting'
 import { fetchApplicationToEdit } from '../../features/edit-form'
-import { changeStatus } from '../../lib/application-statuses'
+import { changeStatus } from '../../features/statuses'
 import { statusRow, TableRowType } from '../../lib/table-rows'
 
 export const columns = [

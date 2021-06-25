@@ -6,7 +6,7 @@ import {
   getClient,
   getClientApplications,
   $loading,
-} from '../../lib/client'
+} from '../../features/client'
 import { Spin } from 'antd'
 import { ClientApplicationsTable } from '../../ui/client-applications-table'
 import { ClientDetails } from '../../features/client-details/templates/details'

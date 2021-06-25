@@ -1,1 +1,0 @@
-export { deleteApplication } from './model'

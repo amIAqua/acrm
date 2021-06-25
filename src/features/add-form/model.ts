@@ -1,7 +1,7 @@
 import { createEvent, createEffect, sample } from 'effector'
 import { addNewApplication } from '../../api/application-creation'
 import { NewApplicationType } from '../../api/application-creation/types'
-import { $client } from '../../lib/client'
+import { $client } from '../client'
 
 // types
 

@@ -1,5 +1,5 @@
 import { combine } from 'effector'
-import { $client, $clientApplications } from '../../lib/client'
+import { $client, $clientApplications } from '../client'
 
 export const $clientDetails = combine(
   $client,

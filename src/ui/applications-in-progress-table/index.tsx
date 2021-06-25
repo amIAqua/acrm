@@ -1,10 +1,7 @@
 import { FC } from 'react'
 import { useStore } from 'effector-react'
 import { Spin, Table } from 'antd'
-import {
-  $applicationsInProgress,
-  $loading,
-} from '../../lib/applications-in-progress'
+import { $applicationsInProgress, $loading } from '../../features/in-progress'
 import { columns } from '../client-applications-table/table-config'
 import { tableRows } from '../../lib/table-rows'
 import { Empty } from 'antd'

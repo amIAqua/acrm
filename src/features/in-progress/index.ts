@@ -1,7 +1,7 @@
 export {
   $applicationsInProgress,
+  $loading,
   fetchApplicationsInProgress,
   resetApplicationsInProgress,
   fetchApplicationsInProgressFx,
-  $loading,
 } from './model'
