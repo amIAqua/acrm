@@ -1,4 +1,3 @@
-import {} from '@testing-library/react'
 import {
   IApplicationFromBackend,
   Status,

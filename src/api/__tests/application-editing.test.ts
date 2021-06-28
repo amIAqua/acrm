@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { applicationEditingAPI } from '../application-editing'
+import { getApplicationForEditing } from '../application-editing'
 import { request } from '../request'
 import { applicationFromBackend } from './mockData'
 
@@ -23,17 +23,17 @@ describe('application editing API', () => {
     })
 
     it('is defined', () => {
-      expect(applicationEditingAPI.getApplicationForEditing).toBeDefined()
+      expect(getApplicationForEditing).toBeDefined()
     })
 
     it('returns correct value', async () => {
-      const response = await applicationEditingAPI.getApplicationForEditing('1')
+      const response = await getApplicationForEditing('1')
 
       expect(response).toEqual(applicationFromBackend)
     })
 
     it('called times', async () => {
-      const response = await applicationEditingAPI.getApplicationForEditing('1')
+      const response = await getApplicationForEditing('1')
 
       expect(mockedInstance.get).toBeCalledTimes(1)
     })

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { Search } from '../search'
+import { Search } from '../../templates/search'
 
 describe('Search component', () => {
   it('renders to the DOM', () => {

@@ -1,16 +1,26 @@
 import { act, render, screen } from '@testing-library/react'
-import { ModalWindow } from '../create-application-modal'
-import { AddApplicationForm } from '../add-application-form'
+import {
+  client,
+  issues,
+  vehicle,
+} from '../../../../reusable/form/initial-form-values'
+import { ModalWindow } from '../../../../ui/create-application-modal'
+import { AddApplicationForm } from '../../templates/form'
 
 describe('Add application modal with form', () => {
   const onOpen = jest.fn()
   const onClose = jest.fn()
   let isVisible: boolean = false
+  const fields = {
+    client: { ...client },
+    vehicle: { ...vehicle },
+    issues: { ...issues },
+  }
 
   beforeAll(() => {
     render(
       <ModalWindow onClose={onClose} onOpen={onOpen} isVisible={isVisible}>
-        <AddApplicationForm />
+        <AddApplicationForm fields={fields} submitionText='Добавить заявку' />
       </ModalWindow>
     )
   })
@@ -29,7 +39,7 @@ describe('Add application modal with form', () => {
 
     render(
       <ModalWindow onClose={onClose} onOpen={onOpen} isVisible={isVisible}>
-        <AddApplicationForm />
+        <AddApplicationForm fields={fields} submitionText='Добавить заявку' />
       </ModalWindow>
     )
 
@@ -44,7 +54,7 @@ describe('Add application modal with form', () => {
 
     render(
       <ModalWindow onClose={onClose} onOpen={onOpen} isVisible={isVisible}>
-        <AddApplicationForm />
+        <AddApplicationForm fields={fields} submitionText='Добавить заявку' />
       </ModalWindow>
     )
 

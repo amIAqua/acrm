@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { request } from '../request'
-import { clientsAPI } from '../clients'
+import { getClientsBySearchQuery, fetchClientApplications } from '../clients'
 import { clientApplications, clients } from './mockData'
 
 jest.mock('axios', () => {
@@ -20,7 +20,7 @@ describe('clients API', () => {
     it('returns successful result', async () => {
       mockedInstance.get.mockResolvedValue({ data: clients })
 
-      const response = await clientsAPI.getClientsBySearchQuery('Vasilev')
+      const response = await getClientsBySearchQuery('Vasilev')
 
       expect(response).toEqual(clients)
     })
@@ -30,7 +30,7 @@ describe('clients API', () => {
     it('returns successful result', async () => {
       mockedInstance.get.mockResolvedValue({ data: clientApplications })
 
-      const response = await clientsAPI.fetchClientApplications(1)
+      const response = await fetchClientApplications(1)
 
       expect(response).toEqual(clientApplications)
       expect(response[0].id).toEqual(clientApplications[0].id)

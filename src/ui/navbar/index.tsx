@@ -6,7 +6,6 @@ import {
   User,
 } from './styled'
 import { ArrowRightOutlined, UserOutlined } from '@ant-design/icons'
-import { useHistory } from 'react-router'
 
 export const Navbar: FC = () => {
   return (
