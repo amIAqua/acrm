@@ -4,20 +4,19 @@ import { Button } from 'antd'
 import { FormWrapper, Form } from '../../../reusable/form/styled'
 import { onClose } from '../../../lib/create-application-modal-window/model'
 import { addApplication } from '../index'
-import { NewApplicationType } from '../../../api/application-creation/types'
+import { NewClientApplicationType } from '../../../api/application-creation/types'
 import { Vehicle } from '../../../reusable/form/sections/vehicle'
 import { Issues } from '../../../reusable/form/sections/issues'
 import { ButtonSection } from '../../../reusable/form/styled'
 
 type AddApplicationFormPropsType = {
-  fields: NewApplicationType
+  fields: NewClientApplicationType
   closable?: boolean
   submitionText: string
 }
 
 export const AddApplicationForm: FC<AddApplicationFormPropsType> = ({
   fields,
-
   submitionText,
   closable,
 }) => {

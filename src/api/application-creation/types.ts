@@ -25,13 +25,17 @@ export interface IApplicationFromScratch {
   issues: IssuesType
 }
 
-export type NewApplicationType = Omit<IApplicationFromScratch, 'client'>
+export type NewClientApplicationType = Omit<IApplicationFromScratch, 'client'>
 
 export interface IApplicationFromBackend extends IApplicationFromScratch {
   id: string
   clientId: string
   status: Status
 }
+
+export type ApplicationUnitType =
+  | IApplicationFromScratch
+  | NewClientApplicationType
 
 export enum Status {
   CREATED = 'CREATED',

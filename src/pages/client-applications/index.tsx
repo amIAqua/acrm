@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useStore } from 'effector-react'
 import { MainLayout } from '../../layouts/main'
 import { ModalWindow } from '../../ui/create-application-modal'
-import { AddApplicationForm } from '../../features/add-form/templates/form'
+import { AddApplicationForm } from '../../features/add-application/templates/form'
 import { ClientApplicationsData } from '../../ui/client-applications-data'
 import {
   $isVisible,

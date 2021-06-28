@@ -12,7 +12,7 @@ import {
 } from '../../api/application-creation/types'
 import { fetchClientApplications, getClientById } from '../../api/clients'
 import { changeStatusFx } from '../statuses'
-import { addNewApplicationFx } from '../add-form'
+import { addNewApplicationFx, addApplication } from '../add-application'
 import { deleteApplicationFx } from '../application-deleting'
 
 export const getClient = createEvent<number>()
@@ -20,8 +20,10 @@ export const getClientApplications = createEvent<number>()
 
 export const getClientFx = createEffect<number, ClientType>()
 
-export const getClientApplicationsFx =
-  createEffect<number, IApplicationFromBackend[]>()
+export const getClientApplicationsFx = createEffect<
+  number,
+  IApplicationFromBackend[]
+>()
 
 export const $client = createStore<ClientType | null>(null)
 export const $clientApplications = createStore<IApplicationFromBackend[]>([])
@@ -52,14 +54,21 @@ $clientApplications.on(
 )
 
 // Refetch all client applications after adding new, updating application status, deleting one
+
+// sample({
+//   clock: addNewApplicationFx.done,
+//   source: $client,
+//   fn: (client) => client?.id!,
+//   target: getClientApplicationsFx,
+// })
+
 sample({
   clock: [
     changeStatusFx.done,
     // TOFO (fix): do smth with effect initialization
-    // addNewApplicationFx.done,
     deleteApplicationFx.done,
   ],
   source: $client,
   fn: (client) => client!.id!,
-  target: getClientApplicationsFx,
+  target: getClientApplications,
 })

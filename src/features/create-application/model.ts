@@ -14,11 +14,8 @@ export const createApplicationFx = createEffect<IApplicationFromScratch, void>()
 
 // relationships
 
-forward({
-  from: createApplication,
-  to: createApplicationFx,
-})
+forward({ from: createApplication, to: createApplicationFx })
 
-createApplicationFx.use(async (application: IApplicationFromScratch) => {
+createApplicationFx.use(async (application) => {
   await createApplicationFromScratch(application)
 })

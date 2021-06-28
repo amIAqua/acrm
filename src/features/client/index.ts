@@ -4,4 +4,5 @@ export {
   $loading,
   getClient,
   getClientApplications,
+  getClientApplicationsFx,
 } from './model'

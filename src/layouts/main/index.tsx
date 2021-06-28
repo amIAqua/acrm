@@ -4,7 +4,7 @@ import {
   onOpen,
   onClose,
 } from '../../lib/create-application-modal-window/model'
-import { CreateApplicationForm } from '../../features/create-form/templates/form'
+import { CreateApplicationForm } from '../../features/create-application/templates/form'
 import { ModalWindow } from '../../ui/create-application-modal'
 import { Layout, Children } from '../../styles/common'
 import { SideMenu } from '../../ui/side-menu'
