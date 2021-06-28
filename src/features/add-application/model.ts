@@ -1,7 +1,7 @@
 import { createEvent, createEffect, sample } from 'effector'
 import { addNewApplication } from '../../api/application-creation'
 import { NewClientApplicationType } from '../../api/application-creation/types'
-import { $client } from '../../features/client'
+import { $clientId, refetchApplications } from '../../features/client'
 
 // types
 
@@ -23,7 +23,14 @@ addNewApplicationFx.use(async ({ clientId, application }) => {
 
 sample({
   clock: addApplication,
-  source: $client,
-  fn: (client, application) => ({ clientId: client?.id!, application }),
+  source: $clientId,
+  fn: (id, application) => ({ clientId: id, application }),
   target: addNewApplicationFx,
+})
+
+// refetch applications after adding new
+sample({
+  clock: addNewApplicationFx.done,
+  source: $clientId,
+  target: refetchApplications,
 })

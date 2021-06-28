@@ -1,8 +1,9 @@
 export {
   $client,
+  $clientId,
   $clientApplications,
   $loading,
   getClient,
   getClientApplications,
-  getClientApplicationsFx,
+  refetchApplications,
 } from './model'

@@ -17,6 +17,7 @@ import { deleteApplicationFx } from '../application-deleting'
 
 export const getClient = createEvent<number>()
 export const getClientApplications = createEvent<number>()
+export const refetchApplications = createEvent<number>()
 
 export const getClientFx = createEffect<number, ClientType>()
 
@@ -32,6 +33,8 @@ export const $loading = pending({
   effects: [getClientFx, getClientApplicationsFx],
 })
 
+export const $clientId = $client.map((client) => client?.id!)
+
 // Client
 forward({ from: getClient, to: getClientFx })
 
@@ -43,6 +46,7 @@ $client.on(getClientFx.doneData, (_prev, client) => client)
 
 // Client applications
 forward({ from: getClientApplications, to: getClientApplicationsFx })
+forward({ from: refetchApplications, to: getClientApplicationsFx })
 
 getClientApplicationsFx.use(async (clientId: number) => {
   return fetchClientApplications(clientId)
@@ -52,23 +56,3 @@ $clientApplications.on(
   getClientApplicationsFx.doneData,
   (_prev, applications) => applications
 )
-
-// Refetch all client applications after adding new, updating application status, deleting one
-
-// sample({
-//   clock: addNewApplicationFx.done,
-//   source: $client,
-//   fn: (client) => client?.id!,
-//   target: getClientApplicationsFx,
-// })
-
-sample({
-  clock: [
-    changeStatusFx.done,
-    // TOFO (fix): do smth with effect initialization
-    deleteApplicationFx.done,
-  ],
-  source: $client,
-  fn: (client) => client!.id!,
-  target: getClientApplications,
-})
