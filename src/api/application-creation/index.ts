@@ -1,13 +1,13 @@
-import { request } from '../request'
+import { request, ResponseType } from '../request'
 import { IApplicationFromScratch, NewClientApplicationType } from './types'
 
 export const createApplicationFromScratch = (
   application: IApplicationFromScratch
-): Promise<void> =>
+): Promise<ResponseType<void>> =>
   request.post('/application-creation/create-new', application)
 
 export const addNewApplication = (
   clientId: number,
   application: NewClientApplicationType
-): Promise<void> =>
+): Promise<ResponseType<void>> =>
   request.post(`application-creation/${clientId}/add-new`, application)

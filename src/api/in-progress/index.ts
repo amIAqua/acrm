@@ -1,9 +1,12 @@
 import { IApplicationFromBackend } from '../application-creation/types'
-import { request } from '../request'
+import { request, ResponseType } from '../request'
 
 export const fetchAllInProgress = async (): Promise<
   IApplicationFromBackend[]
 > => {
-  const applications = await request.get('/in_progress/all')
-  return applications.data
+  const applications = await request.get<
+    ResponseType<IApplicationFromBackend[]>
+  >('/in_progress/all')
+
+  return applications.data.data
 }

@@ -1,5 +1,5 @@
-import { request } from '../request'
+import { request, ResponseType } from '../request'
 
 export const deleteOne = async (id: string): Promise<void> => {
-  await request.delete(`/applications/${id}/delete`)
+  await request.delete<ResponseType<void>>(`/applications/${id}/delete`)
 }

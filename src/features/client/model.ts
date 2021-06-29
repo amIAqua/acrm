@@ -1,19 +1,10 @@
-import {
-  createStore,
-  createEvent,
-  createEffect,
-  forward,
-  sample,
-} from 'effector'
+import { createStore, createEvent, createEffect, forward } from 'effector'
 import { pending } from 'patronum'
 import {
   IApplicationFromBackend,
   ClientType,
 } from '../../api/application-creation/types'
 import { fetchClientApplications, getClientById } from '../../api/clients'
-import { changeStatusFx } from '../statuses'
-import { addNewApplicationFx, addApplication } from '../add-application'
-import { deleteApplicationFx } from '../application-deleting'
 
 export const getClient = createEvent<number>()
 export const getClientApplications = createEvent<number>()

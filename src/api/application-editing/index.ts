@@ -1,15 +1,18 @@
 import { IApplicationFromBackend } from '../application-creation/types'
-import { request } from '../request'
+import { request, ResponseType } from '../request'
 
 export const getApplicationForEditing = async (
   id: string
 ): Promise<IApplicationFromBackend> => {
-  const application = await request.get(`/${id}/edit`)
-  return application.data
+  const application = await request.get<ResponseType<IApplicationFromBackend>>(
+    `/${id}/edit`
+  )
+
+  return application.data.data
 }
 
 export const saveChangedApplication = async (
   application: IApplicationFromBackend
 ): Promise<void> => {
-  await request.put(`/${application.id}/save`, application)
+  await request.put<ResponseType<void>>(`/${application.id}/save`, application)
 }
