@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { Button, Table } from 'antd'
 import { columns } from './table-config'
 import { tableRows } from '../../lib/table-rows'
@@ -11,9 +10,9 @@ type ClientApplicationsTableProps = {
   clientApplications: IApplicationFromBackend[]
 }
 
-export const ClientApplicationsTable: FC<ClientApplicationsTableProps> = ({
+export const ClientApplicationsTable = ({
   clientApplications,
-}) => {
+}: ClientApplicationsTableProps): JSX.Element => {
   return (
     <ClientApplicationsContainer>
       <Table

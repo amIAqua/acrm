@@ -1,18 +1,17 @@
-import { FC } from 'react'
 import Modal from 'antd/lib/modal/Modal'
 
 type ModalWindowProps = {
+  children: any
   onOpen: () => void
   onClose: () => void
   isVisible: boolean
 }
 
-export const ModalWindow: FC<ModalWindowProps> = ({
+export const ModalWindow = ({
   children,
-  onOpen,
   onClose,
   isVisible,
-}) => {
+}: ModalWindowProps): JSX.Element => {
   return (
     <>
       <Modal

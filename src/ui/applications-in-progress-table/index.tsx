@@ -8,7 +8,7 @@ import { Empty } from 'antd'
 import { ApplicationsInProgressContainer } from './styled'
 import { ExpandedData } from '../application-expanded-data'
 
-export const ApplicationsInProgressTable: FC = () => {
+export const ApplicationsInProgressTable = (): JSX.Element => {
   const applicationsInProgress = useStore($applicationsInProgress)
   const loading = useStore($loading)
 

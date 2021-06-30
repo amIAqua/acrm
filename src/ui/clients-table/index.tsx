@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useStore } from 'effector-react'
 import {
   $fetchedClients,
@@ -9,7 +9,7 @@ import { StyledSearchResults } from './styled'
 import { columns } from './table-config'
 import { Empty, Table } from 'antd'
 
-export const ClientsTable: FC = () => {
+export const ClientsTable = (): JSX.Element => {
   const loading = useStore($loading)
   const fetchedClients = useStore($fetchedClients)
 

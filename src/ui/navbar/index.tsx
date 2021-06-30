@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import {
   AuthBordered,
   AuthenticationSection,
@@ -7,7 +6,7 @@ import {
 } from './styled'
 import { ArrowRightOutlined, UserOutlined } from '@ant-design/icons'
 
-export const Navbar: FC = () => {
+export const Navbar = (): JSX.Element => {
   return (
     <StyledNavbar>
       <AuthenticationSection>

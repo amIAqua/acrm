@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { Menu } from 'antd'
 import SubMenu from 'antd/lib/menu/SubMenu'
 import { onOpen } from '../../lib/create-application-modal-window/model'
@@ -10,7 +9,7 @@ import {
   MailOutlined,
 } from '@ant-design/icons'
 
-export const SideMenu: FC = () => {
+export const SideMenu = (): JSX.Element => {
   const { selectedLink, mappedLinks } = useSelectedLinks()
 
   return (

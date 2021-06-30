@@ -1,5 +1,5 @@
 import { useStore } from 'effector-react'
-import { FC, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import {
   $clientApplications,
@@ -11,7 +11,7 @@ import { Spin } from 'antd'
 import { ClientApplicationsTable } from '../../ui/client-applications-table'
 import { ClientDetails } from '../../features/client-details/templates/details'
 
-export const ClientApplicationsData: FC = () => {
+export const ClientApplicationsData = (): JSX.Element => {
   const clientApplications = useStore($clientApplications)
   const loading = useStore($loading)
   const { id } = useParams<{ id: string }>()
