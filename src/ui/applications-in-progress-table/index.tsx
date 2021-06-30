@@ -6,6 +6,7 @@ import { columns } from '../client-applications-table/table-config'
 import { tableRows } from '../../lib/table-rows'
 import { Empty } from 'antd'
 import { ApplicationsInProgressContainer } from './styled'
+import { ExpandedData } from '../application-expanded-data'
 
 export const ApplicationsInProgressTable: FC = () => {
   const applicationsInProgress = useStore($applicationsInProgress)
@@ -23,7 +24,10 @@ export const ApplicationsInProgressTable: FC = () => {
           dataSource={tableRows(applicationsInProgress)}
           expandable={{
             expandedRowRender: (record) => (
-              <p style={{ margin: 0 }}>{record.description}</p>
+              <ExpandedData
+                client={record.client}
+                description={record.description}
+              />
             ),
             rowExpandable: (record) => record.vehicleName !== 'Not Expandable',
           }}

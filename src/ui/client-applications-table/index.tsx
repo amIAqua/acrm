@@ -5,6 +5,7 @@ import { tableRows } from '../../lib/table-rows'
 import { ClientApplicationsContainer } from './styled'
 import { onOpen } from '../../lib/new-application-modal/model'
 import { IApplicationFromBackend } from '../../api/application-creation/types'
+import { ExpandedData } from '../application-expanded-data'
 
 type ClientApplicationsTableProps = {
   clientApplications: IApplicationFromBackend[]
@@ -20,7 +21,7 @@ export const ClientApplicationsTable: FC<ClientApplicationsTableProps> = ({
         dataSource={tableRows(clientApplications)}
         expandable={{
           expandedRowRender: (record) => (
-            <p style={{ margin: 0 }}>{record.description}</p>
+            <ExpandedData description={record.description} />
           ),
           rowExpandable: (record) => record.vehicleName !== 'Not Expandable',
         }}
