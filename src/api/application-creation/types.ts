@@ -31,6 +31,7 @@ export interface IApplicationFromBackend extends IApplicationFromScratch {
   id: string
   clientId: string
   status: Status
+  createdAt: string
 }
 
 export type ApplicationUnitType =

@@ -20,7 +20,10 @@ export const ClientApplicationsTable = ({
         dataSource={tableRows(clientApplications)}
         expandable={{
           expandedRowRender: (record) => (
-            <ExpandedData description={record.description} />
+            <ExpandedData
+              description={record.description}
+              createDate={record.createdAt}
+            />
           ),
           rowExpandable: (record) => record.vehicleName !== 'Not Expandable',
         }}

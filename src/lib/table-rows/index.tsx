@@ -16,6 +16,7 @@ export type TableRowType = {
   status: Status
   description: string | ''
   client?: ClientType
+  createdAt: string
 }
 
 export const tableRows = (
@@ -33,6 +34,7 @@ export const tableRows = (
     status: application.status,
     description: application.issues.description!,
     client: application.client,
+    createdAt: application.createdAt,
   }))
 }
 

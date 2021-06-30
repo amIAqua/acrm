@@ -25,6 +25,7 @@ export const ApplicationsInProgressTable = (): JSX.Element => {
           expandable={{
             expandedRowRender: (record) => (
               <ExpandedData
+                createDate={record.createdAt}
                 client={record.client}
                 description={record.description}
               />

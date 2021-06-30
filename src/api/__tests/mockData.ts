@@ -14,7 +14,7 @@ export const clients: ClientType[] = [
   },
 ]
 
-export const applicationFromBackend: IApplicationFromBackend = {
+export const applicationFromBackend = {
   id: '1',
   clientId: '1',
   client: {
@@ -35,9 +35,10 @@ export const applicationFromBackend: IApplicationFromBackend = {
     description: 'description',
   },
   status: Status.CREATED,
+  createdAt: '12.02.2020',
 }
 
-export const clientApplications: IApplicationFromBackend[] = [
+export const clientApplications = [
   {
     id: '1',
     clientId: '1',
@@ -59,6 +60,7 @@ export const clientApplications: IApplicationFromBackend[] = [
       description: 'description',
     },
     status: Status.CREATED,
+    createdAt: '12.02.2020',
   },
   {
     id: '2',
@@ -81,6 +83,7 @@ export const clientApplications: IApplicationFromBackend[] = [
       description: 'description2',
     },
     status: Status.IN_PROGRESS,
+    createdAt: '12.02.2020',
   },
 ]
 
@@ -126,6 +129,7 @@ export const applicationsInProgress = [
       description: 'description',
     },
     status: Status.IN_PROGRESS,
+    createdAt: '12.02.2020',
   },
   {
     id: '2',
@@ -148,5 +152,6 @@ export const applicationsInProgress = [
       description: 'description2',
     },
     status: Status.IN_PROGRESS,
+    createdAt: '12.02.2020',
   },
 ]
