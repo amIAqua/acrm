@@ -5,6 +5,7 @@ import {
   ClientType,
 } from '../../api/application-creation/types'
 import { fetchClientApplications, getClientById } from '../../api/clients'
+import { deleteApplicationFx } from '../application-deleting'
 
 export const getClient = createEvent<number>()
 export const getClientApplications = createEvent<number>()
@@ -37,7 +38,6 @@ $client.on(getClientFx.doneData, (_prev, client) => client)
 
 // Client applications
 forward({ from: getClientApplications, to: getClientApplicationsFx })
-forward({ from: refetchApplications, to: getClientApplicationsFx })
 
 getClientApplicationsFx.use(async (clientId: number) => {
   return fetchClientApplications(clientId)

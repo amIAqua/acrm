@@ -1,7 +1,7 @@
 import { createEvent, createEffect, sample } from 'effector'
 import { addNewApplication } from '../../api/application-creation'
 import { NewClientApplicationType } from '../../api/application-creation/types'
-import { $clientId, refetchApplications } from '../../features/client'
+import { $clientId, getClientApplications } from '../../features/client'
 
 // types
 
@@ -32,5 +32,5 @@ sample({
 sample({
   clock: addNewApplicationFx.done,
   source: $clientId,
-  target: refetchApplications,
+  target: getClientApplications,
 })

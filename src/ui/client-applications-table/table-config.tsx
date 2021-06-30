@@ -2,7 +2,7 @@ import { Space } from 'antd'
 import { Status } from '../../api/application-creation/types'
 import { deleteApplication } from '../../features/application-deleting'
 import { fetchApplicationToEdit } from '../../features/edit-form'
-import { changeStatus } from '../../features/statuses'
+import { toClosed, toProgress } from '../../features/statuses'
 import { statusRow, TableRowType } from '../../lib/table-rows'
 
 export const columns = [
@@ -48,29 +48,9 @@ export const columns = [
     render: (text: any, record: TableRowType) => (
       <Space size='middle'>
         {record.status !== Status.IN_PROGRESS ? (
-          <a
-            onClick={() =>
-              changeStatus({
-                applicationId: record.id,
-                applicationStatus: record.status,
-                newStatus: Status.IN_PROGRESS,
-              })
-            }
-          >
-            В выполнение
-          </a>
+          <a onClick={() => toProgress(+record.id)}>В выполнение</a>
         ) : (
-          <a
-            onClick={() =>
-              changeStatus({
-                applicationId: record.id,
-                applicationStatus: record.status,
-                newStatus: Status.CLOSED,
-              })
-            }
-          >
-            Завершить
-          </a>
+          <a onClick={() => toClosed(+record.id)}>Завершить</a>
         )}
 
         <a onClick={() => fetchApplicationToEdit(record.id)}>Редактировать</a>

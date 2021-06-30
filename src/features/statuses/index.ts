@@ -1,1 +1,1 @@
-export { changeStatus, changeStatusFx } from './model'
+export { toProgress, toClosed, toClosedFx } from './model'

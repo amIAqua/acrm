@@ -1,6 +1,6 @@
 import { createEvent, createEffect, forward, sample } from 'effector'
 import { deleteOne } from '../../api/application-deleting'
-import { $clientId, refetchApplications } from '../client'
+import { $clientId, getClientApplications } from '../client'
 
 export const deleteApplication = createEvent<string>()
 
@@ -12,9 +12,9 @@ deleteApplicationFx.use(async (id) => {
   deleteOne(id)
 })
 
-// refetch application after deleting one
+// refetch client applications after deleting one
 sample({
   clock: deleteApplicationFx.done,
   source: $clientId,
-  target: refetchApplications,
+  target: getClientApplications,
 })

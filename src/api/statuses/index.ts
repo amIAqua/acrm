@@ -1,11 +1,17 @@
-import { Status } from '../application-creation/types'
 import { request, ResponseType } from '../request'
 
-export const changeApplicationStatus = async (
-  applicationId: string,
-  status: Status
+export const setApplicationToProgress = async (
+  applicationId: number
 ): Promise<void> => {
   await request.put<ResponseType<void>>(
-    `/applications/${applicationId}/status/${status}`
+    `/applications/${applicationId}/status/IN_PROGRESS`
+  )
+}
+
+export const setApplicationToClosed = async (
+  applicationId: number
+): Promise<void> => {
+  await request.put<ResponseType<void>>(
+    `/applications/${applicationId}/status/CLOSED`
   )
 }
