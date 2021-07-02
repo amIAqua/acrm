@@ -47,7 +47,7 @@ export const columns = [
     key: 'actions',
     render: (text: any, record: TableRowType) => (
       <Space size='middle'>
-        {record.status !== Status.IN_PROGRESS ? (
+        {!record.closed ? (
           <a onClick={() => toProgress(+record.id)}>В выполнение</a>
         ) : (
           <a onClick={() => toClosed(+record.id)}>Завершить</a>

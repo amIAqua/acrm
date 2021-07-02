@@ -23,6 +23,7 @@ export interface IApplicationFromScratch {
   client: ClientType
   vehicle: VehicleType
   issues: IssuesType
+  closed: boolean
 }
 
 export type NewClientApplicationType = Omit<IApplicationFromScratch, 'client'>
@@ -32,6 +33,9 @@ export interface IApplicationFromBackend extends IApplicationFromScratch {
   clientId: string
   status: Status
   createdAt: string
+  startedAt?: string
+  closedAt?: string
+  closed: boolean
 }
 
 export type ApplicationUnitType =

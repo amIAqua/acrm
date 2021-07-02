@@ -105,6 +105,7 @@ export const application: IApplicationFromScratch = {
   issues: {
     description: 'description',
   },
+  closed: false,
 }
 
 export const applicationsInProgress = [

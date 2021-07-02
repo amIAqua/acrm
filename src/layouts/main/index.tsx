@@ -31,6 +31,7 @@ export const MainLayout: FC = ({ children }) => {
               client: { ...client },
               vehicle: { ...vehicle },
               issues: { ...issues },
+              closed: false,
             }}
             submitionText='Создать'
             closable={true}

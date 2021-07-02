@@ -1,4 +1,4 @@
-import { createEvent, createEffect, sample, forward, guard } from 'effector'
+import { createEvent, createEffect, sample, forward } from 'effector'
 import {
   setApplicationToProgress,
   setApplicationToClosed,

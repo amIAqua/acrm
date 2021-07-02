@@ -23,6 +23,7 @@ export const ClientApplicationsPage: FC = () => {
           fields={{
             vehicle: { ...vehicle },
             issues: { ...issues },
+            closed: false,
           }}
           submitionText='Создать заявку'
           closable={true}

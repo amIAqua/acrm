@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { useStore } from 'effector-react'
 import { Spin, Table } from 'antd'
 import { $applicationsInProgress, $loading } from '../../features/in-progress'
@@ -27,6 +26,7 @@ export const ApplicationsInProgressTable = (): JSX.Element => {
               <ExpandedData
                 createDate={record.createdAt}
                 client={record.client}
+                startedAt={record.startedAt}
                 description={record.description}
               />
             ),

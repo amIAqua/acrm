@@ -10,26 +10,38 @@ import {
 type ExpandedDataType = {
   client?: ClientType
   createDate: string
+  startedAt?: string
+  closedAt?: string
   description: string
 }
 
 const formattedClient = (client: ClientType) =>
   `${client.name} ${client.surname}, ${client.phoneNumber}, ID - ${client.id}`
 
+const formattedDate = (date: string) => `${date.slice(0, 10)}`
+
 export const ExpandedData = ({
   client,
   description,
+  startedAt,
+  closedAt,
   createDate,
 }: ExpandedDataType): JSX.Element => {
-  // const showStartDate = () =>
-  //   startDate ? <StartDate>{`Старт заявки - ${startDate}`}</StartDate> : null
+  const showStartOrClosedDate = () => {
+    if (startedAt) return <StartDate>{`Старт заявки - ${startedAt}`}</StartDate>
+
+    if (closedAt)
+      return <StartDate>{`Закрытие заявки - ${closedAt}`}</StartDate>
+  }
 
   return (
     <>
       <DescriptionInfo>{description}</DescriptionInfo>
       <DateContainer>
-        <CreateDate>{`Дата создания заявки - ${createDate}`}</CreateDate>
-        {/* {showStartDate()} */}
+        <CreateDate>{`Дата создания заявки - ${formattedDate(
+          createDate
+        )}`}</CreateDate>
+        {showStartOrClosedDate()}
       </DateContainer>
 
       {client ? (

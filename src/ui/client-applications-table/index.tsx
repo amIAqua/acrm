@@ -23,6 +23,7 @@ export const ClientApplicationsTable = ({
             <ExpandedData
               description={record.description}
               createDate={record.createdAt}
+              closedAt={record.closedAt}
             />
           ),
           rowExpandable: (record) => record.vehicleName !== 'Not Expandable',
