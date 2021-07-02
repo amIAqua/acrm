@@ -30,7 +30,6 @@ export const ExpandedData = ({
   createDate,
 }: ExpandedDataType): JSX.Element => {
   const showStartOrClosedDate = () => {
-    // TODO: fix right date rendering first time
     if (closed) return <StartDate>{`Закрытие заявки - ${closedAt}`}</StartDate>
 
     if (startedAt) return <StartDate>{`Старт заявки - ${startedAt}`}</StartDate>

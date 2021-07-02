@@ -9,7 +9,7 @@ export const deleteApplicationFx = createEffect<string, void>()
 forward({ from: deleteApplication, to: deleteApplicationFx })
 
 deleteApplicationFx.use(async (id) => {
-  deleteOne(id)
+  await deleteOne(id)
 })
 
 // refetch client applications after deleting one

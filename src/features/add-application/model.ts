@@ -18,8 +18,6 @@ export const addNewApplicationFx = createEffect<
 // relationships
 
 addNewApplicationFx.use(async ({ clientId, application }) => {
-  console.log(application)
-
   await addNewApplication(clientId, application)
 })
 
