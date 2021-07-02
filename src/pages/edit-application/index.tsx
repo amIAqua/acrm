@@ -5,6 +5,7 @@ import { $applicationToEdit } from '../../features/edit-form'
 import { useParams } from 'react-router-dom'
 import { fetchApplicationToEdit } from '../../features/edit-form'
 import { EditApplicationForm } from '../../features/edit-form/templates/form'
+import { Spin } from 'antd'
 
 export const EditApplicationPage: FC = () => {
   const { id } = useParams<{ id: string }>()
@@ -24,7 +25,7 @@ export const EditApplicationPage: FC = () => {
           fields={applicationToEdit}
         />
       ) : (
-        <>Загрузка</>
+        <Spin />
       )}
     </MainLayout>
   )

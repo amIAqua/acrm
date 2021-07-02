@@ -5,7 +5,6 @@ import {
   ClientType,
 } from '../../api/application-creation/types'
 import { fetchClientApplications, getClientById } from '../../api/clients'
-import { deleteApplicationFx } from '../application-deleting'
 
 export const getClient = createEvent<number>()
 export const getClientApplications = createEvent<number>()
