@@ -47,15 +47,21 @@ export const columns = [
     key: 'actions',
     render: (text: any, record: TableRowType) => (
       <Space size='middle'>
-        {!record.closed ? (
+        {record.status === Status.CREATED ? (
           <a onClick={() => toProgress(+record.id)}>В выполнение</a>
-        ) : (
+        ) : null}
+
+        {record.status === Status.IN_PROGRESS ? (
           <a onClick={() => toClosed(+record.id)}>Завершить</a>
-        )}
+        ) : null}
 
         <a onClick={() => fetchApplicationToEdit(record.id)}>Редактировать</a>
 
-        {record.status !== Status.IN_PROGRESS ? (
+        {record.closed ? (
+          <a onClick={() => deleteApplication(record.id)}>Удалить</a>
+        ) : null}
+
+        {record.status === Status.CREATED ? (
           <a onClick={() => deleteApplication(record.id)}>Удалить</a>
         ) : null}
       </Space>

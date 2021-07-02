@@ -13,6 +13,7 @@ type ExpandedDataType = {
   startedAt?: string
   closedAt?: string
   description: string
+  closed?: boolean
 }
 
 const formattedClient = (client: ClientType) =>
@@ -25,13 +26,14 @@ export const ExpandedData = ({
   description,
   startedAt,
   closedAt,
+  closed,
   createDate,
 }: ExpandedDataType): JSX.Element => {
   const showStartOrClosedDate = () => {
-    if (startedAt) return <StartDate>{`Старт заявки - ${startedAt}`}</StartDate>
+    // TODO: fix right date rendering first time
+    if (closed) return <StartDate>{`Закрытие заявки - ${closedAt}`}</StartDate>
 
-    if (closedAt)
-      return <StartDate>{`Закрытие заявки - ${closedAt}`}</StartDate>
+    if (startedAt) return <StartDate>{`Старт заявки - ${startedAt}`}</StartDate>
   }
 
   return (
