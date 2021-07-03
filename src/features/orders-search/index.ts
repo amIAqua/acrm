@@ -1,1 +1,6 @@
-export { $orders, $loading, getOrders } from './model'
+export {
+  getOrders,
+  getOrdersFx,
+  $searchQuery,
+  changeSearchQuery,
+} from './model'

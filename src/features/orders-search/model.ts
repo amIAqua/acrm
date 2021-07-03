@@ -1,27 +1,23 @@
 import { createStore, createEvent, createEffect, forward } from 'effector'
-import { pending } from 'patronum'
 
 // types
 
 // events
+
+export const changeSearchQuery = createEvent<string>()
 export const getOrders = createEvent<void>()
 
 // effects
-const getOrdersFx = createEffect<void, any>()
+
+export const getOrdersFx = createEffect<any, any>()
 
 // stores
 
-export const $orders = createStore<any>([]).on(
-  getOrdersFx.doneData,
-  (_, orders) => orders
+export const $searchQuery = createStore<string>('').on(
+  changeSearchQuery,
+  (_, query) => query
 )
-
-export const $loading = pending({ effects: [getOrdersFx] })
 
 // relationships
 
 forward({ from: getOrders, to: getOrdersFx })
-
-getOrdersFx.use(async () => {
-  // api request
-})

@@ -4,7 +4,7 @@ import { ClientsPage } from '../../pages/clients'
 import { Urls } from './urls'
 import { ApplicationsInProgress } from '../../pages/in-progress'
 import { EditApplicationPage } from '../../pages/edit-application'
-import { OrdersPage } from '../../pages/orders'
+import { OrdersPage } from '../../pages/orders/page'
 
 export const routes = () => [
   {
