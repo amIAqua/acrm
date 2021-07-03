@@ -3,4 +3,5 @@ export {
   getOrdersFx,
   $searchQuery,
   changeSearchQuery,
+  resetSearchQuery,
 } from './model'
