@@ -5,7 +5,6 @@ import {
   getApplicationForEditing,
 } from '../../api/application-editing'
 import { historyBack, historyPush } from '../../lib/routing/history'
-import { $clientId } from '../client'
 
 // types
 

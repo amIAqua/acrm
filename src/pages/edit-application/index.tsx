@@ -1,10 +1,10 @@
 import { FC, useEffect } from 'react'
 import { useStore } from 'effector-react'
 import { MainLayout } from '../../layouts/main'
-import { $applicationToEdit } from '../../features/edit-form'
+import { $applicationToEdit } from '../../features/edit-application'
 import { useParams } from 'react-router-dom'
-import { fetchApplicationToEdit } from '../../features/edit-form'
-import { EditApplicationForm } from '../../features/edit-form/templates/form'
+import { fetchApplicationToEdit } from '../../features/edit-application'
+import { EditApplicationForm } from '../../features/edit-application/templates/form'
 import { Spin } from 'antd'
 
 export const EditApplicationPage: FC = () => {

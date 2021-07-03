@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { useFormik } from 'formik'
 import { Button } from 'antd'
 import { saveChanges } from '../index'
@@ -13,10 +12,10 @@ type EditApplicationFormPropsType = {
   submitionText: string
 }
 
-export const EditApplicationForm: FC<EditApplicationFormPropsType> = ({
+export const EditApplicationForm = ({
   fields,
   submitionText,
-}) => {
+}: EditApplicationFormPropsType): JSX.Element => {
   const formik = useFormik({
     initialValues: fields,
     onSubmit: (values) => {

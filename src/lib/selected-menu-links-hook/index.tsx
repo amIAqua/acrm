@@ -8,6 +8,7 @@ const menuLinks: Link[] = [
   { key: '2', label: 'Главная', path: '/' },
   { key: '3', label: 'Клиенты', path: '/clients' },
   { key: '4', label: 'В выполнении', path: '/in_progress' },
+  { key: '5', label: 'Заказ-наряд', path: '/orders' },
 ]
 
 export const useSelectedLinks = () => {

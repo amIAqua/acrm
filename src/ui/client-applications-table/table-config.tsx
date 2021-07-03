@@ -1,7 +1,7 @@
 import { Space } from 'antd'
 import { Status } from '../../api/application-creation/types'
 import { deleteApplication } from '../../features/application-deleting'
-import { fetchApplicationToEdit } from '../../features/edit-form'
+import { fetchApplicationToEdit } from '../../features/edit-application'
 import { toClosed, toProgress } from '../../features/statuses'
 import { statusRow, TableRowType } from '../../lib/table-rows'
 
