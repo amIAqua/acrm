@@ -4,6 +4,7 @@ import { ClientsPage } from '../../pages/clients'
 import { Urls } from './urls'
 import { ApplicationsInProgress } from '../../pages/in-progress'
 import { EditApplicationPage } from '../../pages/edit-application'
+import { OrdersPage } from '../../pages/orders'
 
 export const routes = () => [
   {
@@ -29,6 +30,11 @@ export const routes = () => [
   {
     path: Urls.EDIT,
     component: EditApplicationPage,
+    exact: true,
+  },
+  {
+    path: Urls.ORDERS,
+    component: OrdersPage,
     exact: true,
   },
 ]

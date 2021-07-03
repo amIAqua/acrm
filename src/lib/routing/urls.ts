@@ -4,4 +4,5 @@ export enum Urls {
   EDIT = '/:id/edit',
   CLIENT_APPLICATIONS = '/clients/:id/applications',
   IN_PROGRESS = '/in_progress',
+  ORDERS = '/orders',
 }
