@@ -1,15 +1,17 @@
 import { render, screen } from '@testing-library/react'
-import { ClientsSearch } from '../../templates/search'
+import { OrdersSearch } from '../../templates/search'
 
-describe('ClientSearch component', () => {
+describe('OrdersSearch component', () => {
   it('renders to the DOM', () => {
-    const { queryByRole } = render(<ClientsSearch />)
+    const { queryByRole } = render(<OrdersSearch />)
 
     const clientInput = queryByRole('textbox')
     const searchButton = queryByRole('button')
 
     expect(clientInput).toBeInTheDocument()
-    screen.queryByPlaceholderText(/Клиент(Ф.И.О, мобильный телефон, email)/i)
+    screen.queryByPlaceholderText(
+      /Клиент, транспортное средство, No. заказ-наряда/i
+    )
     expect(clientInput).toHaveValue('')
 
     expect(searchButton).toBeInTheDocument()

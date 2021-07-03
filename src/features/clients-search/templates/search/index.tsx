@@ -1,5 +1,5 @@
-import { useStore } from 'effector-react'
 import { useEffect } from 'react'
+import { useStore } from 'effector-react'
 import { Search } from '../../../../reusable/search'
 import {
   changeSearchQuery,

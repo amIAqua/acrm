@@ -1,12 +1,12 @@
+import { useEffect } from 'react'
 import { useStore } from 'effector-react'
+import { Search } from '../../../reusable/search'
 import {
   $searchQuery,
   changeSearchQuery,
   getOrders,
   resetSearchQuery,
 } from '../model'
-import { Search } from '../../../reusable/search'
-import { useEffect } from 'react'
 
 export const OrdersSearch = (): JSX.Element => {
   const searchQuery = useStore($searchQuery)
