@@ -1,1 +1,0 @@
-export { $clientDetails } from './model'

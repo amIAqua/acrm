@@ -1,6 +1,6 @@
 import { useStore } from 'effector-react'
 import { Button } from 'antd'
-import { $clientApplications } from '../../features/client'
+import { $clientApplications } from '../../pages/client-applications/model'
 import { columns } from '../../reusable/table/table-configs'
 import { tableRows } from '../../lib/table-rows'
 import { ApplicationsTable } from '../../reusable/table'

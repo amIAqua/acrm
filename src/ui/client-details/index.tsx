@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useStore } from 'effector-react'
-import { $clientDetails } from '../index'
+import { $clientDetails } from '../../pages/client-applications/model'
 import { Details, ClientName } from './styled'
 
 export const ClientDetails: FC = () => {

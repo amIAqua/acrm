@@ -1,4 +1,4 @@
-import { ClientApplicationsPage } from '../../pages/client-applications'
+import { ClientApplicationsPage } from '../../pages/client-applications/page'
 import { HomePage } from '../../pages/home'
 import { ClientsPage } from '../../pages/clients'
 import { Urls } from './urls'
