@@ -2,7 +2,7 @@ import { ClientApplicationsPage } from '../../pages/client-applications'
 import { HomePage } from '../../pages/home'
 import { ClientsPage } from '../../pages/clients'
 import { Urls } from './urls'
-import { ApplicationsInProgress } from '../../pages/in-progress'
+import { ApplicationsInProgress } from '../../pages/in-progress/page'
 import { EditApplicationPage } from '../../pages/edit-application'
 import { OrdersPage } from '../../pages/orders/page'
 

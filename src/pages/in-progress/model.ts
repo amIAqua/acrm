@@ -1,4 +1,4 @@
-import { createStore, createEvent, createEffect, forward } from 'effector'
+import { createEffect, createEvent, createStore, forward } from 'effector'
 import { pending } from 'patronum'
 import { IApplicationFromBackend } from '../../api/application-creation/types'
 import { fetchAllInProgress } from '../../api/in-progress'

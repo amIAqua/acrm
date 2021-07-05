@@ -1,6 +1,9 @@
 import { useStore } from 'effector-react'
 import { Spin } from 'antd'
-import { $applicationsInProgress, $loading } from '../../features/in-progress'
+import {
+  $applicationsInProgress,
+  $loading,
+} from '../../pages/in-progress/model'
 import { columns } from '../../reusable/table/table-configs'
 import { tableRows } from '../../lib/table-rows'
 import { ApplicationsTable } from '../../reusable/table'

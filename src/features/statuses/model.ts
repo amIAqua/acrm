@@ -4,7 +4,7 @@ import {
   setApplicationToClosed,
 } from '../../api/statuses'
 import { $clientId, getClientApplications } from '../client'
-import { fetchApplicationsInProgress } from '../in-progress'
+import { fetchApplicationsInProgress } from '../../pages/in-progress/model'
 
 export const toProgress = createEvent<number>()
 export const toClosed = createEvent<number>()

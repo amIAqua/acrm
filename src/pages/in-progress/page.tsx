@@ -3,7 +3,7 @@ import { MainLayout } from '../../layouts/main'
 import {
   fetchApplicationsInProgress,
   resetApplicationsInProgress,
-} from '../../features/in-progress'
+} from './model'
 import { ApplicationsInProgressTable } from '../../ui/applications-in-progress-table'
 
 export const ApplicationsInProgress: FC = () => {
