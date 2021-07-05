@@ -1,11 +1,9 @@
 import { useStore } from 'effector-react'
-import { Spin, Table } from 'antd'
+import { Spin } from 'antd'
 import { $applicationsInProgress, $loading } from '../../features/in-progress'
-import { columns } from '../client-applications-table/table-config'
+import { columns } from '../../reusable/table/table-configs'
 import { tableRows } from '../../lib/table-rows'
-import { Empty } from 'antd'
-import { ApplicationsInProgressContainer } from './styled'
-import { ExpandedData } from '../application-expanded-data'
+import { ApplicationsTable } from '../../reusable/table'
 
 export const ApplicationsInProgressTable = (): JSX.Element => {
   const applicationsInProgress = useStore($applicationsInProgress)
@@ -16,30 +14,10 @@ export const ApplicationsInProgressTable = (): JSX.Element => {
   }
 
   return (
-    <ApplicationsInProgressContainer>
-      {applicationsInProgress.length ? (
-        <Table
-          columns={columns}
-          dataSource={tableRows(applicationsInProgress)}
-          expandable={{
-            expandedRowRender: (record) => (
-              <ExpandedData
-                createDate={record.createdAt}
-                client={record.client}
-                startedAt={record.startedAt}
-                description={record.description}
-              />
-            ),
-            rowExpandable: (record) => record.vehicleName !== 'Not Expandable',
-          }}
-          pagination={false}
-        />
-      ) : (
-        <Empty
-          image={Empty.PRESENTED_IMAGE_SIMPLE}
-          style={{ marginTop: '100px' }}
-        />
-      )}
-    </ApplicationsInProgressContainer>
+    <ApplicationsTable
+      columns={columns}
+      tableData={tableRows(applicationsInProgress)}
+      expandble={true}
+    />
   )
 }

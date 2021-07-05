@@ -1,44 +1,22 @@
-import { Button, Table } from 'antd'
-import { columns } from './table-config'
+import { columns } from '../../reusable/table/table-configs'
 import { tableRows } from '../../lib/table-rows'
-import { ClientApplicationsContainer } from './styled'
-import { onOpen } from '../../lib/new-application-modal/model'
 import { IApplicationFromBackend } from '../../api/application-creation/types'
-import { ExpandedData } from '../application-expanded-data'
+import { ApplicationsTable } from '../../reusable/table'
 
 type ClientApplicationsTableProps = {
   clientApplications: IApplicationFromBackend[]
 }
 
+// TODO: rebase 'clientApplications' fetching logic to page
+
 export const ClientApplicationsTable = ({
   clientApplications,
 }: ClientApplicationsTableProps): JSX.Element => {
   return (
-    <ClientApplicationsContainer>
-      <Table
-        columns={columns}
-        dataSource={tableRows(clientApplications)}
-        expandable={{
-          expandedRowRender: (record) => (
-            <ExpandedData
-              description={record.description}
-              createDate={record.createdAt}
-              startedAt={record.startedAt}
-              closedAt={record.closedAt}
-              closed={record.closed}
-            />
-          ),
-          rowExpandable: (record) => record.vehicleName !== 'Not Expandable',
-        }}
-        pagination={false}
-      />
-      <Button
-        type='primary'
-        style={{ marginTop: '1rem' }}
-        onClick={() => onOpen()}
-      >
-        Новая заявка
-      </Button>
-    </ClientApplicationsContainer>
+    <ApplicationsTable
+      columns={columns}
+      tableData={tableRows(clientApplications)}
+      expandble={true}
+    />
   )
 }
