@@ -1,18 +1,16 @@
-import { useStore } from 'effector-react'
 import { useEffect } from 'react'
+import { useStore } from 'effector-react'
 import { useParams } from 'react-router-dom'
 import {
-  $clientApplications,
   getClient,
   getClientApplications,
   $loading,
 } from '../../features/client'
-import { Spin } from 'antd'
 import { ClientApplicationsTable } from '../../ui/client-applications-table'
 import { ClientDetails } from '../../features/client-details/templates/details'
+import { Spin } from 'antd'
 
 export const ClientApplicationsData = (): JSX.Element => {
-  const clientApplications = useStore($clientApplications)
   const loading = useStore($loading)
   const { id } = useParams<{ id: string }>()
 
@@ -28,7 +26,7 @@ export const ClientApplicationsData = (): JSX.Element => {
   return (
     <>
       <ClientDetails />
-      <ClientApplicationsTable clientApplications={clientApplications} />
+      <ClientApplicationsTable />
     </>
   )
 }

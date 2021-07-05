@@ -1,22 +1,31 @@
+import { useStore } from 'effector-react'
+import { Button } from 'antd'
+import { $clientApplications } from '../../features/client'
 import { columns } from '../../reusable/table/table-configs'
 import { tableRows } from '../../lib/table-rows'
-import { IApplicationFromBackend } from '../../api/application-creation/types'
 import { ApplicationsTable } from '../../reusable/table'
-
-type ClientApplicationsTableProps = {
-  clientApplications: IApplicationFromBackend[]
-}
+import { ApplicationsTableContainer } from '../../reusable/table/styled'
+import { onOpen } from '../../lib/new-application-modal/model'
 
 // TODO: rebase 'clientApplications' fetching logic to page
 
-export const ClientApplicationsTable = ({
-  clientApplications,
-}: ClientApplicationsTableProps): JSX.Element => {
+export const ClientApplicationsTable = (): JSX.Element => {
+  const clientApplications = useStore($clientApplications)
+
   return (
-    <ApplicationsTable
-      columns={columns}
-      tableData={tableRows(clientApplications)}
-      expandble={true}
-    />
+    <ApplicationsTableContainer>
+      <ApplicationsTable
+        columns={columns}
+        tableData={tableRows(clientApplications)}
+        expandble={true}
+      />
+      <Button
+        type='primary'
+        onClick={() => onOpen()}
+        style={{ marginTop: '1rem' }}
+      >
+        Новая заявка
+      </Button>
+    </ApplicationsTableContainer>
   )
 }

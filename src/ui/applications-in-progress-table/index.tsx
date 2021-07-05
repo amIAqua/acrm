@@ -6,6 +6,7 @@ import {
 } from '../../pages/in-progress/model'
 import { columns } from '../../reusable/table/table-configs'
 import { tableRows } from '../../lib/table-rows'
+import { ApplicationsTableContainer } from '../../reusable/table/styled'
 import { ApplicationsTable } from '../../reusable/table'
 
 export const ApplicationsInProgressTable = (): JSX.Element => {
@@ -17,10 +18,12 @@ export const ApplicationsInProgressTable = (): JSX.Element => {
   }
 
   return (
-    <ApplicationsTable
-      columns={columns}
-      tableData={tableRows(applicationsInProgress)}
-      expandble={true}
-    />
+    <ApplicationsTableContainer>
+      <ApplicationsTable
+        columns={columns}
+        tableData={tableRows(applicationsInProgress)}
+        expandble={true}
+      />
+    </ApplicationsTableContainer>
   )
 }

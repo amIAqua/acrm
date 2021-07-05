@@ -1,5 +1,5 @@
 import { Table, Empty } from 'antd'
-import { ApplicationsInProgressContainer } from './styled'
+import { ApplicationsTableContainer } from './styled'
 import { ExpandedData } from '../../ui/application-expanded-data'
 
 type ApplicationsTableType = {
@@ -14,28 +14,21 @@ export const ApplicationsTable = ({
   expandble,
 }: ApplicationsTableType): JSX.Element => {
   return (
-    <ApplicationsInProgressContainer>
-      <Table
-        columns={columns}
-        dataSource={tableData}
-        expandable={{
-          expandedRowRender: (record) => (
-            <ExpandedData
-              createDate={record.createdAt}
-              client={record.client}
-              startedAt={record.startedAt}
-              description={record.description}
-            />
-          ),
-          rowExpandable: () => !!expandble,
-        }}
-        pagination={false}
-      />
-
-      <Empty
-        image={Empty.PRESENTED_IMAGE_SIMPLE}
-        style={{ marginTop: '100px' }}
-      />
-    </ApplicationsInProgressContainer>
+    <Table
+      columns={columns}
+      dataSource={tableData}
+      expandable={{
+        expandedRowRender: (record) => (
+          <ExpandedData
+            createDate={record.createdAt}
+            client={record.client}
+            startedAt={record.startedAt}
+            description={record.description}
+          />
+        ),
+        rowExpandable: () => !!expandble,
+      }}
+      pagination={false}
+    />
   )
 }
