@@ -1,4 +1,4 @@
-import { createEvent, createEffect, sample, forward } from 'effector'
+import { createEvent, createEffect, sample, forward, split } from 'effector'
 import {
   setApplicationToProgress,
   setApplicationToClosed,
@@ -24,8 +24,9 @@ toClosedFx.use(async (applicationId) => {
   await setApplicationToClosed(applicationId)
 })
 
+// refetch applications after effects are done
 sample({
-  clock: [toProgressFx.done, toClosedFx.done],
+  clock: toProgressFx.done,
   source: $clientId,
   target: getClientApplications,
 })
