@@ -1,5 +1,4 @@
-import { Table, Empty } from 'antd'
-import { ApplicationsTableContainer } from './styled'
+import { Table } from 'antd'
 import { ExpandedData } from '../../ui/application-expanded-data'
 
 type ApplicationsTableType = {
@@ -18,14 +17,18 @@ export const ApplicationsTable = ({
       columns={columns}
       dataSource={tableData}
       expandable={{
-        expandedRowRender: (record) => (
-          <ExpandedData
-            createDate={record.createdAt}
-            client={record.client}
-            startedAt={record.startedAt}
-            description={record.description}
-          />
-        ),
+        expandedRowRender: (record) => {
+          return (
+            <ExpandedData
+              createDate={record.createdAt}
+              client={record.client}
+              startedAt={record.startedAt}
+              description={record.description}
+              closedAt={record.closedAt}
+              closed={record.closed}
+            />
+          )
+        },
         rowExpandable: () => !!expandble,
       }}
       pagination={false}

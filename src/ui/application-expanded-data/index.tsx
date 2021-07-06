@@ -31,7 +31,6 @@ export const ExpandedData = ({
 }: ExpandedDataType): JSX.Element => {
   const showStartOrClosedDate = () => {
     if (closed) return <StartDate>{`Закрытие заявки - ${closedAt}`}</StartDate>
-
     if (startedAt) return <StartDate>{`Старт заявки - ${startedAt}`}</StartDate>
   }
 
