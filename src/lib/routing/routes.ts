@@ -3,7 +3,7 @@ import { HomePage } from '../../pages/home'
 import { ClientsPage } from '../../pages/clients'
 import { Urls } from './urls'
 import { ApplicationsInProgress } from '../../pages/in-progress/page'
-import { EditApplicationPage } from '../../pages/edit-application'
+import { EditApplicationPage } from '../../pages/edit-application/page'
 import { OrdersPage } from '../../pages/orders/page'
 
 export const routes = () => [

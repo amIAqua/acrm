@@ -1,10 +1,18 @@
-import { createStore, createEvent, createEffect, forward } from 'effector'
+import {
+  createStore,
+  createEvent,
+  createEffect,
+  forward,
+  guard,
+  split,
+} from 'effector'
+import { condition, pending } from 'patronum'
 import { IApplicationFromBackend } from '../../api/application-creation/types'
 import {
   saveChangedApplication,
   getApplicationForEditing,
 } from '../../api/application-editing'
-import { historyBack, historyPush } from '../../lib/routing/history'
+import { history, historyBack, historyPush } from '../../lib/routing/history'
 
 // types
 
@@ -24,6 +32,8 @@ export const saveChangesFx = createEffect<IApplicationFromBackend, void>()
 export const $applicationToEdit = createStore<IApplicationFromBackend | null>(
   null
 )
+
+export const $loading = pending({ effects: [fetchApplicationToEditFx] })
 
 // relationships
 
@@ -50,7 +60,17 @@ fetchApplicationToEditFx.done.watch(({ params }) => {
   historyPush(`/${params}/edit`)
 })
 
-// redirect after changed saved
-saveChangesFx.done.watch(({ params }) => {
-  historyBack()
+// redirect after changes saved
+split({
+  source: saveChangesFx.done.map((data) => data.params.status),
+  match: {
+    to_progress: (status) => status === 'IN_PROGRESS',
+    to_rest: (status) => status === 'CLOSED' || status === 'CREATED',
+  },
+  cases: {
+    to_progress: historyPush.prepend(() => '/in_progress'),
+    to_rest: historyPush.prepend(() => '/clients'),
+  },
 })
+
+saveChangesFx.done.watch(({ params }) => {})

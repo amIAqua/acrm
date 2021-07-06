@@ -20,8 +20,6 @@ export const EditApplicationForm = ({
     initialValues: fields,
     onSubmit: (values) => {
       saveChanges(values)
-
-      formik.resetForm()
     },
   })
 
