@@ -3,16 +3,17 @@ import {
   createEvent,
   createEffect,
   forward,
-  guard,
   split,
+  sample,
 } from 'effector'
-import { condition, pending } from 'patronum'
+import { pending } from 'patronum'
 import { IApplicationFromBackend } from '../../api/application-creation/types'
 import {
   saveChangedApplication,
   getApplicationForEditing,
 } from '../../api/application-editing'
-import { history, historyBack, historyPush } from '../../lib/routing/history'
+import { historyPush } from '../../lib/routing/history'
+import { $clientId } from '../client'
 
 // types
 
@@ -32,7 +33,6 @@ export const saveChangesFx = createEffect<IApplicationFromBackend, void>()
 export const $applicationToEdit = createStore<IApplicationFromBackend | null>(
   null
 )
-
 export const $loading = pending({ effects: [fetchApplicationToEditFx] })
 
 // relationships
@@ -56,21 +56,26 @@ $applicationToEdit.on(
 
 // realization details
 
-fetchApplicationToEditFx.done.watch(({ params }) => {
-  historyPush(`/${params}/edit`)
-})
-
 // redirect after changes saved
 split({
-  source: saveChangesFx.done.map((data) => data.params.status),
+  source: saveChangesFx.done.map((data) => ({
+    status: data.params.status,
+    clientId: data.params.clientId,
+  })),
   match: {
-    to_progress: (status) => status === 'IN_PROGRESS',
-    to_rest: (status) => status === 'CLOSED' || status === 'CREATED',
+    to_progress: (params) => params.status === 'IN_PROGRESS',
+    to_rest: (params) =>
+      params.status === 'CLOSED' || params.status === 'CREATED',
   },
   cases: {
     to_progress: historyPush.prepend(() => '/in_progress'),
-    to_rest: historyPush.prepend(() => '/clients'),
+    to_rest: historyPush.prepend(
+      (params: { status: string; clientId: number }) =>
+        `/clients/${params.clientId}/applications`
+    ),
   },
 })
 
-saveChangesFx.done.watch(({ params }) => {})
+fetchApplicationToEditFx.done.watch(({ params }) => {
+  historyPush(`/${params}/edit`)
+})

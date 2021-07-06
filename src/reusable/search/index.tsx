@@ -19,7 +19,7 @@ export const Search = ({
     if (event.key === 'Enter') {
       event.preventDefault()
 
-      console.log('ok')
+      trigger()
     }
   }
 
