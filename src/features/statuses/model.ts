@@ -9,6 +9,7 @@ import { $location } from '../../lib/routing/history'
 
 export const toProgress = createEvent<number>()
 export const toClosed = createEvent<number>()
+const splittedRefetch = createEvent<string>()
 
 export const toProgressFx = createEffect<number, void>()
 export const toClosedFx = createEffect<number, void>()
@@ -32,6 +33,7 @@ sample({
   target: getClientApplications,
 })
 
+// splitting request depending on current location
 split({
   source: sample({
     clock: toClosedFx.done,
@@ -44,8 +46,13 @@ split({
   cases: {
     refetch_in_progress: fetchApplicationsInProgress,
 
-    refetch_from_client: getClientApplications.prepend((url) =>
-      $clientId.getState()
-    ),
+    refetch_from_client: splittedRefetch,
   },
+})
+
+sample({
+  clock: splittedRefetch,
+  source: $clientId,
+  fn: (id, url) => id,
+  target: getClientApplications,
 })
