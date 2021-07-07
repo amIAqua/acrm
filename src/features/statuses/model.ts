@@ -5,6 +5,7 @@ import {
 } from '../../api/statuses'
 import { $clientId, getClientApplications } from '../client'
 import { fetchApplicationsInProgress } from '../../pages/in-progress/model'
+import { $location } from '../../lib/routing/history'
 
 export const toProgress = createEvent<number>()
 export const toClosed = createEvent<number>()
@@ -31,4 +32,20 @@ sample({
   target: getClientApplications,
 })
 
-forward({ from: toClosedFx.done, to: fetchApplicationsInProgress })
+split({
+  source: sample({
+    clock: toClosedFx.done,
+    source: $location,
+  }),
+  match: {
+    refetch_in_progress: (location) => location.startsWith('/in_progress'),
+    refetch_from_client: (location) => location.startsWith('/clients'),
+  },
+  cases: {
+    refetch_in_progress: fetchApplicationsInProgress,
+
+    refetch_from_client: getClientApplications.prepend((url) =>
+      $clientId.getState()
+    ),
+  },
+})

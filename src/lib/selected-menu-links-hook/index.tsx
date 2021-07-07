@@ -1,6 +1,7 @@
 import { Menu } from 'antd'
 import { useEffect, useState } from 'react'
-import { useHistory, useLocation } from 'react-router'
+import { useLocation } from 'react-router'
+import { historyPush } from '../routing/history'
 
 export type Link = { key: string; label: string; path: string }
 
@@ -12,7 +13,6 @@ const menuLinks: Link[] = [
 ]
 
 export const useSelectedLinks = () => {
-  const history = useHistory()
   const location = useLocation()
   const [selectedLink, setSelectedLink] = useState<Link>(
     menuLinks.find((_link) => location.pathname.startsWith(_link.path))!
@@ -27,7 +27,7 @@ export const useSelectedLinks = () => {
 
   const mappedLinks = () => {
     return menuLinks.map((link: Link) => (
-      <Menu.Item key={link.key} onClick={() => history.push(link.path)}>
+      <Menu.Item key={link.key} onClick={() => historyPush(link.path)}>
         {link.label}
       </Menu.Item>
     ))
