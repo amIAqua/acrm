@@ -1,4 +1,5 @@
-import { createStore, createEvent, createEffect, forward } from 'effector'
+import { createEvent, createEffect, forward } from 'effector'
+import { IApplicationFromBackend } from '../../api/application-creation/types'
 import { getApplicationForPrepare } from '../../api/orders'
 import { historyPush } from '../../lib/routing/history'
 
@@ -7,13 +8,8 @@ export const createOrder = createEvent<any>()
 
 // effects
 
-const prepareOrderFx = createEffect<number, any>()
+export const prepareOrderFx = createEffect<number, IApplicationFromBackend>()
 const createOrderFx = createEffect<any, any>()
-
-export const $preparedOrder = createStore(null).on(
-  prepareOrderFx.doneData,
-  (_, application) => application
-)
 
 forward({ from: prepareOrder, to: prepareOrderFx })
 

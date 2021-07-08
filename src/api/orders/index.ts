@@ -1,11 +1,12 @@
 import { IApplicationFromBackend } from '../application-creation/types'
-import { request, ResponseType } from '../request'
+import { request } from '../request'
 
 export const getApplicationForPrepare = async (
   id: number
 ): Promise<IApplicationFromBackend> => {
-  const application = await request.get<ResponseType<IApplicationFromBackend>>(
+  const application = await request.get<IApplicationFromBackend>(
     `/applications/${id}`
   )
-  return application.data.data
+
+  return application.data
 }

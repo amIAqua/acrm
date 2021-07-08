@@ -5,6 +5,7 @@ import { Urls } from './urls'
 import { ApplicationsInProgress } from '../../pages/in-progress/page'
 import { EditApplicationPage } from '../../pages/edit-application/page'
 import { OrdersPage } from '../../pages/orders/page'
+import { PrepareOrderPage } from '../../pages/prepare-order/page'
 
 export const routes = () => [
   {
@@ -35,6 +36,11 @@ export const routes = () => [
   {
     path: Urls.ORDERS,
     component: OrdersPage,
+    exact: true,
+  },
+  {
+    path: Urls.PREPARE_ORDER,
+    component: PrepareOrderPage,
     exact: true,
   },
 ]

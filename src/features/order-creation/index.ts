@@ -1,1 +1,1 @@
-export { prepareOrder, createOrder, $preparedOrder } from './model'
+export { prepareOrder, createOrder, prepareOrderFx } from './model'
