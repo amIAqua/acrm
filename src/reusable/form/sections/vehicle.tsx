@@ -1,15 +1,19 @@
 import { FC } from 'react'
 import { Input } from 'antd'
-import { VehicleSection, GridFields } from './styled'
+import { VehicleSection, GridFields, SectionHeader } from './styled'
 
 type VehicleSectionPropsType = {
   formik: any
+  headerColor: string
 }
 
-export const Vehicle: FC<VehicleSectionPropsType> = ({ formik }) => {
+export const Vehicle: FC<VehicleSectionPropsType> = ({
+  formik,
+  headerColor,
+}) => {
   return (
     <VehicleSection>
-      <h2>Автомобиль</h2>
+      <SectionHeader headerColor={headerColor}>Автомобиль</SectionHeader>
       <GridFields>
         <Input
           id='brand'

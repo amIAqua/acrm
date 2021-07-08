@@ -1,27 +1,20 @@
 import styled from 'styled-components'
 
 export const ClientSection = styled.div`
-  h2 {
-    margin-bottom: 1rem;
-    color: #fff;
-  }
-
   margin-bottom: 2rem;
+`
+
+export const SectionHeader = styled.h2<{ headerColor: string }>`
+  color: ${(props) => props.headerColor};
+  margin-bottom: 0.5rem;
 `
 
 export const VehicleSection = styled.div`
-  h2 {
-    margin-bottom: 1rem;
-    color: #fff;
-  }
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  color: #fff;
 `
 
 export const IssuesSection = styled.div`
-  h2 {
-    margin-bottom: 1rem;
-    color: #fff;
-  }
   margin-bottom: 2rem;
 `
 

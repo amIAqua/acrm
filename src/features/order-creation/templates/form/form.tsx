@@ -20,9 +20,9 @@ export const PrepareOrderForm = ({
   return (
     <FormWrapper>
       <Form>
-        {/* <Client formik={formik} /> */}
-        <Vehicle formik={formik} />
-        <Issues formik={formik} />
+        <Client formik={formik} headerColor={'#000'} />
+        <Vehicle formik={formik} headerColor={'#000'} />
+        <Issues formik={formik} headerColor={'#000'} />
       </Form>
     </FormWrapper>
   )

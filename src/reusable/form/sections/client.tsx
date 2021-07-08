@@ -1,15 +1,16 @@
 import { FC } from 'react'
 import { Input } from 'antd'
-import { ClientSection, GridFields } from './styled'
+import { ClientSection, SectionHeader, GridFields } from './styled'
 
 type ClientSectionPropsType = {
   formik: any
+  headerColor: string
 }
 
-export const Client: FC<ClientSectionPropsType> = ({ formik }) => {
+export const Client: FC<ClientSectionPropsType> = ({ formik, headerColor }) => {
   return (
     <ClientSection>
-      <h2>Клиент</h2>
+      <SectionHeader headerColor={headerColor}>Клиент</SectionHeader>
       <GridFields>
         <Input
           id='name'

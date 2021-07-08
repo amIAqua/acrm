@@ -1,17 +1,23 @@
 import { FC } from 'react'
 import { Input } from 'antd'
-import { IssuesSection } from './styled'
+import { IssuesSection, SectionHeader } from './styled'
 
 const { TextArea } = Input
 
 type VehicleSectionPropsType = {
   formik: any
+  headerColor: string
 }
 
-export const Issues: FC<VehicleSectionPropsType> = ({ formik }) => {
+export const Issues: FC<VehicleSectionPropsType> = ({
+  formik,
+  headerColor,
+}) => {
   return (
     <IssuesSection>
-      <h2>Описание неисправностей</h2>
+      <SectionHeader headerColor={headerColor}>
+        Описание неисправностей
+      </SectionHeader>
       <TextArea
         rows={4}
         id='description'

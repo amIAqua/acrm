@@ -36,8 +36,8 @@ export const AddApplicationForm: FC<AddApplicationFormPropsType> = ({
   return (
     <FormWrapper>
       <Form onSubmit={formik.handleSubmit}>
-        <Vehicle formik={formik} />
-        <Issues formik={formik} />
+        <Vehicle formik={formik} headerColor={'#fff'} />
+        <Issues formik={formik} headerColor={'#fff'} />
 
         <ButtonSection>
           <Button

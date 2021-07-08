@@ -11,8 +11,6 @@ const isNotNullableOrder = (fields: any): fields is IApplicationFromBackend => {
 export const PrepareOrderPage = (): JSX.Element => {
   const preparedOrder = useStore($preparedOrder)
 
-  console.log(preparedOrder)
-
   const prepareForm = () =>
     isNotNullableOrder(preparedOrder) ? (
       <PrepareOrderForm
