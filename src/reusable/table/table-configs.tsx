@@ -2,7 +2,7 @@ import { Space } from 'antd'
 import { Status } from '../../api/application-creation/types'
 import { deleteApplication } from '../../features/application-deleting'
 import { fetchApplicationToEdit } from '../../features/edit-application'
-import { prepareOrder } from '../../features/order-creation'
+import { prepareApplicationForOrder } from '../../features/order-creation'
 import { toClosed, toProgress } from '../../features/statuses'
 import { statusRow, TableRowType } from '../../lib/table-rows'
 
@@ -59,7 +59,9 @@ export const columns = [
         <a onClick={() => fetchApplicationToEdit(record.id)}>Редактировать</a>
 
         {record.closed ? (
-          <a onClick={() => prepareOrder(+record.id)}>Акт выполненных работ</a>
+          <a onClick={() => prepareApplicationForOrder(+record.id)}>
+            Акт выполненных работ
+          </a>
         ) : null}
 
         {record.closed ? (

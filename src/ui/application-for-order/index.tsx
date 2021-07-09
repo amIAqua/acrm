@@ -5,8 +5,8 @@ import { Spin } from 'antd'
 import { IApplicationFromBackend } from '../../api/application-creation/types'
 import { ApplicationForOrderForm } from '../../features/order-creation/templates/application-for-order-form/form'
 import {
-  $preparedOrder,
-  prepareOrder,
+  $preparedApplication,
+  prepareApplicationForOrder,
   resetPreparedOrder,
 } from '../../features/order-creation'
 
@@ -15,24 +15,24 @@ const isNotNullableOrder = (fields: any): fields is IApplicationFromBackend => {
 }
 
 export const ApplicationForOrder = (): JSX.Element => {
-  const preparedOrder = useStore($preparedOrder)
+  const preparedApplication = useStore($preparedApplication)
   const { id } = useParams<{ id: string }>()
 
   useEffect(() => {
-    prepareOrder(+id)
+    prepareApplicationForOrder(+id)
 
     return () => resetPreparedOrder()
   }, [])
 
-  if (!preparedOrder) {
+  if (!preparedApplication) {
     return <Spin />
   }
 
   const prepareForm = () =>
-    isNotNullableOrder(preparedOrder) ? (
+    isNotNullableOrder(preparedApplication) ? (
       <ApplicationForOrderForm
         fields={{
-          ...preparedOrder,
+          ...preparedApplication,
         }}
       />
     ) : null

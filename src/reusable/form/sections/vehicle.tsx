@@ -5,11 +5,13 @@ import { VehicleSection, GridFields, SectionHeader } from './styled'
 type VehicleSectionPropsType = {
   formik: any
   headerColor: string
+  disabled?: boolean
 }
 
 export const Vehicle: FC<VehicleSectionPropsType> = ({
   formik,
   headerColor,
+  disabled,
 }) => {
   return (
     <VehicleSection>
@@ -22,6 +24,7 @@ export const Vehicle: FC<VehicleSectionPropsType> = ({
           placeholder='Марка'
           onChange={formik.handleChange}
           value={formik.values.vehicle.brand}
+          disabled={disabled}
         />
         <Input
           id='model'
@@ -30,6 +33,7 @@ export const Vehicle: FC<VehicleSectionPropsType> = ({
           placeholder='Модель'
           onChange={formik.handleChange}
           value={formik.values.vehicle.model}
+          disabled={disabled}
         />
 
         <Input
@@ -39,6 +43,7 @@ export const Vehicle: FC<VehicleSectionPropsType> = ({
           placeholder='Год выпуска'
           onChange={formik.handleChange}
           value={formik.values.vehicle.yearOfIssue}
+          disabled={disabled}
         />
         <Input
           id='engineSpecification'
@@ -47,6 +52,7 @@ export const Vehicle: FC<VehicleSectionPropsType> = ({
           placeholder='Объем двигателя'
           onChange={formik.handleChange}
           value={formik.values.vehicle.engineSpecification}
+          disabled={disabled}
         />
         <Input
           id='registrationNumber'
@@ -55,6 +61,7 @@ export const Vehicle: FC<VehicleSectionPropsType> = ({
           placeholder='Регистрационный номер'
           onChange={formik.handleChange}
           value={formik.values.vehicle.registrationNumber}
+          disabled={disabled}
         />
         <Input
           id='VIN'
@@ -63,6 +70,7 @@ export const Vehicle: FC<VehicleSectionPropsType> = ({
           placeholder='VIN номер'
           onChange={formik.handleChange}
           value={formik.values.vehicle.VIN}
+          disabled={disabled}
         />
       </GridFields>
     </VehicleSection>

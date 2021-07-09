@@ -3,33 +3,38 @@ import { IApplicationFromBackend } from '../../api/application-creation/types'
 import { getApplicationForPrepare } from '../../api/orders'
 import { historyPush } from '../../lib/routing/history'
 
-export const prepareOrder = createEvent<number>()
+export const prepareApplicationForOrder = createEvent<number>()
 export const resetPreparedOrder = createEvent()
 export const createOrder = createEvent<any>()
 
 // effects
 
-export const prepareOrderFx = createEffect<number, IApplicationFromBackend>()
+export const prepareApplicationForOrderFx = createEffect<
+  number,
+  IApplicationFromBackend
+>()
 
 // stores
-export const $preparedOrder = createStore<IApplicationFromBackend | null>(null)
-  .on(prepareOrderFx.doneData, (_, application) => application)
+export const $preparedApplication = createStore<IApplicationFromBackend | null>(
+  null
+)
+  .on(prepareApplicationForOrderFx.doneData, (_, application) => application)
   .reset(resetPreparedOrder)
 
-const $isOrder = $preparedOrder.map((order) => order === null)
+const $isOrder = $preparedApplication.map((application) => application === null)
 
 // relations
 
 guard({
-  clock: prepareOrder,
+  clock: prepareApplicationForOrder,
   filter: $isOrder,
-  target: prepareOrderFx,
+  target: prepareApplicationForOrderFx,
 })
 
-prepareOrderFx.use(async (id) => {
+prepareApplicationForOrderFx.use(async (id) => {
   return getApplicationForPrepare(id)
 })
 
-prepareOrderFx.done.watch(({ params }) => {
+prepareApplicationForOrderFx.done.watch(({ params }) => {
   historyPush(`/orders/prepare/${params}`)
 })

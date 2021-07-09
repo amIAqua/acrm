@@ -1,6 +1,6 @@
 export {
-  prepareOrder,
+  prepareApplicationForOrder,
   createOrder,
-  $preparedOrder,
+  $preparedApplication,
   resetPreparedOrder,
 } from './model'

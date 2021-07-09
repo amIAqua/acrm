@@ -5,9 +5,14 @@ import { ClientSection, SectionHeader, GridFields } from './styled'
 type ClientSectionPropsType = {
   formik: any
   headerColor: string
+  disabled?: boolean
 }
 
-export const Client: FC<ClientSectionPropsType> = ({ formik, headerColor }) => {
+export const Client: FC<ClientSectionPropsType> = ({
+  formik,
+  headerColor,
+  disabled,
+}) => {
   return (
     <ClientSection>
       <SectionHeader headerColor={headerColor}>Клиент</SectionHeader>
@@ -19,6 +24,7 @@ export const Client: FC<ClientSectionPropsType> = ({ formik, headerColor }) => {
           placeholder='Имя'
           onChange={formik.handleChange}
           value={formik.values.client.name}
+          disabled={disabled}
         />
         <Input
           id='surname'
@@ -27,6 +33,7 @@ export const Client: FC<ClientSectionPropsType> = ({ formik, headerColor }) => {
           placeholder='Фамилия'
           onChange={formik.handleChange}
           value={formik.values.client.surname}
+          disabled={disabled}
         />
         <Input
           id='phoneNumber'
@@ -35,6 +42,7 @@ export const Client: FC<ClientSectionPropsType> = ({ formik, headerColor }) => {
           placeholder='Номер телефона'
           onChange={formik.handleChange}
           value={formik.values.client.phoneNumber}
+          disabled={disabled}
         />
         <Input
           id='email'
@@ -43,6 +51,7 @@ export const Client: FC<ClientSectionPropsType> = ({ formik, headerColor }) => {
           placeholder='Email'
           onChange={formik.handleChange}
           value={formik.values.client.email}
+          disabled={disabled}
         />
       </GridFields>
     </ClientSection>

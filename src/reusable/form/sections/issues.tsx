@@ -7,11 +7,13 @@ const { TextArea } = Input
 type VehicleSectionPropsType = {
   formik: any
   headerColor: string
+  disabled?: boolean
 }
 
 export const Issues: FC<VehicleSectionPropsType> = ({
   formik,
   headerColor,
+  disabled,
 }) => {
   return (
     <IssuesSection>
@@ -26,6 +28,7 @@ export const Issues: FC<VehicleSectionPropsType> = ({
         onChange={formik.handleChange}
         value={formik.values.issues.description}
         style={{ width: '492px', maxHeight: '120px' }}
+        disabled={disabled}
       />
     </IssuesSection>
   )
