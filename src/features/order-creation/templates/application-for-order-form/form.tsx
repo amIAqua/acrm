@@ -9,7 +9,7 @@ type PrepareOrderFormProps = {
   fields: IApplicationFromBackend
 }
 
-export const PrepareOrderForm = ({
+export const ApplicationForOrderForm = ({
   fields,
 }: PrepareOrderFormProps): JSX.Element => {
   const formik = useFormik({
